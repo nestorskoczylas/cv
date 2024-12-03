@@ -1,10 +1,13 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header elevated class="bg-primary text-white q-px-md">
+    <q-header elevated class="bg-white q-px-md">
       <q-toolbar class="q-py-md">
-        <div class="header-left">
-          <div class="text-h6">SKOCZYLAS Nestor</div>
-          <div class="text-caption">Développeur C# .Net VueJS</div>
+        <div class="header-left row items-center">
+          <div class="square-indicator"></div>
+          <div class="name-title">
+            <span class="name">Nestor Skoczylas</span>
+            <span class="profession">/ DÉVELOPPEUR C# .NET VUEJS</span>
+          </div>
         </div>
 
         <q-space />
@@ -43,9 +46,9 @@ import { onMounted, ref } from 'vue';
 
 const currentPage = ref('home');
 const menuItems = ref([
-  { label: 'A propos de moi', route: 'aboutMe' },
+  { label: 'À PROPOS DE MOI', route: 'aboutMe' },
   { label: 'CV', route: 'cv' },
-  { label: 'Projets', route: 'projects' },
+  { label: 'PROJETS', route: 'projects' },
 ]);
 
 onMounted(() => {
@@ -58,20 +61,40 @@ const navigateTo = (route: string) => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .scroll-content {
   max-height: 100%;
   overflow-y: auto;
 }
 
 q-header {
-  height: 120px;
+  height: 180px !important;
 }
 
-.header-left {
+.square-indicator {
+  width: 16px;
+  height: 16px;
+  background-color: $primary;
+  margin-right: 12px;
+}
+
+.name-title {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: baseline;
+}
+
+.name {
+  font-weight: bold;
+  font-size: x-large;
+  color: black;
+}
+
+.profession {
+  margin-left: 8px;
+  font-size: medium;
+  font-style: normal;
+  font-weight: lighter;
+  color: $dark;
 }
 
 .header-right {
@@ -80,7 +103,8 @@ q-header {
 }
 
 .header-right .q-btn {
-  color: white;
+  color: gray;
+  font-weight: normal;
 }
 
 .navigation-btn {
@@ -89,10 +113,10 @@ q-header {
 }
 
 .navigation-btn:hover {
-  color: #ffeb3b;
+  color: $primary;
 }
 
 .active-page {
-  color: #03a9f4 !important;
+  color: $primary !important;
 }
 </style>
