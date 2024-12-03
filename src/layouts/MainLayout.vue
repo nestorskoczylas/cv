@@ -1,10 +1,11 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header elevated class="bg-primary text-white">
-      <q-toolbar>
-        <q-toolbar-title>
-          Nestor Skoczylas / Développeur C# .Net VueJS
-        </q-toolbar-title>
+    <q-header elevated class="bg-primary text-white q-px-md">
+      <q-toolbar class="q-py-md">
+        <div class="header-left">
+          <div class="text-h6">SKOCZYLAS Nestor</div>
+          <div class="text-caption">Développeur C# .Net VueJS</div>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -30,5 +31,15 @@
 .scroll-content {
   max-height: 100%;
   overflow-y: auto;
+}
+
+q-header {
+  height: 120px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 </style>
