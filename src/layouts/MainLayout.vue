@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header elevated class="bg-white q-px-md">
-      <q-toolbar class="q-py-md">
+    <q-header class="bg-white q-pa-md border-bottom">
+      <q-toolbar class="q-pa-md">
         <div class="header-left row items-center">
           <div class="square-indicator"></div>
           <div class="name-title">
@@ -67,15 +67,15 @@ const navigateTo = (route: string) => {
   overflow-y: auto;
 }
 
-q-header {
-  height: 180px !important;
+.border-bottom {
+  border-bottom: 1px solid #ccc;
 }
 
 .square-indicator {
   width: 16px;
   height: 16px;
   background-color: $primary;
-  margin-right: 12px;
+  margin-right: 16px;
 }
 
 .name-title {
@@ -84,16 +84,16 @@ q-header {
 }
 
 .name {
-  font-weight: bold;
-  font-size: x-large;
+  font-weight: 700;
+  font-size: 1.6rem;
   color: black;
 }
 
 .profession {
   margin-left: 8px;
-  font-size: medium;
+  font-size: 1.15rem;
   font-style: normal;
-  font-weight: lighter;
+  font-weight: 300;
   color: $dark;
 }
 
@@ -104,7 +104,9 @@ q-header {
 
 .header-right .q-btn {
   color: gray;
-  font-weight: normal;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 300;
 }
 
 .navigation-btn {
