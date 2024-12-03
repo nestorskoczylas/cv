@@ -9,9 +9,15 @@
 
         <q-space />
         <div class="header-right row items-center">
-          <q-btn flat label="A propos" class="q-mx-sm" />
-          <q-btn flat label="CV" class="q-mx-sm" />
-          <q-btn flat label="Projets" class="q-mx-sm" />
+          <q-btn
+            v-for="item in menuItems"
+            :key="item.label"
+            flat
+            :label="item.label"
+            :class="{ 'active-page': item.route === currentPage }"
+            @click="navigateTo(item.route)"
+            class="q-mx-sm navigation-btn"
+          />
         </div>
       </q-toolbar>
     </q-header>
@@ -32,7 +38,25 @@
   </q-layout>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue';
+
+const currentPage = ref('home');
+const menuItems = ref([
+  { label: 'A propos de moi', route: 'aboutMe' },
+  { label: 'CV', route: 'cv' },
+  { label: 'Projets', route: 'projects' },
+]);
+
+onMounted(() => {
+  currentPage.value = 'aboutMe';
+});
+
+const navigateTo = (route: string) => {
+  currentPage.value = route;
+  console.log(`Navigué vers : ${route}`);
+};
+</script>
 
 <style scoped>
 .scroll-content {
@@ -57,5 +81,18 @@ q-header {
 
 .header-right .q-btn {
   color: white;
+}
+
+.navigation-btn {
+  color: white;
+  transition: color 0.2s ease-in-out;
+}
+
+.navigation-btn:hover {
+  color: #ffeb3b;
+}
+
+.active-page {
+  color: #03a9f4 !important;
 }
 </style>
