@@ -6,6 +6,13 @@
           <div class="text-h6">SKOCZYLAS Nestor</div>
           <div class="text-caption">Développeur C# .Net VueJS</div>
         </div>
+
+        <q-space />
+        <div class="header-right row items-center">
+          <q-btn flat label="A propos" class="q-mx-sm" />
+          <q-btn flat label="CV" class="q-mx-sm" />
+          <q-btn flat label="Projets" class="q-mx-sm" />
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -41,5 +48,14 @@ q-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right .q-btn {
+  color: white;
 }
 </style>
