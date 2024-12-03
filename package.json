@@ -2,15 +2,15 @@
   "name": "cv",
   "version": "0.0.1",
   "description": "CV",
-  "productName": "CV",
+  "productName": "Nestor Skoczylas",
   "author": "nestorskoczylas <nestor.skoczylas23@gmail.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "quasar dev",
-    "build": "quasar build"
+    "local": "pnpm quasar dev",
+    "build": "pnpm quasar build"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
@@ -34,7 +34,6 @@
   },
   "engines": {
     "node": "^20 || ^18 || ^16",
-    "npm": ">= 6.13.4",
-    "yarn": ">= 1.21.1"
+    "pnpm": ">=7.0.0"
   }
 }
