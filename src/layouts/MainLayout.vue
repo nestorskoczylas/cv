@@ -25,7 +25,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container>
+    <q-page-container class="background-container">
       <q-page class="q-pa-md">
         <div class="scroll-content">
           <h1>Bienvenue</h1>
@@ -98,11 +98,7 @@ const openLink = (url: string) => {
 </script>
 
 <style lang="scss" scoped>
-.scroll-content {
-  max-height: 100%;
-  overflow-y: auto;
-}
-
+/* Header */
 .square-indicator {
   width: 16px;
   height: 16px;
@@ -154,6 +150,18 @@ const openLink = (url: string) => {
   color: $primary !important;
 }
 
+/* Home Page */
+.background-container {
+  background: linear-gradient(to right, $background 40%, $white 40%) no-repeat,
+    $white;
+}
+
+.scroll-content {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+/* Footer */
 .footer-left {
   font-size: 0.9rem;
   font-weight: 300;
