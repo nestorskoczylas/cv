@@ -17,7 +17,7 @@
           flat
           :label="item.label"
           :class="{ 'active-page': item.route === currentPage }"
-          @click="setActivePage(item.route)"
+          @click="navigateTo(router, item.route)"
           class="q-mx-sm navigation-btn"
         />
       </div>
@@ -26,22 +26,20 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-
-const props = defineProps({
-  currentPage: String,
-  onNavigate: Function,
-});
+import { computed, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { navigateTo } from 'src/utils/navigation';
 
 const menuItems = ref([
   { label: 'À PROPOS DE MOI', route: 'aboutMe' },
-  { label: 'CV', route: 'cv' },
+  { label: 'CV', route: 'resume' },
   { label: 'PROJETS', route: 'projects' },
 ]);
 
-const setActivePage = (route: string) => {
-  props.onNavigate?.(route);
-};
+const route = useRoute();
+const router = useRouter();
+
+const currentPage = computed(() => route.name);
 </script>
 
 <style lang="scss" scoped>

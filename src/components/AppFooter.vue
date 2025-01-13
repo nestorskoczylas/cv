@@ -27,10 +27,7 @@
 
 <script lang="ts" setup>
 import SocialLinks from 'src/components/SocialLinks.vue';
-
-const openExternalLink = (url: string) => {
-  window.open(url, '_blank');
-};
+import { openExternalLink } from 'src/utils/navigation';
 </script>
 
 <style lang="scss" scoped>
