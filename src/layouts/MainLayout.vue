@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header class="bg-white q-pa-md border-bottom">
+    <q-header class="bg-white q-pa-md">
       <q-toolbar class="q-pa-md">
         <div class="header-left row items-center">
           <div class="square-indicator"></div>
@@ -82,7 +82,7 @@ const navigateTo = (route: string) => {
 .name {
   font-weight: 700;
   font-size: 1.6rem;
-  color: black;
+  color: $dark;
 }
 
 .profession {
@@ -99,14 +99,14 @@ const navigateTo = (route: string) => {
 }
 
 .header-right .q-btn {
-  color: gray;
+  color: $gray;
   font-size: 0.9rem;
   font-style: normal;
   font-weight: 300;
 }
 
 .navigation-btn {
-  color: white;
+  color: $white;
   transition: color 0.2s ease-in-out;
 }
 
