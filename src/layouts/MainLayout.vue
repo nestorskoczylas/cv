@@ -1,29 +1,6 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header class="bg-white q-pa-md">
-      <q-toolbar class="q-pa-md">
-        <div class="header-left row items-center">
-          <div class="square-indicator"></div>
-          <div class="name-title">
-            <span class="name">Nestor Skoczylas</span>
-            <span class="profession">/ DÉVELOPPEUR C# .NET VUEJS</span>
-          </div>
-        </div>
-
-        <q-space />
-        <div class="header-right row items-center">
-          <q-btn
-            v-for="item in menuItems"
-            :key="item.label"
-            flat
-            :label="item.label"
-            :class="{ 'active-page': item.route === currentPage }"
-            @click="navigateTo(item.route)"
-            class="q-mx-sm navigation-btn"
-          />
-        </div>
-      </q-toolbar>
-    </q-header>
+    <AppHeader :currentPage="currentPage" @onNavigate="navigateTo" />
 
     <q-page-container class="background-container">
       <q-page class="q-pa-md flex flex-center scroll-content borders">
@@ -144,18 +121,10 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
+import AppHeader from 'src/components/AppHeader.vue';
+import { ref } from 'vue';
 
-const currentPage = ref('home');
-const menuItems = ref([
-  { label: 'À PROPOS DE MOI', route: 'aboutMe' },
-  { label: 'CV', route: 'cv' },
-  { label: 'PROJETS', route: 'projects' },
-]);
-
-onMounted(() => {
-  currentPage.value = 'aboutMe';
-});
+const currentPage = ref('aboutMe');
 
 const navigateTo = (route: string) => {
   currentPage.value = route;
