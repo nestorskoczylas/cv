@@ -33,9 +33,41 @@
       </q-page>
     </q-page-container>
 
-    <q-footer elevated class="bg-grey-8 text-white">
-      <q-toolbar>
-        <q-toolbar-title> © 2024 - Nestor SKOCZYLAS </q-toolbar-title>
+    <q-footer class="bg-white q-pa-none">
+      <q-toolbar class="q-pa-md">
+        <div class="footer-left">
+          <span class="footer-text">© 2025 - Nestor SKOCZYLAS</span>
+        </div>
+
+        <q-space />
+
+        <div class="footer-right row items-center">
+          <span class="footer-info">Permis B</span>
+          <q-separator vertical spaced class="footer-separator" />
+          <span class="footer-info">(+33) 7 83 59 04 23</span>
+          <q-separator vertical spaced class="footer-separator" />
+          <span
+            class="footer-info cursor-pointer"
+            @click="openLink('mailto:nestor.skoczylas23@gmail.com')"
+            >nestor.skoczylas23@gmail.com</span
+          >
+          <q-separator vertical spaced class="footer-separator" />
+          <q-btn
+            flat
+            square
+            icon="mdi-linkedin"
+            @click="openLink('https://www.linkedin.com/in/nestorskoczylas')"
+            class="footer-icon"
+          />
+          <q-separator vertical spaced class="footer-separator" />
+          <q-btn
+            flat
+            square
+            icon="mdi-github"
+            @click="openLink('https://github.com/nestorskoczylas')"
+            class="footer-icon small"
+          />
+        </div>
       </q-toolbar>
     </q-footer>
   </q-layout>
@@ -58,6 +90,10 @@ onMounted(() => {
 const navigateTo = (route: string) => {
   currentPage.value = route;
   console.log(`Navigué vers : ${route}`);
+};
+
+const openLink = (url: string) => {
+  window.open(url, '_blank');
 };
 </script>
 
@@ -116,5 +152,35 @@ const navigateTo = (route: string) => {
 
 .active-page {
   color: $primary !important;
+}
+
+.footer-left {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: $dark;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.footer-info {
+  font-weight: 300;
+  color: $dark;
+}
+
+.footer-separator {
+  margin: 0 8px;
+  height: 16px;
+  background-color: $white;
+}
+
+.footer-icon {
+  color: $dark;
+  font-size: 1.2rem;
+  margin-left: 8px;
+  transition: color 0.2s ease-in-out;
 }
 </style>
