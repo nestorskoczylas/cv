@@ -29,20 +29,7 @@
           </q-card-section>
 
           <q-card-actions class="flex justify-evenly">
-            <q-btn
-              flat
-              square
-              icon="mdi-linkedin"
-              @click="openLink('https://www.linkedin.com/in/nestorskoczylas')"
-              class="footer-icon"
-            />
-            <q-btn
-              flat
-              square
-              icon="mdi-github"
-              @click="openLink('https://github.com/nestorskoczylas')"
-              class="footer-icon"
-            />
+            <SocialLinks />
           </q-card-actions>
         </q-card>
 
@@ -99,21 +86,7 @@
             >nestor.skoczylas23@gmail.com</span
           >
           <q-separator vertical spaced class="footer-separator" />
-          <q-btn
-            flat
-            square
-            icon="mdi-linkedin"
-            @click="openLink('https://www.linkedin.com/in/nestorskoczylas')"
-            class="footer-icon"
-          />
-          <q-separator vertical spaced class="footer-separator" />
-          <q-btn
-            flat
-            square
-            icon="mdi-github"
-            @click="openLink('https://github.com/nestorskoczylas')"
-            class="footer-icon"
-          />
+          <SocialLinks />
         </div>
       </q-toolbar>
     </q-footer>
@@ -122,6 +95,7 @@
 
 <script lang="ts" setup>
 import AppHeader from 'src/components/AppHeader.vue';
+import SocialLinks from 'src/components/SocialLinks.vue';
 import { ref } from 'vue';
 
 const currentPage = ref('aboutMe');
@@ -267,7 +241,7 @@ const openLink = (url: string) => {
   background-color: $white;
 }
 
-.footer-icon {
+.icon {
   color: $dark;
   font-size: 1.2rem;
   margin-left: 8px;
