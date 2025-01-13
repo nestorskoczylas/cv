@@ -50,6 +50,23 @@
             />
             <span class="profession">Développeur C# .NET VueJS</span>
           </q-card-section>
+
+          <q-card-actions class="flex justify-evenly">
+            <q-btn
+              flat
+              square
+              icon="mdi-linkedin"
+              @click="openLink('https://www.linkedin.com/in/nestorskoczylas')"
+              class="footer-icon"
+            />
+            <q-btn
+              flat
+              square
+              icon="mdi-github"
+              @click="openLink('https://github.com/nestorskoczylas')"
+              class="footer-icon"
+            />
+          </q-card-actions>
         </q-card>
       </q-page>
     </q-page-container>
