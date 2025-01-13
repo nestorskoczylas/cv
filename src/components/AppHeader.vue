@@ -26,11 +26,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, defineProps } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
   currentPage: String,
-  onNavigate: Function
+  onNavigate: Function,
 });
 
 const menuItems = ref([
