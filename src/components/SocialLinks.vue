@@ -30,7 +30,6 @@ const openLink = (url: string) => {
   color: $dark;
   font-size: 1.2rem;
   margin-left: 8px;
-  transition: color 0.2s ease-in-out;
 }
 
 .social-links {
