@@ -67,10 +67,6 @@ const navigateTo = (route: string) => {
   overflow-y: auto;
 }
 
-.border-bottom {
-  border-bottom: 1px solid #ccc;
-}
-
 .square-indicator {
   width: 16px;
   height: 16px;
