@@ -26,7 +26,7 @@
     </q-header>
 
     <q-page-container class="background-container">
-      <q-page class="q-pa-md flex flex-center scroll-content">
+      <q-page class="q-pa-md flex flex-center scroll-content borders">
         <q-card style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)">
           <q-card-section class="q-pa-lg background-card-section text-center">
             <div class="image-container">
@@ -67,6 +67,38 @@
               class="footer-icon"
             />
           </q-card-actions>
+        </q-card>
+
+        <q-card flat class="q-pa-md" style="max-width: 25vw">
+          <q-card-section class="q-pa-lg">
+            <h1 class="text-bold title">Hello</h1>
+            <h4>Qui suis-je ? Que fais-je ?</h4>
+
+            <q-card-actions class="flex justify-evenly">
+              <q-btn
+                label="CV"
+                color="primary"
+                outline
+                @click="navigateTo('cv')"
+              />
+              <q-btn
+                label="Projets"
+                color="primary"
+                @click="navigateTo('projects')"
+              />
+            </q-card-actions>
+
+            <div class="q-mt-lg description">
+              <p>
+                Développeur Full Stack spécialisé en C# et Vue.js, titulaire
+                d’un Master en E-Services de l’Université de Lille, j’allie
+                expertise technique et polyvalence. Fort d’expériences
+                enrichissantes chez Opalean et Access-it, j’ai contribué au
+                développement de solutions variées : applications CRM, API,
+                logiciels vidéo, pour des projets internes comme externes.
+              </p>
+            </div>
+          </q-card-section>
         </q-card>
       </q-page>
     </q-page-container>
@@ -199,6 +231,10 @@ const openLink = (url: string) => {
   overflow-y: auto;
 }
 
+.borders {
+  border: 1px solid $background;
+}
+
 .background-card-section {
   background: $secondary;
 }
@@ -225,6 +261,17 @@ const openLink = (url: string) => {
 .text-center span.profession {
   margin-top: 0.5rem;
   letter-spacing: 0.1rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.description p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 300;
 }
 
 /* Footer */
