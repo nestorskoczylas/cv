@@ -85,58 +85,6 @@ const openLink = (url: string) => {
 </script>
 
 <style lang="scss" scoped>
-/* Header */
-.square-indicator {
-  width: 16px;
-  height: 16px;
-  background-color: $primary;
-  margin-right: 16px;
-}
-
-.name-title {
-  display: flex;
-  align-items: baseline;
-}
-
-.name {
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: $dark;
-}
-
-.profession {
-  margin-left: 8px;
-  font-size: 1.15rem;
-  font-style: normal;
-  font-weight: 300;
-  color: $dark;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-}
-
-.header-right .q-btn {
-  color: $gray;
-  font-size: 0.9rem;
-  font-style: normal;
-  font-weight: 300;
-}
-
-.navigation-btn {
-  color: $white;
-  transition: color 0.2s ease-in-out;
-}
-
-.navigation-btn:hover {
-  color: $primary;
-}
-
-.active-page {
-  color: $primary !important;
-}
-
 /* Home Page */
 .background-container {
   background: linear-gradient(to right, $background 40%, $white 40%) no-repeat,
