@@ -4,34 +4,7 @@
 
     <q-page-container class="background-container">
       <q-page class="q-pa-md flex flex-center scroll-content borders">
-        <q-card style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)">
-          <q-card-section class="q-pa-lg background-card-section text-center">
-            <div class="image-container">
-              <img
-                src="/public/icons/favicon-425x425.png"
-                alt="me"
-                :width="200"
-                :height="200"
-                class="profile-image"
-              />
-            </div>
-            <div class="card-name">
-              <p class="text-bold">Nestor</p>
-              <p class="text-bold">Skoczylas</p>
-            </div>
-            <q-separator
-              horizontal
-              color="primary"
-              size="0.2rem"
-              class="separator"
-            />
-            <span class="profession">Développeur C# .NET VueJS</span>
-          </q-card-section>
-
-          <q-card-actions class="flex justify-evenly">
-            <SocialLinks />
-          </q-card-actions>
-        </q-card>
+        <ProfileCard />
 
         <q-card flat class="q-pa-md" style="max-width: 25vw">
           <q-card-section class="q-pa-lg">
@@ -95,6 +68,7 @@
 
 <script lang="ts" setup>
 import AppHeader from 'src/components/AppHeader.vue';
+import ProfileCard from 'src/components/ProfileCard.vue';
 import SocialLinks from 'src/components/SocialLinks.vue';
 import { ref } from 'vue';
 
@@ -176,34 +150,6 @@ const openLink = (url: string) => {
 
 .borders {
   border: 1px solid $background;
-}
-
-.background-card-section {
-  background: $secondary;
-}
-
-.profile-image {
-  border-radius: 50%;
-  object-fit: cover;
-  background-color: $white;
-}
-
-.text-center .card-name {
-  margin: 1.5rem 0;
-}
-
-.card-name .text-bold {
-  margin: 0;
-  font-size: 1.75rem;
-}
-
-.separator {
-  margin-bottom: 2rem;
-}
-
-.text-center span.profession {
-  margin-top: 0.5rem;
-  letter-spacing: 0.1rem;
 }
 
 .title {
