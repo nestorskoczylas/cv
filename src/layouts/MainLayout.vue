@@ -25,11 +25,81 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container>
-      <q-page class="q-pa-md">
-        <div class="scroll-content">
-          <h1>Bienvenue</h1>
-        </div>
+    <q-page-container class="background-container">
+      <q-page class="q-pa-md flex flex-center scroll-content borders">
+        <q-card style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)">
+          <q-card-section class="q-pa-lg background-card-section text-center">
+            <div class="image-container">
+              <img
+                src="/public/icons/favicon-425x425.png"
+                alt="me"
+                :width="200"
+                :height="200"
+                class="profile-image"
+              />
+            </div>
+            <div class="card-name">
+              <p class="text-bold">Nestor</p>
+              <p class="text-bold">Skoczylas</p>
+            </div>
+            <q-separator
+              horizontal
+              color="primary"
+              size="0.2rem"
+              class="separator"
+            />
+            <span class="profession">Développeur C# .NET VueJS</span>
+          </q-card-section>
+
+          <q-card-actions class="flex justify-evenly">
+            <q-btn
+              flat
+              square
+              icon="mdi-linkedin"
+              @click="openLink('https://www.linkedin.com/in/nestorskoczylas')"
+              class="footer-icon"
+            />
+            <q-btn
+              flat
+              square
+              icon="mdi-github"
+              @click="openLink('https://github.com/nestorskoczylas')"
+              class="footer-icon"
+            />
+          </q-card-actions>
+        </q-card>
+
+        <q-card flat class="q-pa-md" style="max-width: 25vw">
+          <q-card-section class="q-pa-lg">
+            <h1 class="text-bold title">Hello</h1>
+            <h4>Qui suis-je ? Que fais-je ?</h4>
+
+            <q-card-actions class="flex justify-evenly">
+              <q-btn
+                label="CV"
+                color="primary"
+                outline
+                @click="navigateTo('cv')"
+              />
+              <q-btn
+                label="Projets"
+                color="primary"
+                @click="navigateTo('projects')"
+              />
+            </q-card-actions>
+
+            <div class="q-mt-lg description">
+              <p>
+                Développeur Full Stack spécialisé en C# et Vue.js, titulaire
+                d’un Master en E-Services de l’Université de Lille, j’allie
+                expertise technique et polyvalence. Fort d’expériences
+                enrichissantes chez Opalean et Access-it, j’ai contribué au
+                développement de solutions variées : applications CRM, API,
+                logiciels vidéo, pour des projets internes comme externes.
+              </p>
+            </div>
+          </q-card-section>
+        </q-card>
       </q-page>
     </q-page-container>
 
@@ -65,7 +135,7 @@
             square
             icon="mdi-github"
             @click="openLink('https://github.com/nestorskoczylas')"
-            class="footer-icon small"
+            class="footer-icon"
           />
         </div>
       </q-toolbar>
@@ -98,11 +168,7 @@ const openLink = (url: string) => {
 </script>
 
 <style lang="scss" scoped>
-.scroll-content {
-  max-height: 100%;
-  overflow-y: auto;
-}
-
+/* Header */
 .square-indicator {
   width: 16px;
   height: 16px;
@@ -154,6 +220,61 @@ const openLink = (url: string) => {
   color: $primary !important;
 }
 
+/* Home Page */
+.background-container {
+  background: linear-gradient(to right, $background 40%, $white 40%) no-repeat,
+    $white;
+}
+
+.scroll-content {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.borders {
+  border: 1px solid $background;
+}
+
+.background-card-section {
+  background: $secondary;
+}
+
+.profile-image {
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: $white;
+}
+
+.text-center .card-name {
+  margin: 1.5rem 0;
+}
+
+.card-name .text-bold {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.separator {
+  margin-bottom: 2rem;
+}
+
+.text-center span.profession {
+  margin-top: 0.5rem;
+  letter-spacing: 0.1rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.description p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Footer */
 .footer-left {
   font-size: 0.9rem;
   font-weight: 300;
