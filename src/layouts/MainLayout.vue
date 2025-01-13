@@ -1,106 +1,186 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+  <q-layout view="hHh LpR fFf">
+    <q-header class="bg-white q-pa-md">
+      <q-toolbar class="q-pa-md">
+        <div class="header-left row items-center">
+          <div class="square-indicator"></div>
+          <div class="name-title">
+            <span class="name">Nestor Skoczylas</span>
+            <span class="profession">/ DÉVELOPPEUR C# .NET VUEJS</span>
+          </div>
+        </div>
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-space />
+        <div class="header-right row items-center">
+          <q-btn
+            v-for="item in menuItems"
+            :key="item.label"
+            flat
+            :label="item.label"
+            :class="{ 'active-page': item.route === currentPage }"
+            @click="navigateTo(item.route)"
+            class="q-mx-sm navigation-btn"
+          />
+        </div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
-      <router-view />
+      <q-page class="q-pa-md">
+        <div class="scroll-content">
+          <h1>Bienvenue</h1>
+        </div>
+      </q-page>
     </q-page-container>
+
+    <q-footer class="bg-white q-pa-none">
+      <q-toolbar class="q-pa-md">
+        <div class="footer-left">
+          <span class="footer-text">© 2025 - Nestor SKOCZYLAS</span>
+        </div>
+
+        <q-space />
+
+        <div class="footer-right row items-center">
+          <span class="footer-info">Permis B</span>
+          <q-separator vertical spaced class="footer-separator" />
+          <span class="footer-info">(+33) 7 83 59 04 23</span>
+          <q-separator vertical spaced class="footer-separator" />
+          <span
+            class="footer-info cursor-pointer"
+            @click="openLink('mailto:nestor.skoczylas23@gmail.com')"
+            >nestor.skoczylas23@gmail.com</span
+          >
+          <q-separator vertical spaced class="footer-separator" />
+          <q-btn
+            flat
+            square
+            icon="mdi-linkedin"
+            @click="openLink('https://www.linkedin.com/in/nestorskoczylas')"
+            class="footer-icon"
+          />
+          <q-separator vertical spaced class="footer-separator" />
+          <q-btn
+            flat
+            square
+            icon="mdi-github"
+            @click="openLink('https://github.com/nestorskoczylas')"
+            class="footer-icon small"
+          />
+        </div>
+      </q-toolbar>
+    </q-footer>
   </q-layout>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue';
 
-defineOptions({
-  name: 'MainLayout'
+const currentPage = ref('home');
+const menuItems = ref([
+  { label: 'À PROPOS DE MOI', route: 'aboutMe' },
+  { label: 'CV', route: 'cv' },
+  { label: 'PROJETS', route: 'projects' },
+]);
+
+onMounted(() => {
+  currentPage.value = 'aboutMe';
 });
 
-const linksList: EssentialLinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
+const navigateTo = (route: string) => {
+  currentPage.value = route;
+  console.log(`Navigué vers : ${route}`);
+};
 
-const leftDrawerOpen = ref(false);
-
-function toggleLeftDrawer () {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
+const openLink = (url: string) => {
+  window.open(url, '_blank');
+};
 </script>
+
+<style lang="scss" scoped>
+.scroll-content {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.square-indicator {
+  width: 16px;
+  height: 16px;
+  background-color: $primary;
+  margin-right: 16px;
+}
+
+.name-title {
+  display: flex;
+  align-items: baseline;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: $dark;
+}
+
+.profession {
+  margin-left: 8px;
+  font-size: 1.15rem;
+  font-style: normal;
+  font-weight: 300;
+  color: $dark;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right .q-btn {
+  color: $gray;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.navigation-btn {
+  color: $white;
+  transition: color 0.2s ease-in-out;
+}
+
+.navigation-btn:hover {
+  color: $primary;
+}
+
+.active-page {
+  color: $primary !important;
+}
+
+.footer-left {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: $dark;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.footer-info {
+  font-weight: 300;
+  color: $dark;
+}
+
+.footer-separator {
+  margin: 0 8px;
+  height: 16px;
+  background-color: $white;
+}
+
+.footer-icon {
+  color: $dark;
+  font-size: 1.2rem;
+  margin-left: 8px;
+  transition: color 0.2s ease-in-out;
+}
+</style>
