@@ -14,15 +14,12 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { openExternalLink } from 'src/utils/navigation';
 
 const socialLinksList = ref([
   { icon: 'mdi-linkedin', url: 'https://www.linkedin.com/in/nestorskoczylas' },
   { icon: 'mdi-github', url: 'https://github.com/nestorskoczylas' },
 ]);
-
-const openExternalLink = (url: string) => {
-  window.open(url, '_blank');
-};
 </script>
 
 <style lang="scss" scoped>

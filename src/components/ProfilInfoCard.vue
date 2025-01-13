@@ -6,15 +6,17 @@
 
       <q-card-actions class="flex justify-evenly">
         <q-btn
+          class="profil-info-card__buttonSize"
           label="CV"
           color="primary"
           outline
-          @click="navigateToPage('cv')"
+          @click="navigateTo(router, 'resume')"
         />
         <q-btn
+          class="profil-info-card__buttonSize"
           label="Projets"
           color="primary"
-          @click="navigateToPage('projects')"
+          @click="navigateTo(router, 'projects')"
         />
       </q-card-actions>
 
@@ -33,9 +35,10 @@
 </template>
 
 <script lang="ts" setup>
-const navigateToPage = (route: string) => {
-  console.log(`Navigué vers : ${route}`);
-};
+import { navigateTo } from 'src/utils/navigation';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 </script>
 
 <style lang="scss" scoped>
@@ -48,5 +51,9 @@ const navigateToPage = (route: string) => {
   line-height: 1.5;
   margin: 0;
   font-weight: 300;
+}
+
+.profil-info-card__buttonSize {
+  width: 7vw;
 }
 </style>

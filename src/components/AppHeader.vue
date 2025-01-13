@@ -17,7 +17,7 @@
           flat
           :label="item.label"
           :class="{ 'active-page': item.route === currentPage }"
-          @click="navigateTo(item.route)"
+          @click="navigateTo(router, item.route)"
           class="q-mx-sm navigation-btn"
         />
       </div>
@@ -28,6 +28,7 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { navigateTo } from 'src/utils/navigation';
 
 const menuItems = ref([
   { label: 'À PROPOS DE MOI', route: 'aboutMe' },
@@ -37,10 +38,6 @@ const menuItems = ref([
 
 const route = useRoute();
 const router = useRouter();
-
-const navigateTo = (route: string) => {
-  router.push({ name: route });
-};
 
 const currentPage = computed(() => route.name);
 </script>
