@@ -77,6 +77,12 @@
                   </li>
                 </ul>
               </div>
+
+              <div v-if="diploma.link" class="experience__link">
+                <a :href="diploma.link" target="_blank" class="q-mt-md">
+                  <q-btn label="Voir le diplôme" color="primary" flat />
+                </a>
+              </div>
             </q-card-section>
           </q-card>
         </div>
@@ -152,6 +158,7 @@ const diplomas = ref([
       'Compétences opérationnelles en conception de services numériques, interfaces homme-machine, gestion de projets et design applicatif',
       'Projet Platine : Développement de projets complets allant de la conception à la réalisation et à la promotion, en mettant l’accent sur les aspects utilisateurs, usages, IHM, UX, et l’innovation technologique',
     ],
+    link: 'https://diplome-certificat.univ-lille.fr/index.html?key=32F0228C0686248CF67AF8A7B5A3BC3C0534D9298DF12B73D6DF112E8FC0E73DNC9IOXhYeFNPdlZiS1JKM1dZVnJpVFJDcVBOdCtpSTlFcXJTV25wVzFhYk5mRkZw'
   },
   {
     position: 'Licence Informatique',
@@ -163,6 +170,7 @@ const diplomas = ref([
       'Développement de compétences professionnelles avancées et transversales',
       'Préparation efficace pour des masters spécialisés et insertion professionnelle dans divers secteurs',
     ],
+    link: 'https://diplome-certificat.univ-lille.fr/index.html?key=BD95D280568A85A981956D380DC9D395A25AFBF672EBECBB0DDEBDFB75D359B5S05BUGVhdWh1ai9NR1VZNU1kRVlLaElsUy8xS282NEFzOGZzTUgrUm02TEVaZkVI'
   },
 ])
 </script>
