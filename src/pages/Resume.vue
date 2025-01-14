@@ -117,6 +117,69 @@
             </q-card-section>
           </q-card>
         </div>
+
+        <div class="flex items-center">
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Compétences</h2>
+        </div>
+
+        <div class="resume__cards">
+          <q-card class="resume__card q-mb-md" bordered shadow="2">
+            <q-card-section>
+              <div class="experience__skills">
+                <strong>Langages de programmation :</strong>
+                <div class="experience__skills-list">
+                  <q-chip
+                    v-for="(language, index) in competencies.languages"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ language }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="experience__skills">
+                <strong>Compétences en développement web :</strong>
+                <div class="experience__skills-list">
+                  <q-chip
+                    v-for="(webDev, index) in competencies.webDevelopment"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ webDev }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="experience__skills">
+                <strong>Gestion de version :</strong>
+                <div class="experience__skills-list">
+                  <q-chip
+                    v-for="(versionControl, index) in competencies.versionControl"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ versionControl }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="experience__skills">
+                <strong>Outils de développement :</strong>
+                <div class="experience__skills-list">
+                  <q-chip
+                    v-for="(devTool, index) in competencies.developmentTools"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ devTool }}
+                  </q-chip>
+                </div>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </q-page>
   </div>
@@ -229,6 +292,29 @@ const formations = ref([
     ],
   },
 ])
+
+const competencies = ref({
+  languages: ['C#', '.Net', 'Javascript', 'Typescript', 'Java', 'Python'],
+  webDevelopment: [
+    'Vue.js',
+    'ReactJS',
+    'ASP.NET Core',
+    'ASP.NET MVC',
+    'ASP.NET Web API',
+    'Blazor',
+    'HTML',
+    'CSS',
+    'Bootstrap',
+  ],
+  versionControl: ['GitHub', 'GitLab', 'Azure DevOps', 'Trello', 'Jira'],
+  developmentTools: [
+    'Visual Studio',
+    'Visual Studio Code',
+    'SQL Server Management Studio',
+    'Postman',
+    'JetBrains',
+  ],
+})
 </script>
 
 <style lang="scss" scoped>
