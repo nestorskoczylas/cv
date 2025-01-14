@@ -7,31 +7,39 @@
           <h2 class="title">Expériences professionnelles</h2>
         </div>
 
-        <div>
-          <q-card v-for="(experience, index) in experiences" :key="index" bordered shadow="2">
+        <div class="experience-cards">
+          <q-card
+            v-for="(experience, index) in experiences"
+            :key="index"
+            class="experience-card q-mb-md"
+            bordered
+            shadow="2"
+          >
             <q-card-section>
-              <div>
-                <strong>{{ experience.position }} — {{ experience.company }}</strong>
+              <div class="position-company">
+                <strong class="position"
+                  >{{ experience.position }} — {{ experience.company }}</strong
+                >
               </div>
 
-              <div>
+              <div class="period">
                 <em>{{ experience.period }} – {{ experience.location }}</em>
               </div>
 
-              <div>
+              <div class="skills">
                 <strong>Compétences :</strong>
-                <div>
-                  <q-chip v-for="(skill, index) in experience.skills" :key="index">
+                <div class="skills-list">
+                  <q-chip v-for="(skill, index) in experience.skills" :key="index" class="q-mr-sm">
                     {{ skill }}
                   </q-chip>
                 </div>
               </div>
 
-              <div>
+              <div class="achievements">
                 <strong>Réalisations :</strong>
                 <ul>
                   <li v-for="(achievement, index) in experience.achievements" :key="index">
-                    <span>{{ achievement }}</span>
+                    <span class="indent">{{ achievement }}</span>
                   </li>
                 </ul>
               </div>
@@ -95,5 +103,57 @@ const experiences = ref([
   text-align: center;
   margin-bottom: 20px;
   color: $gray-blue;
+}
+
+.experience-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-card {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.position-company {
+  font-size: 20px;
+  font-weight: bold;
+  color: $primary;
+}
+
+.period {
+  font-size: 14px;
+  color: $gray;
+  margin-top: 5px;
+}
+
+.skills {
+  margin-top: 20px;
+  font-size: 16px;
+  color: $gray-blue;
+}
+
+.skills-list {
+  margin-top: 10px;
+}
+
+.achievements {
+  margin-top: 20px;
+}
+
+.achievements ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.achievements li {
+  font-size: 14px;
+  color: $gray-blue;
+  margin-bottom: 8px;
+  text-indent: 20px;
 }
 </style>
