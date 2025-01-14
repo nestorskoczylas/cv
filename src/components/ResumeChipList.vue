@@ -1,6 +1,6 @@
 <template>
   <div class="resume__skills">
-    <strong>{{ label }}</strong>
+    <strong>{{ label }} :</strong>
     <div class="resume__skills-list">
       <q-chip v-for="(item, index) in items" :key="index" class="q-mr-sm">
         {{ item }}
@@ -24,13 +24,7 @@ defineProps({
 
 <style lang="scss" scoped>
 .resume__skills {
-  margin-top: 20px;
-  font-size: 16px;
-  color: $gray-blue;
-}
-
-.resume__skills:first-of-type {
-  margin-top: 0;
+  font-size: 14px;
 }
 
 .resume__skills-list {
