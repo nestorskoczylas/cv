@@ -6,12 +6,62 @@
           <div class="square-indicator"></div>
           <h2 class="title">Expériences professionnelles</h2>
         </div>
+
+        <div>
+          <q-card v-for="(experience, index) in experiences" :key="index" bordered shadow="2">
+            <q-card-section>
+              <div>
+                <strong>{{ experience.position }} — {{ experience.company }}</strong>
+              </div>
+
+              <div>
+                <em>{{ experience.period }} – {{ experience.location }}</em>
+              </div>
+
+              <div>
+                <strong>Compétences :</strong>
+                <div>
+                  <q-chip v-for="(skill, index) in experience.skills" :key="index">
+                    {{ skill }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div>
+                <strong>Réalisations :</strong>
+                <ul>
+                  <li v-for="(achievement, index) in experience.achievements" :key="index">
+                    <span>{{ achievement }}</span>
+                  </li>
+                </ul>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </q-page>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const experiences = ref([
+  {
+    position: 'Développeur Full Stack C# VueJs',
+    company: 'Access It',
+    period: 'Octobre 2024 - Novembre 2024',
+    location: 'Lille, France',
+    skills: ['C#', 'VueJs', 'Postgresql', 'Azure DevOps'],
+    achievements: [
+      'Maintenance et ajout de fonctionnalités sur une application de gestion des seuils des AO (C#, VueJS)',
+      'Ajout de fonctionnalité pour gérer les fichiers vidéo volumineux dans un logiciel de débriefing vidéo (C#)',
+      'Ajout de fonctionnalités au logiciel d’accompagnement des utilisateurs à la recette (C#, Postgres, VueJS)',
+      'Tests unitaires pour une bibliothèque de composants (vitest)',
+    ],
+  },
+])
+</script>
 
 <style lang="scss" scoped>
 .background-container {
