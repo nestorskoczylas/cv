@@ -37,7 +37,7 @@
     <template v-if="links">
       <q-card-actions>
         <div v-for="(link, index) in links" :key="index" class="q-ml-md">
-          <a :href="link.url">
+          <a :href="link.url" target="_blank" rel="noopener noreferrer">
             <q-btn :label="link.label" color="primary" outlined />
           </a>
         </div>

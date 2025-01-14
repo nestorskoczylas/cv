@@ -43,6 +43,32 @@ const projects = ref([
       },
     ],
   },
+  {
+    title: 'Projet de fin d’études : Stud’Hunt',
+    period: 'Septembre 2023 - Janvier 2024',
+    description:
+      'Stud’Hunt est un projet de fin d’études réalisé en équipe dans le cadre de mon Master Informatique, en collaboration avec l’IAE et son Master MCC. Il s’agit d’une application web de recherche de stages et d’alternances, qui met en relation les étudiants et les entreprises.',
+    skillTitle: 'Technologies utilisées',
+    skills: [
+      'Flutter',
+      'Spring Boot',
+      'Spring Security',
+      'BLoC',
+      'GitHub Actions',
+      'Docker',
+      'Google Compute Engine',
+    ],
+    links: [
+      {
+        label: 'GitHub : Stud’Hunt',
+        url: 'https://github.com/Stud-Hunt',
+      },
+      {
+        label: 'LinkedIn : Stud’Hunt',
+        url: 'https://www.linkedin.com/company/stud-hunt/',
+      },
+    ],
+  },
 ])
 </script>
 
