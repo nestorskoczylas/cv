@@ -26,9 +26,9 @@
                 <em>{{ experience.period }} – {{ experience.location }}</em>
               </div>
 
-              <div class="experience__skills">
+              <div class="resume__skills">
                 <strong>Compétences :</strong>
-                <div class="experience__skills-list">
+                <div class="resume__skills-list">
                   <q-chip v-for="(skill, index) in experience.skills" :key="index" class="q-mr-sm">
                     {{ skill }}
                   </q-chip>
@@ -113,6 +113,102 @@
                     <span class="indent">{{ desc }}</span>
                   </li>
                 </ul>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
+
+        <div class="flex items-center">
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Compétences</h2>
+        </div>
+
+        <div class="resume__cards">
+          <q-card class="resume__card q-mb-md" bordered shadow="2">
+            <q-card-section>
+              <div class="resume__skills">
+                <strong>Langages de programmation :</strong>
+                <div class="resume__skills-list">
+                  <q-chip
+                    v-for="(language, index) in competencies.languages"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ language }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="resume__skills">
+                <strong>Compétences en développement web :</strong>
+                <div class="resume__skills-list">
+                  <q-chip
+                    v-for="(webDev, index) in competencies.webDevelopment"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ webDev }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="resume__skills">
+                <strong>Gestion de version :</strong>
+                <div class="resume__skills-list">
+                  <q-chip
+                    v-for="(versionControl, index) in competencies.versionControl"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ versionControl }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="resume__skills">
+                <strong>Outils de développement :</strong>
+                <div class="resume__skills-list">
+                  <q-chip
+                    v-for="(devTool, index) in competencies.developmentTools"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ devTool }}
+                  </q-chip>
+                </div>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
+
+        <div class="flex items-center">
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Qualités</h2>
+        </div>
+
+        <div class="resume__cards">
+          <q-card class="resume__card q-mb-md" bordered shadow="2">
+            <q-card-section>
+              <div class="resume__skills">
+                <strong>Qualités professionnelles :</strong>
+                <div class="resume__skills-list">
+                  <q-chip
+                    v-for="(quality, index) in qualities.professional"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ quality }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="resume__skills">
+                <strong>Qualités humaines :</strong>
+                <div class="resume__skills-list">
+                  <q-chip v-for="(quality, index) in qualities.human" :key="index" class="q-mr-sm">
+                    {{ quality }}
+                  </q-chip>
+                </div>
               </div>
             </q-card-section>
           </q-card>
@@ -229,6 +325,40 @@ const formations = ref([
     ],
   },
 ])
+
+const competencies = ref({
+  languages: ['C#', '.Net', 'Javascript', 'Typescript', 'Java', 'Python'],
+  webDevelopment: [
+    'Vue.js',
+    'ReactJS',
+    'ASP.NET Core',
+    'ASP.NET MVC',
+    'ASP.NET Web API',
+    'Blazor',
+    'HTML',
+    'CSS',
+    'Bootstrap',
+  ],
+  versionControl: ['GitHub', 'GitLab', 'Azure DevOps', 'Trello', 'Jira'],
+  developmentTools: [
+    'Visual Studio',
+    'Visual Studio Code',
+    'SQL Server Management Studio',
+    'Postman',
+    'JetBrains',
+  ],
+})
+
+const qualities = ref({
+  professional: [
+    'Rigueur',
+    'Motivation',
+    'Capacité d’adaptation',
+    'Esprit d’analyse',
+    'Créativité',
+  ],
+  human: ['Capacité d’écoute', 'Volontaire', 'Conciliant', 'Esprit d’équipe', 'Empathie'],
+})
 </script>
 
 <style lang="scss" scoped>
@@ -291,13 +421,17 @@ const formations = ref([
   margin-top: 5px;
 }
 
-.experience__skills {
+.resume__skills {
   margin-top: 20px;
   font-size: 16px;
   color: $gray-blue;
 }
 
-.experience__skills-list {
+.resume__skills:first-of-type {
+  margin-top: 0;
+}
+
+.resume__skills-list {
   margin-top: 10px;
 }
 
