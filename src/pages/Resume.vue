@@ -68,7 +68,33 @@ const experiences = ref([
       'Tests unitaires pour une bibliothèque de composants (vitest)',
     ],
   },
+  {
+    position: 'Développeur Full Stack C# VueJs',
+    company: 'Opalean',
+    period: 'Septembre 2022 - Septembre 2024',
+    location: 'Lille, France',
+    skills: ['C#', 'VB.Net', 'SQL Server', 'Vue.js'],
+    achievements: [
+      'Développement d’une application CRM pour la gestion des profils clients (C#)',
+      'Ajout de nouvelles routes à une API existante (VB.Net)',
+      'Création d’un prototype de drag-and-drop pour les fichiers CSV et XLS (Vue 2.js)',
+      'Migration d’une API existante de VB.Net à C#',
+    ],
+  },
+  {
+    position: 'Développeur Web ReactJS',
+    company: 'Vallourec Tubes France',
+    period: 'Avril 2022 - Juillet 2022',
+    location: 'Valenciennes, France',
+    skills: ['React', 'TypeScript', 'Cypress', 'Méthodologie Scrum'],
+    achievements: [
+      'Développement d’un CRM de gestion d’inventaire (React JS, Java)',
+      'Contribution à l’analyse technique de la solution',
+      'Rédaction de tests fonctionnels et unitaires (Cypress)',
+    ],
+  },
 ])
+
 </script>
 
 <style lang="scss" scoped>
