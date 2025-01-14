@@ -93,8 +93,19 @@ const experiences = ref([
       'Rédaction de tests fonctionnels et unitaires (Cypress)',
     ],
   },
+  {
+    position: 'Pyrotechnicien',
+    company: 'Wagnon Artifices',
+    period: 'Juin 2022 - Aujourd’hui',
+    location: 'Haut de France, France',
+    skills: ['Rigueur', 'Autonomie', 'Respect des consignes de sécurité', 'Créativité'],
+    achievements: [
+      'Préparation, installation et manipulation des feux d’artifices en veillant à la sécurité du public et du personnel',
+      'Prise en charge individuelle de tâches spécifiques liées à la mise en place et au déclenchement des feux d’artifices',
+      'Application stricte des procédures de sécurité et des réglementations en vigueur lors de la manipulation des feux d’artifices',
+    ],
+  },
 ])
-
 </script>
 
 <style lang="scss" scoped>
