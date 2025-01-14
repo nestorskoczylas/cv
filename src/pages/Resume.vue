@@ -16,13 +16,13 @@
             shadow="2"
           >
             <q-card-section>
-              <div class="experience__position-company">
+              <div class="resume__position-company">
                 <strong class="position"
                   >{{ experience.position }} — {{ experience.company }}</strong
                 >
               </div>
 
-              <div class="experience__period">
+              <div class="resume__period">
                 <em>{{ experience.period }} – {{ experience.location }}</em>
               </div>
 
@@ -35,13 +35,53 @@
                 </div>
               </div>
 
-              <div class="experience__achievements">
+              <div class="resume__achievements">
                 <strong>Réalisations :</strong>
                 <ul>
                   <li v-for="(achievement, index) in experience.achievements" :key="index">
                     <span class="indent">{{ achievement }}</span>
                   </li>
                 </ul>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
+
+        <div class="flex items-center">
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Diplômes</h2>
+        </div>
+
+        <div class="resume__cards">
+          <q-card
+            v-for="(diploma, index) in diplomas"
+            :key="index"
+            class="resume__card q-mb-md"
+            bordered
+            shadow="2"
+          >
+            <q-card-section>
+              <div class="resume__position-company">
+                <strong class="position">{{ diploma.position }} — {{ diploma.school }}</strong>
+              </div>
+
+              <div class="resume__period">
+                <em>{{ diploma.period }} – {{ diploma.location }}</em>
+              </div>
+
+              <div class="resume__achievements">
+                <strong>Descriptions :</strong>
+                <ul>
+                  <li v-for="(desc, index) in diploma.descriptions" :key="index">
+                    <span class="indent">{{ desc }}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div v-if="diploma.link" class="experience__link">
+                <a :href="diploma.link" target="_blank" class="q-mt-md">
+                  <q-btn label="Voir le diplôme" color="primary" flat />
+                </a>
               </div>
             </q-card-section>
           </q-card>
@@ -106,6 +146,33 @@ const experiences = ref([
     ],
   },
 ])
+
+const diplomas = ref([
+  {
+    position: 'Master Informatique Mention E-Services',
+    school: 'Université de Lille',
+    period: 'Septembre 2022 - 2024',
+    location: 'Lille, France',
+    descriptions: [
+      'Concentration sur la conception et le développement de services numériques accessibles via divers moyens de communication numérique',
+      'Compétences opérationnelles en conception de services numériques, interfaces homme-machine, gestion de projets et design applicatif',
+      'Projet Platine : Développement de projets complets allant de la conception à la réalisation et à la promotion, en mettant l’accent sur les aspects utilisateurs, usages, IHM, UX, et l’innovation technologique',
+    ],
+    link: 'https://diplome-certificat.univ-lille.fr/index.html?key=32F0228C0686248CF67AF8A7B5A3BC3C0534D9298DF12B73D6DF112E8FC0E73DNC9IOXhYeFNPdlZiS1JKM1dZVnJpVFJDcVBOdCtpSTlFcXJTV25wVzFhYk5mRkZw'
+  },
+  {
+    position: 'Licence Informatique',
+    school: 'Université de Lille',
+    period: 'Septembre 2019 - 2022',
+    location: 'Lille, France',
+    descriptions: [
+      'Formation complète en informatique avec un enseignement théorique et appliqué',
+      'Développement de compétences professionnelles avancées et transversales',
+      'Préparation efficace pour des masters spécialisés et insertion professionnelle dans divers secteurs',
+    ],
+    link: 'https://diplome-certificat.univ-lille.fr/index.html?key=BD95D280568A85A981956D380DC9D395A25AFBF672EBECBB0DDEBDFB75D359B5S05BUGVhdWh1ai9NR1VZNU1kRVlLaElsUy8xS282NEFzOGZzTUgrUm02TEVaZkVI'
+  },
+])
 </script>
 
 <style lang="scss" scoped>
@@ -156,13 +223,13 @@ const experiences = ref([
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.experience__position-company {
+.resume__position-company {
   font-size: 20px;
   font-weight: bold;
   color: $primary;
 }
 
-.experience__period {
+.resume__period {
   font-size: 14px;
   color: $gray;
   margin-top: 5px;
@@ -178,16 +245,16 @@ const experiences = ref([
   margin-top: 10px;
 }
 
-.experience__achievements {
+.resume__achievements {
   margin-top: 20px;
 }
 
-.experience__achievements ul {
+.resume__achievements ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-.experience__achievements li {
+.resume__achievements li {
   font-size: 14px;
   color: $gray-blue;
   margin-bottom: 8px;
