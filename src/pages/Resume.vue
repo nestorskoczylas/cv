@@ -4,39 +4,18 @@
       <div class="resume__section">
         <template v-for="(section, index) in resumeSections" :key="index">
           <ResumeSection :title="section.title">
-            <ResumeCard v-for="(item, index) in section.items" :key="index">
-              <template #header>
-                <div v-if="item.title && item.organization" class="resume__position-company">
-                  <strong class="position"> {{ item.title }} — {{ item.organization }} </strong>
-                </div>
-                <div v-if="item.period && item.location" class="resume__period">
-                  <em>{{ item.period }} — {{ item.location }}</em>
-                </div>
-              </template>
-              <template #content>
-                <div v-if="item.skills && !item.skillTitle">
-                  <ResumeChipList label="Compétences" :items="item.skills" />
-                </div>
-                <div v-if="item.skills && item.skillTitle">
-                  <ResumeChipList :label="item.skillTitle" :items="item.skills" />
-                </div>
-                <div v-if="item.achievements">
-                  <div class="resume__achievements">
-                    <strong>Descriptions :</strong>
-                    <ul>
-                      <li v-for="(achievement, index) in item.achievements" :key="index">
-                        <span class="indent">{{ achievement }}</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </template>
-              <template #footer v-if="item.link">
-                <a :href="item.link" target="_blank" class="q-mt-md">
-                  <q-btn label="Voir le diplôme" color="primary" flat />
-                </a>
-              </template>
-            </ResumeCard>
+            <CardItem
+              v-for="(item, index) in section.items"
+              :key="index"
+              :title="item.title || ''"
+              :organization="item.organization || ''"
+              :period="item.period || ''"
+              :location="item.location || ''"
+              :skills="item.skills || []"
+              :skillTitle="item.skillTitle || ''"
+              :achievements="item.achievements || []"
+              :links="item.links || []"
+            />
           </ResumeSection>
         </template>
       </div>
@@ -46,8 +25,7 @@
 
 <script lang="ts" setup>
 import ResumeSection from 'src/components/ResumeSection.vue'
-import ResumeCard from 'src/components/ResumeCard.vue'
-import ResumeChipList from 'src/components/ResumeChipList.vue'
+import CardItem from 'src/components/CardItem.vue'
 
 type ResumeItems = {
   title?: string
@@ -57,7 +35,7 @@ type ResumeItems = {
   skillTitle?: string
   skills?: string[]
   achievements?: string[]
-  link?: string
+  links?: { url: string; label: string }[]
 }
 
 type ResumeSection = {
@@ -134,7 +112,12 @@ const resumeSections: ResumeSection[] = [
           'Compétences opérationnelles en conception de services numériques, interfaces homme-machine, gestion de projets et design applicatif',
           'Projet Platine : Développement de projets complets allant de la conception à la réalisation et à la promotion, en mettant l’accent sur les aspects utilisateurs, usages, IHM, UX, et l’innovation technologique',
         ],
-        link: 'https://diplome-certificat.univ-lille.fr/index.html?key=32F0228C0686248CF67AF8A7B5A3BC3C0534D9298DF12B73D6DF112E8FC0E73DNC9IOXhYeFNPdlZiS1JKM1dZVnJpVFJDcVBOdCtpSTlFcXJTV25wVzFhYk5mRkZw',
+        links: [
+          {
+            label: 'Voir le diplôme',
+            url: 'https://diplome-certificat.univ-lille.fr/index.html?key=32F0228C0686248CF67AF8A7B5A3BC3C0534D9298DF12B73D6DF112E8FC0E73DNC9IOXhYeFNPdlZiS1JKM1dZVnJpVFJDcVBOdCtpSTlFcXJTV25wVzFhYk5mRkZw',
+          },
+        ],
       },
       {
         title: 'Licence Informatique',
@@ -146,7 +129,12 @@ const resumeSections: ResumeSection[] = [
           'Développement de compétences professionnelles avancées et transversales',
           'Préparation efficace pour des masters spécialisés et insertion professionnelle dans divers secteurs',
         ],
-        link: 'https://diplome-certificat.univ-lille.fr/index.html?key=BD95D280568A85A981956D380DC9D395A25AFBF672EBECBB0DDEBDFB75D359B5S05BUGVhdWh1ai9NR1VZNU1kRVlLaElsUy8xS282NEFzOGZzTUgrUm02TEVaZkVI',
+        links: [
+          {
+            label: 'Voir le diplôme',
+            url: 'https://diplome-certificat.univ-lille.fr/index.html?key=BD95D280568A85A981956D380DC9D395A25AFBF672EBECBB0DDEBDFB75D359B5S05BUGVhdWh1ai9NR1VZNU1kRVlLaElsUy8xS282NEFzOGZzTUgrUm02TEVaZkVI',
+          },
+        ],
       },
     ],
   },
@@ -281,7 +269,7 @@ const resumeSections: ResumeSection[] = [
   border: 1px solid $background;
 }
 
-.resume__section {
+.project__section {
   width: 100%;
   max-width: 800px;
 }
