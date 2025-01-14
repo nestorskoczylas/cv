@@ -46,6 +46,40 @@
             </q-card-section>
           </q-card>
         </div>
+
+        <div class="flex items-center">
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Diplômes</h2>
+        </div>
+
+        <div class="resume__cards">
+          <q-card
+            v-for="(diploma, index) in diplomas"
+            :key="index"
+            class="resume__card q-mb-md"
+            bordered
+            shadow="2"
+          >
+            <q-card-section>
+              <div class="experience__position-company">
+                <strong class="position">{{ diploma.position }} — {{ diploma.school }}</strong>
+              </div>
+
+              <div class="experience__period">
+                <em>{{ diploma.period }} – {{ diploma.location }}</em>
+              </div>
+
+              <div class="experience__achievements">
+                <strong>Descriptions :</strong>
+                <ul>
+                  <li v-for="(desc, index) in diploma.descriptions" :key="index">
+                    <span class="indent">{{ desc }}</span>
+                  </li>
+                </ul>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </q-page>
   </div>
@@ -103,6 +137,31 @@ const experiences = ref([
       'Préparation, installation et manipulation des feux d’artifices en veillant à la sécurité du public et du personnel',
       'Prise en charge individuelle de tâches spécifiques liées à la mise en place et au déclenchement des feux d’artifices',
       'Application stricte des procédures de sécurité et des réglementations en vigueur lors de la manipulation des feux d’artifices',
+    ],
+  },
+])
+
+const diplomas = ref([
+  {
+    position: 'Master Informatique Mention E-Services',
+    school: 'Université de Lille',
+    period: 'Septembre 2022 - 2024',
+    location: 'Lille, France',
+    descriptions: [
+      'Concentration sur la conception et le développement de services numériques accessibles via divers moyens de communication numérique',
+      'Compétences opérationnelles en conception de services numériques, interfaces homme-machine, gestion de projets et design applicatif',
+      'Projet Platine : Développement de projets complets allant de la conception à la réalisation et à la promotion, en mettant l’accent sur les aspects utilisateurs, usages, IHM, UX, et l’innovation technologique',
+    ],
+  },
+  {
+    position: 'Licence Informatique',
+    school: 'Université de Lille',
+    period: 'Septembre 2019 - 2022',
+    location: 'Lille, France',
+    descriptions: [
+      'Formation complète en informatique avec un enseignement théorique et appliqué',
+      'Développement de compétences professionnelles avancées et transversales',
+      'Préparation efficace pour des masters spécialisés et insertion professionnelle dans divers secteurs',
     ],
   },
 ])
