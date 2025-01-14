@@ -3,7 +3,7 @@
     <q-card-section class="q-pa-lg profil-card__background-section text-center">
       <div class="profil-card__image-container">
         <img
-          src="/public/icons/favicon-425x425.png"
+          src="/icons/favicon-425x425.png"
           alt="me"
           :width="200"
           :height="200"

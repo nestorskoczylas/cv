@@ -2,8 +2,5 @@
   <p>Resume Page</p>
 </template>
 
-<script>
-export default {
-  name: 'ResumePage'
-}
+<script lang="ts" setup>
 </script>

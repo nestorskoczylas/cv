@@ -2,8 +2,4 @@
   <p>Projects Page</p>
 </template>
 
-<script>
-export default {
-  name: 'ProjectsPage',
-};
-</script>
+<script lang="ts" setup></script>

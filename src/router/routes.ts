@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
 import AboutMe from '../pages/AboutMe.vue';
 import Resume from '../pages/Resume.vue';
 import Projects from '../pages/Projects.vue';
