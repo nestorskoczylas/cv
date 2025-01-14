@@ -180,6 +180,39 @@
             </q-card-section>
           </q-card>
         </div>
+
+        <div class="flex items-center">
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Qualités</h2>
+        </div>
+
+        <div class="resume__cards">
+          <q-card class="resume__card q-mb-md" bordered shadow="2">
+            <q-card-section>
+              <div class="resume__skills">
+                <strong>Qualités professionnelles :</strong>
+                <div class="resume__skills-list">
+                  <q-chip
+                    v-for="(quality, index) in qualities.professional"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ quality }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="resume__skills">
+                <strong>Qualités humaines :</strong>
+                <div class="resume__skills-list">
+                  <q-chip v-for="(quality, index) in qualities.human" :key="index" class="q-mr-sm">
+                    {{ quality }}
+                  </q-chip>
+                </div>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </q-page>
   </div>
@@ -314,6 +347,17 @@ const competencies = ref({
     'Postman',
     'JetBrains',
   ],
+})
+
+const qualities = ref({
+  professional: [
+    'Rigueur',
+    'Motivation',
+    'Capacité d’adaptation',
+    'Esprit d’analyse',
+    'Créativité',
+  ],
+  human: ['Capacité d’écoute', 'Volontaire', 'Conciliant', 'Esprit d’équipe', 'Empathie'],
 })
 </script>
 
