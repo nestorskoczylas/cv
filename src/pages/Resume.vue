@@ -2,38 +2,20 @@
   <div class="background-container">
     <q-page class="q-pa-md flex flex-center scroll-content borders">
       <div class="resume__section">
-        <div class="flex items-center">
-          <div class="resume__indicator"></div>
-          <h2 class="resume__title">Expériences professionnelles</h2>
-        </div>
-
-        <div class="resume__cards">
-          <q-card
-            v-for="(experience, index) in experiences"
-            :key="index"
-            class="resume__card q-mb-md"
-            bordered
-            shadow="2"
-          >
-            <q-card-section>
+        <ResumeSection title="Expériences professionnelles">
+          <ResumeCard v-for="(experience, index) in experiences" :key="index">
+            <template #header>
               <div class="resume__position-company">
-                <strong class="position"
-                  >{{ experience.position }} — {{ experience.company }}</strong
-                >
+                <strong class="position">
+                  {{ experience.position }} — {{ experience.company }}
+                </strong>
               </div>
-
               <div class="resume__period">
                 <em>{{ experience.period }} – {{ experience.location }}</em>
               </div>
-
-              <div class="resume__skills">
-                <strong>Compétences :</strong>
-                <div class="resume__skills-list">
-                  <q-chip v-for="(skill, index) in experience.skills" :key="index" class="q-mr-sm">
-                    {{ skill }}
-                  </q-chip>
-                </div>
-              </div>
+            </template>
+            <template #content>
+              <ResumeChipList label="Compétences" :items="experience.skills" />
 
               <div class="resume__achievements">
                 <strong>Réalisations :</strong>
@@ -43,32 +25,21 @@
                   </li>
                 </ul>
               </div>
-            </q-card-section>
-          </q-card>
-        </div>
+            </template>
+          </ResumeCard>
+        </ResumeSection>
 
-        <div class="flex items-center">
-          <div class="resume__indicator"></div>
-          <h2 class="resume__title">Diplômes</h2>
-        </div>
-
-        <div class="resume__cards">
-          <q-card
-            v-for="(diploma, index) in diplomas"
-            :key="index"
-            class="resume__card q-mb-md"
-            bordered
-            shadow="2"
-          >
-            <q-card-section>
+        <ResumeSection title="Diplômes">
+          <ResumeCard v-for="(diploma, index) in diplomas" :key="index">
+            <template #header>
               <div class="resume__position-company">
-                <strong class="position">{{ diploma.position }} — {{ diploma.school }}</strong>
+                <strong class="position"> {{ diploma.position }} — {{ diploma.school }} </strong>
               </div>
-
               <div class="resume__period">
                 <em>{{ diploma.period }} – {{ diploma.location }}</em>
               </div>
-
+            </template>
+            <template #content>
               <div class="resume__achievements">
                 <strong>Descriptions :</strong>
                 <ul>
@@ -77,35 +48,28 @@
                   </li>
                 </ul>
               </div>
-
-              <div v-if="diploma.link" class="experience__link">
+            </template>
+            <template #footer v-if="diploma.link">
+              <div class="experience__link">
                 <a :href="diploma.link" target="_blank" class="q-mt-md">
                   <q-btn label="Voir le diplôme" color="primary" flat />
                 </a>
               </div>
-            </q-card-section>
-          </q-card>
-        </div>
+            </template>
+          </ResumeCard>
+        </ResumeSection>
 
-        <div class="flex items-center">
-          <div class="resume__indicator"></div>
-          <h2 class="resume__title">Formations</h2>
-        </div>
-        <div class="resume__cards">
-          <q-card
-            v-for="(formation, index) in formations"
-            :key="index"
-            class="resume__card q-mb-md"
-            bordered
-            shadow="2"
-          >
-            <q-card-section>
+        <ResumeSection title="Formations">
+          <ResumeCard v-for="(formation, index) in formations" :key="index">
+            <template #header>
               <div class="resume__position-company">
                 <strong class="position">{{ formation.title }} — {{ formation.organism }}</strong>
               </div>
               <div class="resume__period">
                 <em>{{ formation.period }} – {{ formation.location }}</em>
               </div>
+            </template>
+            <template #content>
               <div class="resume__achievements">
                 <strong>Descriptions :</strong>
                 <ul>
@@ -114,142 +78,54 @@
                   </li>
                 </ul>
               </div>
-            </q-card-section>
-          </q-card>
-        </div>
+            </template>
+          </ResumeCard>
+        </ResumeSection>
 
-        <div class="flex items-center">
-          <div class="resume__indicator"></div>
-          <h2 class="resume__title">Compétences</h2>
-        </div>
+        <ResumeSection title="Compétences">
+          <ResumeCard>
+            <template #content>
+              <ResumeChipList label="Langages de programmation" :items="competencies.languages" />
 
-        <div class="resume__cards">
-          <q-card class="resume__card q-mb-md" bordered shadow="2">
-            <q-card-section>
-              <div class="resume__skills">
-                <strong>Langages de programmation :</strong>
-                <div class="resume__skills-list">
-                  <q-chip
-                    v-for="(language, index) in competencies.languages"
-                    :key="index"
-                    class="q-mr-sm"
-                  >
-                    {{ language }}
-                  </q-chip>
-                </div>
-              </div>
+              <ResumeChipList
+                label="Compétences en développement web"
+                :items="competencies.webDevelopment"
+              />
 
-              <div class="resume__skills">
-                <strong>Compétences en développement web :</strong>
-                <div class="resume__skills-list">
-                  <q-chip
-                    v-for="(webDev, index) in competencies.webDevelopment"
-                    :key="index"
-                    class="q-mr-sm"
-                  >
-                    {{ webDev }}
-                  </q-chip>
-                </div>
-              </div>
+              <ResumeChipList label="Gestion de version" :items="competencies.versionControl" />
 
-              <div class="resume__skills">
-                <strong>Gestion de version :</strong>
-                <div class="resume__skills-list">
-                  <q-chip
-                    v-for="(versionControl, index) in competencies.versionControl"
-                    :key="index"
-                    class="q-mr-sm"
-                  >
-                    {{ versionControl }}
-                  </q-chip>
-                </div>
-              </div>
+              <ResumeChipList
+                label="Outils de développement"
+                :items="competencies.developmentTools"
+              />
+            </template>
+          </ResumeCard>
+        </ResumeSection>
 
-              <div class="resume__skills">
-                <strong>Outils de développement :</strong>
-                <div class="resume__skills-list">
-                  <q-chip
-                    v-for="(devTool, index) in competencies.developmentTools"
-                    :key="index"
-                    class="q-mr-sm"
-                  >
-                    {{ devTool }}
-                  </q-chip>
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
+        <ResumeSection title="Qualités">
+          <ResumeCard>
+            <template #content>
+              <ResumeChipList label="Qualités professionnelles" :items="qualities.professional" />
 
-        <div class="flex items-center">
-          <div class="resume__indicator"></div>
-          <h2 class="resume__title">Qualités</h2>
-        </div>
+              <ResumeChipList label="Qualités humaines" :items="qualities.human" />
+            </template>
+          </ResumeCard>
+        </ResumeSection>
 
-        <div class="resume__cards">
-          <q-card class="resume__card q-mb-md" bordered shadow="2">
-            <q-card-section>
-              <div class="resume__skills">
-                <strong>Qualités professionnelles :</strong>
-                <div class="resume__skills-list">
-                  <q-chip
-                    v-for="(quality, index) in qualities.professional"
-                    :key="index"
-                    class="q-mr-sm"
-                  >
-                    {{ quality }}
-                  </q-chip>
-                </div>
-              </div>
-
-              <div class="resume__skills">
-                <strong>Qualités humaines :</strong>
-                <div class="resume__skills-list">
-                  <q-chip v-for="(quality, index) in qualities.human" :key="index" class="q-mr-sm">
-                    {{ quality }}
-                  </q-chip>
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-        <div class="flex items-center">
-          <div class="resume__indicator"></div>
-          <h2 class="resume__title">Expériences personnelles</h2>
-        </div>
-
-        <div class="resume__cards">
-          <q-card
-            v-for="(personalExperience, index) in personalExperiences"
-            :key="index"
-            class="resume__card q-mb-md"
-            bordered
-            shadow="2"
-          >
-            <q-card-section>
+        <ResumeSection title="Expériences personnelles">
+          <ResumeCard v-for="(personalExperience, index) in personalExperiences" :key="index">
+            <template #header>
               <div class="resume__position-company">
-                <strong class="position"
-                  >{{ personalExperience.position }} — {{ personalExperience.company }}</strong
-                >
+                <strong class="position">
+                  {{ personalExperience.position }} — {{ personalExperience.company }}
+                </strong>
               </div>
-
               <div class="resume__period">
                 <em>{{ personalExperience.period }} – {{ personalExperience.location }}</em>
               </div>
-
-              <div class="resume__skills">
-                <strong>Compétences :</strong>
-                <div class="resume__skills-list">
-                  <q-chip
-                    v-for="(skill, index) in personalExperience.skills"
-                    :key="index"
-                    class="q-mr-sm"
-                  >
-                    {{ skill }}
-                  </q-chip>
-                </div>
-              </div>
+            </template>
+            <template #content>
+              <ResumeChipList label="Compétences" :items="personalExperience.skills" />
 
               <div class="resume__achievements">
                 <strong>Missions :</strong>
@@ -259,9 +135,9 @@
                   </li>
                 </ul>
               </div>
-            </q-card-section>
-          </q-card>
-        </div>
+            </template>
+          </ResumeCard>
+        </ResumeSection>
       </div>
     </q-page>
   </div>
@@ -269,6 +145,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import ResumeSection from 'src/components/ResumeSection.vue'
+import ResumeCard from 'src/components/ResumeCard.vue'
+import ResumeChipList from 'src/components/ResumeChipList.vue'
 
 const experiences = ref([
   {
@@ -458,35 +337,6 @@ const personalExperiences = ref([
   max-width: 800px;
 }
 
-.resume__indicator {
-  width: 16px;
-  height: 16px;
-  background-color: $primary;
-  margin-right: 16px;
-}
-
-.resume__title {
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-  color: $gray-blue;
-}
-
-.resume__cards {
-  display: flex;
-  flex-direction: column;
-}
-
-.resume__card {
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .resume__position-company {
   font-size: 20px;
   font-weight: bold;
@@ -527,11 +377,5 @@ const personalExperiences = ref([
   color: $gray-blue;
   margin-bottom: 8px;
   text-indent: 20px;
-}
-
-.q-chip {
-  margin: 5px;
-  background-color: transparent;
-  border: 1px solid $primary;
 }
 </style>
