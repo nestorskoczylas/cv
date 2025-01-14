@@ -1,41 +1,41 @@
 <template>
   <div class="background-container">
     <q-page class="q-pa-md flex flex-center scroll-content borders">
-      <div class="experience-section">
+      <div class="resume__section">
         <div class="flex items-center">
-          <div class="square-indicator"></div>
-          <h2 class="title">Expériences professionnelles</h2>
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Expériences professionnelles</h2>
         </div>
 
-        <div class="experience-cards">
+        <div class="resume__cards">
           <q-card
             v-for="(experience, index) in experiences"
             :key="index"
-            class="experience-card q-mb-md"
+            class="resume__card q-mb-md"
             bordered
             shadow="2"
           >
             <q-card-section>
-              <div class="position-company">
+              <div class="experience__position-company">
                 <strong class="position"
                   >{{ experience.position }} — {{ experience.company }}</strong
                 >
               </div>
 
-              <div class="period">
+              <div class="experience__period">
                 <em>{{ experience.period }} – {{ experience.location }}</em>
               </div>
 
-              <div class="skills">
+              <div class="experience__skills">
                 <strong>Compétences :</strong>
-                <div class="skills-list">
+                <div class="experience__skills-list">
                   <q-chip v-for="(skill, index) in experience.skills" :key="index" class="q-mr-sm">
                     {{ skill }}
                   </q-chip>
                 </div>
               </div>
 
-              <div class="achievements">
+              <div class="experience__achievements">
                 <strong>Réalisations :</strong>
                 <ul>
                   <li v-for="(achievement, index) in experience.achievements" :key="index">
@@ -85,19 +85,19 @@ const experiences = ref([
   border: 1px solid $background;
 }
 
-.experience-section {
+.resume__section {
   width: 100%;
   max-width: 800px;
 }
 
-.square-indicator {
+.resume__indicator {
   width: 16px;
   height: 16px;
   background-color: $primary;
   margin-right: 16px;
 }
 
-.title {
+.resume__title {
   font-size: 28px;
   font-weight: bold;
   text-align: center;
@@ -105,12 +105,12 @@ const experiences = ref([
   color: $gray-blue;
 }
 
-.experience-cards {
+.resume__cards {
   display: flex;
   flex-direction: column;
 }
 
-.experience-card {
+.resume__card {
   width: 100%;
   max-width: 800px;
   margin-bottom: 20px;
@@ -119,38 +119,38 @@ const experiences = ref([
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.position-company {
+.experience__position-company {
   font-size: 20px;
   font-weight: bold;
   color: $primary;
 }
 
-.period {
+.experience__period {
   font-size: 14px;
   color: $gray;
   margin-top: 5px;
 }
 
-.skills {
+.experience__skills {
   margin-top: 20px;
   font-size: 16px;
   color: $gray-blue;
 }
 
-.skills-list {
+.experience__skills-list {
   margin-top: 10px;
 }
 
-.achievements {
+.experience__achievements {
   margin-top: 20px;
 }
 
-.achievements ul {
+.experience__achievements ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-.achievements li {
+.experience__achievements li {
   font-size: 14px;
   color: $gray-blue;
   margin-bottom: 8px;
