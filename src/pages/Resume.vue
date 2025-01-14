@@ -16,13 +16,13 @@
             shadow="2"
           >
             <q-card-section>
-              <div class="experience__position-company">
+              <div class="resume__position-company">
                 <strong class="position"
                   >{{ experience.position }} — {{ experience.company }}</strong
                 >
               </div>
 
-              <div class="experience__period">
+              <div class="resume__period">
                 <em>{{ experience.period }} – {{ experience.location }}</em>
               </div>
 
@@ -35,7 +35,7 @@
                 </div>
               </div>
 
-              <div class="experience__achievements">
+              <div class="resume__achievements">
                 <strong>Réalisations :</strong>
                 <ul>
                   <li v-for="(achievement, index) in experience.achievements" :key="index">
@@ -61,15 +61,15 @@
             shadow="2"
           >
             <q-card-section>
-              <div class="experience__position-company">
+              <div class="resume__position-company">
                 <strong class="position">{{ diploma.position }} — {{ diploma.school }}</strong>
               </div>
 
-              <div class="experience__period">
+              <div class="resume__period">
                 <em>{{ diploma.period }} – {{ diploma.location }}</em>
               </div>
 
-              <div class="experience__achievements">
+              <div class="resume__achievements">
                 <strong>Descriptions :</strong>
                 <ul>
                   <li v-for="(desc, index) in diploma.descriptions" :key="index">
@@ -215,13 +215,13 @@ const diplomas = ref([
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.experience__position-company {
+.resume__position-company {
   font-size: 20px;
   font-weight: bold;
   color: $primary;
 }
 
-.experience__period {
+.resume__period {
   font-size: 14px;
   color: $gray;
   margin-top: 5px;
@@ -237,16 +237,16 @@ const diplomas = ref([
   margin-top: 10px;
 }
 
-.experience__achievements {
+.resume__achievements {
   margin-top: 20px;
 }
 
-.experience__achievements ul {
+.resume__achievements ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-.experience__achievements li {
+.resume__achievements li {
   font-size: 14px;
   color: $gray-blue;
   margin-bottom: 8px;
