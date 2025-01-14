@@ -383,6 +383,10 @@ const competencies = ref({
   color: $gray-blue;
 }
 
+.resume__skills:first-of-type {
+  margin-top: 0;
+}
+
 .resume__skills-list {
   margin-top: 10px;
 }
