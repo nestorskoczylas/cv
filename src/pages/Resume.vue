@@ -86,6 +86,37 @@
             </q-card-section>
           </q-card>
         </div>
+
+        <div class="flex items-center">
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Formations</h2>
+        </div>
+        <div class="resume__cards">
+          <q-card
+            v-for="(formation, index) in formations"
+            :key="index"
+            class="resume__card q-mb-md"
+            bordered
+            shadow="2"
+          >
+            <q-card-section>
+              <div class="resume__position-company">
+                <strong class="position">{{ formation.title }} — {{ formation.organism }}</strong>
+              </div>
+              <div class="resume__period">
+                <em>{{ formation.period }} – {{ formation.location }}</em>
+              </div>
+              <div class="resume__achievements">
+                <strong>Descriptions :</strong>
+                <ul>
+                  <li v-for="(desc, index) in formation.descriptions" :key="index">
+                    <span class="indent">{{ desc }}</span>
+                  </li>
+                </ul>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </q-page>
   </div>
@@ -158,7 +189,7 @@ const diplomas = ref([
       'Compétences opérationnelles en conception de services numériques, interfaces homme-machine, gestion de projets et design applicatif',
       'Projet Platine : Développement de projets complets allant de la conception à la réalisation et à la promotion, en mettant l’accent sur les aspects utilisateurs, usages, IHM, UX, et l’innovation technologique',
     ],
-    link: 'https://diplome-certificat.univ-lille.fr/index.html?key=32F0228C0686248CF67AF8A7B5A3BC3C0534D9298DF12B73D6DF112E8FC0E73DNC9IOXhYeFNPdlZiS1JKM1dZVnJpVFJDcVBOdCtpSTlFcXJTV25wVzFhYk5mRkZw'
+    link: 'https://diplome-certificat.univ-lille.fr/index.html?key=32F0228C0686248CF67AF8A7B5A3BC3C0534D9298DF12B73D6DF112E8FC0E73DNC9IOXhYeFNPdlZiS1JKM1dZVnJpVFJDcVBOdCtpSTlFcXJTV25wVzFhYk5mRkZw',
   },
   {
     position: 'Licence Informatique',
@@ -170,7 +201,32 @@ const diplomas = ref([
       'Développement de compétences professionnelles avancées et transversales',
       'Préparation efficace pour des masters spécialisés et insertion professionnelle dans divers secteurs',
     ],
-    link: 'https://diplome-certificat.univ-lille.fr/index.html?key=BD95D280568A85A981956D380DC9D395A25AFBF672EBECBB0DDEBDFB75D359B5S05BUGVhdWh1ai9NR1VZNU1kRVlLaElsUy8xS282NEFzOGZzTUgrUm02TEVaZkVI'
+    link: 'https://diplome-certificat.univ-lille.fr/index.html?key=BD95D280568A85A981956D380DC9D395A25AFBF672EBECBB0DDEBDFB75D359B5S05BUGVhdWh1ai9NR1VZNU1kRVlLaElsUy8xS282NEFzOGZzTUgrUm02TEVaZkVI',
+  },
+])
+
+const formations = ref([
+  {
+    title: 'Certificat de Qualification Pyrotechnique F4T2',
+    organism: 'Association Nationale Européenne Instruction Pyrotechnique',
+    period: 'Juin 2019',
+    location: 'Caudry, France',
+    descriptions: [
+      'Formation intensive sur les protocoles et les procédures de sécurité en pyrotechnie, assurant une mise en œuvre sans risque des feux d’artifice',
+      'Apprentissage approfondi des techniques de manipulation et de gestion des explosifs, assurant une expertise dans le domaine pyrotechnique',
+      'Préparation complète pour la planification et l’exécution de spectacles pyrotechniques spectaculaires, garantissant une expérience immersive et sécurisée pour le public',
+    ],
+  },
+  {
+    title: 'Brevet d’Aptitude aux Fonctions d’Animateur',
+    organism: 'Éclaireuses Éclaireurs de France',
+    period: 'Février 2018 - Mai 2019',
+    location: 'Haut de France, France',
+    descriptions: [
+      'Formation pratique et théorique pour développer des techniques d’animation adaptées à différents publics',
+      'Apprentissage des bases légales et des responsabilités liées à l’encadrement de groupes de jeunes',
+      'Réalisation et mise en pratique de projets d’animation favorisant la créativité et l’interaction sociale',
+    ],
   },
 ])
 </script>
