@@ -32,11 +32,9 @@
                 </div>
               </template>
               <template #footer v-if="item.link">
-                <div class="experience__link">
-                  <a :href="item.link" target="_blank" class="q-mt-md">
-                    <q-btn label="Voir le diplôme" color="primary" flat />
-                  </a>
-                </div>
+                <a :href="item.link" target="_blank" class="q-mt-md">
+                  <q-btn label="Voir le diplôme" color="primary" flat />
+                </a>
               </template>
             </ResumeCard>
           </ResumeSection>
