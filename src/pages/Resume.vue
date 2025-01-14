@@ -213,6 +213,55 @@
             </q-card-section>
           </q-card>
         </div>
+
+        <div class="flex items-center">
+          <div class="resume__indicator"></div>
+          <h2 class="resume__title">Expériences personnelles</h2>
+        </div>
+
+        <div class="resume__cards">
+          <q-card
+            v-for="(personalExperience, index) in personalExperiences"
+            :key="index"
+            class="resume__card q-mb-md"
+            bordered
+            shadow="2"
+          >
+            <q-card-section>
+              <div class="resume__position-company">
+                <strong class="position"
+                  >{{ personalExperience.position }} — {{ personalExperience.company }}</strong
+                >
+              </div>
+
+              <div class="resume__period">
+                <em>{{ personalExperience.period }} – {{ personalExperience.location }}</em>
+              </div>
+
+              <div class="resume__skills">
+                <strong>Compétences :</strong>
+                <div class="resume__skills-list">
+                  <q-chip
+                    v-for="(skill, index) in personalExperience.skills"
+                    :key="index"
+                    class="q-mr-sm"
+                  >
+                    {{ skill }}
+                  </q-chip>
+                </div>
+              </div>
+
+              <div class="resume__achievements">
+                <strong>Missions :</strong>
+                <ul>
+                  <li v-for="(mission, index) in personalExperience.missions" :key="index">
+                    <span class="indent">{{ mission }}</span>
+                  </li>
+                </ul>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </q-page>
   </div>
@@ -359,6 +408,35 @@ const qualities = ref({
   ],
   human: ['Capacité d’écoute', 'Volontaire', 'Conciliant', 'Esprit d’équipe', 'Empathie'],
 })
+
+const personalExperiences = ref([
+  {
+    position: 'Adhérent - Animateur',
+    company: 'Éclaireuses et Éclaireurs de France',
+    period: '2006 - Aujourd’hui',
+    location: 'Villeneuve d’Ascq, France',
+    skills: ['Gestion de projet', 'Animation', 'Formation'],
+    missions: [
+      'Organisation et animation de réunions hebdomadaires pour les jeunes membres',
+      'Planification et organisation de week-ends et camps de formation en plein air',
+      'Formateur pour les jeunes sur divers sujets liés au scoutisme et à la vie en plein air',
+      'Participation à des formations continues pour améliorer les compétences d’animation et de leadership',
+    ],
+  },
+  {
+    position: 'Animateur',
+    company: 'Mairie',
+    period: 'Août 2018 - Décembre 2021',
+    location: 'Villeneuve d’Ascq, France',
+    skills: ['Gestion de groupe', 'Gestion du stress', 'Volontariat'],
+    missions: [
+      'Encadrement quotidien et activités récréatives pour les enfants de la ville',
+      'Planification et organisation d’activités éducatives et récréatives',
+      'Résolution de conflits entre les enfants et gestion des problèmes d’urgence',
+      'Participation à des événements communautaires et projets de volontariat',
+    ],
+  },
+])
 </script>
 
 <style lang="scss" scoped>
