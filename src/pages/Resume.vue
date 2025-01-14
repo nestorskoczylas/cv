@@ -156,4 +156,10 @@ const experiences = ref([
   margin-bottom: 8px;
   text-indent: 20px;
 }
+
+.q-chip {
+  margin: 5px;
+  background-color: transparent;
+  border: 1px solid $primary;
+}
 </style>
