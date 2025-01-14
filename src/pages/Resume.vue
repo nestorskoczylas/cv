@@ -26,9 +26,9 @@
                 <em>{{ experience.period }} – {{ experience.location }}</em>
               </div>
 
-              <div class="experience__skills">
+              <div class="resume__skills">
                 <strong>Compétences :</strong>
-                <div class="experience__skills-list">
+                <div class="resume__skills-list">
                   <q-chip v-for="(skill, index) in experience.skills" :key="index" class="q-mr-sm">
                     {{ skill }}
                   </q-chip>
@@ -126,9 +126,9 @@
         <div class="resume__cards">
           <q-card class="resume__card q-mb-md" bordered shadow="2">
             <q-card-section>
-              <div class="experience__skills">
+              <div class="resume__skills">
                 <strong>Langages de programmation :</strong>
-                <div class="experience__skills-list">
+                <div class="resume__skills-list">
                   <q-chip
                     v-for="(language, index) in competencies.languages"
                     :key="index"
@@ -139,9 +139,9 @@
                 </div>
               </div>
 
-              <div class="experience__skills">
+              <div class="resume__skills">
                 <strong>Compétences en développement web :</strong>
-                <div class="experience__skills-list">
+                <div class="resume__skills-list">
                   <q-chip
                     v-for="(webDev, index) in competencies.webDevelopment"
                     :key="index"
@@ -152,9 +152,9 @@
                 </div>
               </div>
 
-              <div class="experience__skills">
+              <div class="resume__skills">
                 <strong>Gestion de version :</strong>
-                <div class="experience__skills-list">
+                <div class="resume__skills-list">
                   <q-chip
                     v-for="(versionControl, index) in competencies.versionControl"
                     :key="index"
@@ -165,9 +165,9 @@
                 </div>
               </div>
 
-              <div class="experience__skills">
+              <div class="resume__skills">
                 <strong>Outils de développement :</strong>
-                <div class="experience__skills-list">
+                <div class="resume__skills-list">
                   <q-chip
                     v-for="(devTool, index) in competencies.developmentTools"
                     :key="index"
@@ -377,13 +377,13 @@ const competencies = ref({
   margin-top: 5px;
 }
 
-.experience__skills {
+.resume__skills {
   margin-top: 20px;
   font-size: 16px;
   color: $gray-blue;
 }
 
-.experience__skills-list {
+.resume__skills-list {
   margin-top: 10px;
 }
 
