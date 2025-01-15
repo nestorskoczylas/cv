@@ -18,6 +18,28 @@
                 <em>{{ experience.period }} — {{ experience.location }}</em>
               </div>
             </div>
+
+            <div class="experience__right-column">
+              <ChipList :items="experience.keywords" :outlined="true" />
+            </div>
+          </div>
+
+          <div class="experience__content">
+            <div class="experience__context">
+              <em>{{ experience.context }}</em>
+            </div>
+            <div class="experience__envrionment-methodology">
+              <ChipList
+                label="Environnements"
+                :items="experience.environments"
+                class="experience__chip-list"
+              />
+              <ChipList
+                label="Méthodologies"
+                :items="experience.methodologies"
+                class="experience__chip-list"
+              />
+            </div>
           </div>
         </q-card-section>
       </q-card>
@@ -28,6 +50,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import ChipList from 'src/components/ChipList.vue'
 
 const route = useRoute()
 
@@ -227,5 +250,41 @@ onMounted(() => {
   color: $gray;
   margin-top: 5px;
   margin-bottom: 20px;
+}
+
+.experience__right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.experience__content {
+  display: flex;
+  justify-content: space-between;
+  margin: 3vh 0;
+}
+
+.experience__context {
+  font-size: 14px;
+  color: $gray;
+  margin-right: 5vw;
+  flex: 2;
+  min-width: 25%;
+}
+
+.experience__envrionment-methodology {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5vw;
+  flex: 1;
+  min-width: 50%;
+  justify-content: flex-end;
+}
+
+.experience__envrionment-methodology .experience__chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 </style>
