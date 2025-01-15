@@ -1,6 +1,10 @@
 <template>
   <div class="background-container">
-    <q-page class="q-pa-md flex flex-center borders">
+    <q-page class="q-pa-md borders">
+      <q-toolbar class="q-mb-md">
+        <q-btn icon="arrow_back" label="Retour" color="primary" to="/resume" flat outline />
+      </q-toolbar>
+
       <q-card
         v-if="experience"
         class="experience__card q-mb-md"
@@ -251,6 +255,10 @@ onMounted(() => {
 
 .borders {
   border: 1px solid $background;
+}
+
+.q-toolbar .q-btn {
+  background-color: $white;
 }
 
 .experience__card {
