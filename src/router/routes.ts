@@ -11,13 +11,11 @@ const routes: RouteRecordRaw[] = [
     path: '/resume',
     component: Resume,
     name: 'resume',
-    children: [
-      {
-        path: 'experience/:id',
-        component: Experience,
-        name: 'experience',
-      },
-    ],
+  },
+  {
+    path: '/resume/experience/:id',
+    component: Experience,
+    name: 'experience',
   },
   { path: '/projects', component: Projects, name: 'projects' },
   {
