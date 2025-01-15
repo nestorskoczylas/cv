@@ -1,8 +1,18 @@
 <template>
   <div>
-    <div class="flex items-center">
-      <div class="resume__indicator"></div>
-      <h2 class="resume__title">{{ title }}</h2>
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <div class="resume__indicator"></div>
+        <h2 class="resume__title">{{ title }}</h2>
+      </div>
+      <q-btn
+        v-if="downloadResume"
+        icon="mdi-download"
+        label="Télécharger le CV"
+        @click="download"
+        outlined
+        color="primary"
+      />
     </div>
     <div class="resume__cards">
       <slot></slot>
@@ -16,7 +26,18 @@ defineProps({
     type: String,
     required: true,
   },
+  downloadResume: {
+    type: Boolean,
+    default: false,
+  },
 })
+
+const download = () => {
+  const link = document.createElement('a')
+  link.href = '/documents/resume.pdf'
+  link.target = '_blank'
+  link.click()
+}
 </script>
 
 <style lang="scss" scoped>

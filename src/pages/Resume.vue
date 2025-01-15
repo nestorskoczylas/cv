@@ -3,7 +3,7 @@
     <q-page class="q-pa-md flex flex-center scroll-content borders">
       <div class="resume__section">
         <template v-for="(section, index) in resumeSections" :key="index">
-          <ResumeSection :title="section.title">
+          <ResumeSection :title="section.title" :downloadResume="index === 0">
             <CardItem
               v-for="(item, index) in section.items"
               :key="index"
