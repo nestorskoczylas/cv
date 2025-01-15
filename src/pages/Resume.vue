@@ -50,7 +50,7 @@ const resumeSections: ResumeSection[] = [
     title: 'Expériences professionnelles',
     items: [
       {
-        id: '1',
+        id: '3',
         title: 'Développeur Full Stack C# VueJs',
         organization: 'Access It',
         period: 'Octobre 2024 - Novembre 2024',
@@ -78,7 +78,7 @@ const resumeSections: ResumeSection[] = [
         ],
       },
       {
-        id: '3',
+        id: '1',
         title: 'Développeur Web ReactJS',
         organization: 'Vallourec Tubes France',
         period: 'Avril 2022 - Juillet 2022',
