@@ -17,10 +17,10 @@
 
       <!-- Content -->
       <div v-if="skills && skills.length > 0 && !skillTitle">
-        <ResumeChipList label="Compétences" :items="skills" />
+        <ChipList label="Compétences" :items="skills" />
       </div>
       <div v-if="skills && skillTitle">
-        <ResumeChipList :label="skillTitle" :items="skills" />
+        <ChipList :label="skillTitle" :items="skills" />
       </div>
       <div v-if="achievements && achievements.length > 0">
         <div class="generic-card__achievements">
@@ -34,12 +34,17 @@
       </div>
     </q-card-section>
     <!-- Footer -->
-    <template v-if="links">
+    <template v-if="links || id">
       <q-card-actions>
         <div v-for="(link, index) in links" :key="index" class="q-ml-md">
           <a :href="link.url" target="_blank" rel="noopener noreferrer">
             <q-btn :label="link.label" color="primary" outlined />
           </a>
+        </div>
+        <div v-if="id" class="q-ml-md">
+          <router-link :to="{ name: 'experience', params: { id: id } }">
+            <q-btn label="En savoir plus" color="primary" />
+          </router-link>
         </div>
       </q-card-actions>
     </template>
@@ -47,9 +52,10 @@
 </template>
 
 <script lang="ts" setup>
-import ResumeChipList from 'src/components/ResumeChipList.vue'
+import ChipList from 'src/components/ChipList.vue'
 
 defineProps({
+  id: { type: String, required: false },
   title: { type: String, required: false },
   organization: { type: String, required: false },
   period: { type: String, required: false },
