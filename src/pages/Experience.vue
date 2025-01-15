@@ -1,5 +1,5 @@
 <template>
-  <div class="background-container">
+  <div class="background">
     <q-page class="q-pa-md borders">
       <q-toolbar class="q-mb-md">
         <q-btn icon="arrow_back" label="Retour" color="primary" to="/resume" flat outline />
@@ -281,14 +281,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.background-container {
-  background: $background;
-}
-
-.borders {
-  border: 1px solid $background;
-}
-
 .q-toolbar .q-btn {
   background-color: $white;
 }

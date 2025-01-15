@@ -1,5 +1,5 @@
 <template>
-  <div class="background-container">
+  <div class="background">
     <q-page class="q-pa-md flex flex-center borders">
       <div class="resume__section">
         <template v-for="(section, index) in resumeSections" :key="index">
@@ -261,14 +261,6 @@ const resumeSections: ResumeSection[] = [
 </script>
 
 <style lang="scss" scoped>
-.background-container {
-  background: $background;
-}
-
-.borders {
-  border: 1px solid $background;
-}
-
 .resume__position-company {
   font-size: 20px;
   font-weight: bold;

@@ -1,5 +1,5 @@
 <template>
-  <div class="background-container">
+  <div class="background__linear-gradient">
     <q-page class="q-pa-md flex flex-center scroll-content borders">
       <ProfileCard />
 
@@ -14,13 +14,9 @@ import ProfilInfoCard from 'src/components/ProfilInfoCard.vue'
 </script>
 
 <style lang="scss" scoped>
-.background-container {
+.background__linear-gradient {
   background:
     linear-gradient(to right, $background 40%, $white 40%) no-repeat,
     $white;
-}
-
-.borders {
-  border: 1px solid $background;
 }
 </style>

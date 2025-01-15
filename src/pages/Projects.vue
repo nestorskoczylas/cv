@@ -1,5 +1,5 @@
 <template>
-  <div class="background-container">
+  <div class="background">
     <q-page class="q-pa-md flex flex-center borders">
       <div class="project__section">
         <ResumeSection title="Projets personnels">
@@ -73,14 +73,6 @@ const projects = ref([
 </script>
 
 <style lang="scss" scoped>
-.background-container {
-  background: $background;
-}
-
-.borders {
-  border: 1px solid $background;
-}
-
 .project__section {
   width: 100%;
   max-width: 800px;
