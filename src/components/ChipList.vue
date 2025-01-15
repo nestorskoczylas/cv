@@ -32,10 +32,6 @@ defineProps({
   font-size: 14px;
 }
 
-.chip-list {
-  margin-top: 10px;
-}
-
 .q-chip {
   margin: 5px;
   background-color: transparent;

@@ -25,6 +25,18 @@
 
             <div class="experience__right-column">
               <ChipList :items="experience.keywords" :outlined="true" />
+
+              <div v-if="experience.reference" class="experience__reference">
+                <a
+                  :href="experience.reference.linkedin"
+                  target="_blank"
+                  class="experience__reference-linkedin"
+                >
+                  <q-btn icon="mdi-linkedin" color="primary" flat />
+                </a>
+                <strong>{{ experience.reference.name }}</strong>
+                <div>{{ experience.reference.role }}</div>
+              </div>
             </div>
           </div>
 
@@ -99,6 +111,11 @@ type Experience = {
   period: string
   location: string
   keywords: string[]
+  reference: {
+    name: string
+    role: string
+    linkedin: string
+  }
   context: string
   environments: string[]
   methodologies: string[]
@@ -126,6 +143,11 @@ const experiences: Experience[] = [
       'Partenaire Microsoft',
       'Agilité',
     ],
+    reference: {
+      name: 'Romain Oddone',
+      role: 'Manager et Architecte logiciel',
+      linkedin: 'https://www.linkedin.com/in/romain-oddone/',
+    },
     context:
       'Access It est une société de services spécialisée dans le développement d’applications sur mesure. Partenaire certifié Microsoft, Access It accompagne les entreprises dans la mise en place et l’évolution de leurs systèmes d’information avec une approche humaine et transparente. En tant que Développeur Full Stack, j’ai contribué à divers projets en maintenance, amélioration et ajout de nouvelles fonctionnalités sur des logiciels stratégiques, en utilisant des technologies modernes comme C#, VueJs et PostgreSQL.',
     environments: ['C#', 'VueJs', 'PostgreSQL', 'Azure DevOps', 'Vitest'],
@@ -167,6 +189,11 @@ const experiences: Experience[] = [
     period: 'Septembre 2022 à Septembre 2024',
     location: 'Lille, France',
     keywords: ['Microsoft', 'Projet', 'Refonte', 'Supply chain', 'Microsoft'],
+    reference: {
+      name: 'Nicolas Cadart',
+      role: 'Techlead',
+      linkedin: 'https://www.linkedin.com/in/nicolas-cadart-07572b190/',
+    },
     context:
       'Opalean, une entreprise spécialisée dans le développement d’applications web, a conçu et mis en place une solution CRM pour accompagner ses clients dans la gestion de leurs supports de manutention. Cette solution, conçue pour optimiser les flux de transport, est aujourd’hui utilisée par de nombreuses entreprises dans des secteurs d’activités variés. En tant que Développeur Full Stack (en alternance), j’ai eu l’opportunité de contribuer activement au développement et à l’amélioration de cette solution WMS, en m’impliquant dans des projets concrets.',
     environments: ['C#', 'VueJS', 'Trello', 'Suite Google', 'VB.NET', 'SQL Server'],
@@ -203,6 +230,11 @@ const experiences: Experience[] = [
     period: 'Avril 2022 à Juillet 2022',
     location: 'Aulnoye-Aymeries, France',
     keywords: ['React', 'Java', 'Agile', 'Scrum', 'Refonte', 'R&D', 'Tests unitaires'],
+    reference: {
+      name: 'Guillaume Wolf',
+      role: 'Product Owner',
+      linkedin: 'https://www.linkedin.com/in/guillaume-wolf-productowner/',
+    },
     context:
       'Vallourec, acteur mondial des solutions tubulaires en acier, conçoit, produit et distribue des tubes sans soudure et des composants pour les secteurs de l’énergie et de l’industrie. Mon stage s’est déroulé au sein du département R&D, où j’ai contribué au développement d’une application web de gestion d’inventaire. Ce projet visait à refondre et améliorer l’expérience utilisateur tout en garantissant la qualité du code grâce à une méthodologie Agile.',
     environments: [
@@ -271,7 +303,7 @@ onMounted(() => {
 
 .experience__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 20px;
 }
 
@@ -295,9 +327,28 @@ onMounted(() => {
 
 .experience__right-column {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: start;
+  gap: 6vw;
+}
+
+.experience__reference {
+  font-size: 14px;
+  color: $gray;
+  text-align: end;
+}
+
+.experience__reference-linkedin {
+  display: inline-block;
+  justify-content: center;
+  text-decoration: none;
+  color: $primary;
+}
+
+.experience__reference-linkedin q-btn {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 .experience__content {
