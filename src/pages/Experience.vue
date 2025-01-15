@@ -1,7 +1,26 @@
 <template>
   <div class="background-container">
-    <q-page class="q-pa-md flex flex-center scroll-content borders">
-      <p>Experience ID: {{ experience?.id }}</p>
+    <q-page class="q-pa-md flex flex-center borders">
+      <q-card
+        v-if="experience"
+        class="experience__card q-mb-md"
+        bordered
+        shadow="2"
+        style="width: 100%"
+      >
+        <q-card-section>
+          <div class="experience__grid">
+            <div class="experience__left-column">
+              <div class="experience__header">
+                <strong>{{ experience.title }} — {{ experience.company }}</strong>
+              </div>
+              <div class="experience__period-location">
+                <em>{{ experience.period }} — {{ experience.location }}</em>
+              </div>
+            </div>
+          </div>
+        </q-card-section>
+      </q-card>
     </q-page>
   </div>
 </template>
@@ -174,12 +193,39 @@ onMounted(() => {
   background: $background;
 }
 
-.scroll-content {
-  max-height: 100%;
-  overflow-y: auto;
-}
-
 .borders {
   border: 1px solid $background;
+}
+
+.experience__card {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.experience__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.experience__left-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience__header {
+  font-size: 20px;
+  font-weight: bold;
+  color: $primary;
+}
+
+.experience__period-location {
+  font-size: 14px;
+  color: $gray;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 </style>
