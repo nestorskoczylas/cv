@@ -7,6 +7,7 @@
             <CardItem
               v-for="(item, index) in section.items"
               :key="index"
+              :id="item.id || ''"
               :title="item.title || ''"
               :organization="item.organization || ''"
               :period="item.period || ''"
@@ -28,6 +29,7 @@ import ResumeSection from 'src/components/ResumeSection.vue'
 import CardItem from 'src/components/CardItem.vue'
 
 type ResumeItems = {
+  id?: string
   title?: string
   organization?: string
   period?: string
@@ -48,6 +50,7 @@ const resumeSections: ResumeSection[] = [
     title: 'Expériences professionnelles',
     items: [
       {
+        id: '1',
         title: 'Développeur Full Stack C# VueJs',
         organization: 'Access It',
         period: 'Octobre 2024 - Novembre 2024',
@@ -61,6 +64,7 @@ const resumeSections: ResumeSection[] = [
         ],
       },
       {
+        id: '2',
         title: 'Développeur Full Stack C# VueJs',
         organization: 'Opalean',
         period: 'Septembre 2022 - Septembre 2024',
@@ -74,6 +78,7 @@ const resumeSections: ResumeSection[] = [
         ],
       },
       {
+        id: '3',
         title: 'Développeur Web ReactJS',
         organization: 'Vallourec Tubes France',
         period: 'Avril 2022 - Juillet 2022',
