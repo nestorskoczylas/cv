@@ -16,7 +16,7 @@
           :key="item.label"
           flat
           :label="item.label"
-          :class="{ 'active-page': item.route === currentPage }"
+          :class="{ 'active-page': isActivePage(item.route) }"
           @click="navigateTo(router, item.route)"
           class="q-mx-sm navigation-btn"
         />
@@ -26,20 +26,25 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { navigateTo } from 'src/utils/navigation';
+import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { navigateTo } from 'src/utils/navigation'
 
 const menuItems = ref([
   { label: 'À PROPOS DE MOI', route: 'aboutMe' },
   { label: 'CV', route: 'resume' },
   { label: 'PROJETS', route: 'projects' },
-]);
+])
 
-const route = useRoute();
-const router = useRouter();
+const route = useRoute()
+const router = useRouter()
 
-const currentPage = computed(() => route.name);
+const currentPage = computed(() => route.name)
+
+const isActivePage = computed(() => (page: string) => {
+  if (typeof currentPage.value === 'string') return currentPage.value.includes(page)
+  return false
+})
 </script>
 
 <style lang="scss" scoped>
