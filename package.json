@@ -13,7 +13,7 @@
     "local": "pnpm quasar dev",
     "build": "pnpm quasar build",
     "postinstall": "quasar prepare",
-    "deploy": "push-dir --dir=dist/spa --remote=gh-pages --branch=main"
+    "deploy": "push-dir --dir=dist/spa --remote=gh-page --branch=main"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
