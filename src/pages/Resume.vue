@@ -1,6 +1,6 @@
 <template>
   <div class="background-container">
-    <q-page class="q-pa-md flex flex-center scroll-content borders">
+    <q-page class="q-pa-md flex flex-center borders">
       <div class="resume__section">
         <template v-for="(section, index) in resumeSections" :key="index">
           <ResumeSection :title="section.title" :downloadResume="index === 0">
@@ -265,18 +265,8 @@ const resumeSections: ResumeSection[] = [
   background: $background;
 }
 
-.scroll-content {
-  max-height: 100%;
-  overflow-y: auto;
-}
-
 .borders {
   border: 1px solid $background;
-}
-
-.project__section {
-  width: 100%;
-  max-width: 800px;
 }
 
 .resume__position-company {

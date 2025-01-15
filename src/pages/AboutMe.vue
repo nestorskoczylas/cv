@@ -9,19 +9,15 @@
 </template>
 
 <script lang="ts" setup>
-import ProfileCard from 'src/components/ProfileCard.vue';
-import ProfilInfoCard from 'src/components/ProfilInfoCard.vue';
+import ProfileCard from 'src/components/ProfileCard.vue'
+import ProfilInfoCard from 'src/components/ProfilInfoCard.vue'
 </script>
 
 <style lang="scss" scoped>
 .background-container {
-  background: linear-gradient(to right, $background 40%, $white 40%) no-repeat,
+  background:
+    linear-gradient(to right, $background 40%, $white 40%) no-repeat,
     $white;
-}
-
-.scroll-content {
-  max-height: 100%;
-  overflow-y: auto;
 }
 
 .borders {

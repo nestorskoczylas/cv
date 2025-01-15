@@ -1,6 +1,6 @@
 <template>
   <div class="background-container">
-    <q-page class="q-pa-md flex flex-center scroll-content borders">
+    <q-page class="q-pa-md flex flex-center borders">
       <div class="project__section">
         <ResumeSection title="Projets personnels">
           <CardItem
@@ -77,11 +77,6 @@ const projects = ref([
   background: $background;
 }
 
-.scroll-content {
-  max-height: 100%;
-  overflow-y: auto;
-}
-
 .borders {
   border: 1px solid $background;
 }
@@ -89,11 +84,5 @@ const projects = ref([
 .project__section {
   width: 100%;
   max-width: 800px;
-}
-
-.resume__position-company {
-  font-size: 20px;
-  font-weight: bold;
-  color: $primary;
 }
 </style>

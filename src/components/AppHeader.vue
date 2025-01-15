@@ -1,11 +1,11 @@
 <template>
   <q-header class="bg-white q-pa-md">
     <q-toolbar class="q-pa-md">
-      <div class="header-left row items-center">
+      <div class="row items-center">
         <div class="square-indicator"></div>
-        <div class="name-title">
-          <span class="name">Nestor Skoczylas</span>
-          <span class="profession">/ DÉVELOPPEUR C# .NET VUEJS</span>
+        <div class="header__name-title">
+          <span class="header__name">Nestor Skoczylas</span>
+          <span class="header__profession">/ DÉVELOPPEUR C# .NET VUEJS</span>
         </div>
       </div>
 
@@ -16,9 +16,9 @@
           :key="item.label"
           flat
           :label="item.label"
-          :class="{ 'active-page': isActivePage(item.route) }"
+          :class="{ 'header__active-page': isActivePage(item.route) }"
           @click="navigateTo(router, item.route)"
-          class="q-mx-sm navigation-btn"
+          class="q-mx-sm header__navigation"
         />
       </div>
     </q-toolbar>
@@ -55,18 +55,18 @@ const isActivePage = computed(() => (page: string) => {
   margin-right: 16px;
 }
 
-.name-title {
+.header__name-title {
   display: flex;
   align-items: baseline;
 }
 
-.name {
+.header__name {
   font-weight: 700;
   font-size: 1.6rem;
   color: $dark;
 }
 
-.profession {
+.header__profession {
   margin-left: 8px;
   font-size: 1.15rem;
   font-style: normal;
@@ -81,16 +81,16 @@ const isActivePage = computed(() => (page: string) => {
   font-weight: 300;
 }
 
-.navigation-btn {
+.header__navigation {
   color: $white;
   transition: color 0.2s ease-in-out;
 }
 
-.navigation-btn:hover {
+.header__navigation:hover {
   color: $primary;
 }
 
-.active-page {
+.header__active-page {
   color: $primary !important;
 }
 </style>

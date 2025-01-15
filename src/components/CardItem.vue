@@ -1,7 +1,6 @@
 <template>
   <q-card class="generic-card q-mb-md" bordered shadow="2">
     <q-card-section>
-      <!-- Header -->
       <div v-if="title && organization" class="generic-card__header">
         <strong>{{ title }} — {{ organization }}</strong>
       </div>
@@ -15,7 +14,6 @@
         <em>{{ description }}</em>
       </div>
 
-      <!-- Content -->
       <div v-if="skills && skills.length > 0 && !skillTitle">
         <ChipList label="Compétences" :items="skills" />
       </div>
@@ -33,7 +31,6 @@
         </div>
       </div>
     </q-card-section>
-    <!-- Footer -->
     <template v-if="links || id">
       <q-card-actions>
         <div v-for="(link, index) in links" :key="index" class="q-ml-md">
@@ -76,6 +73,10 @@ defineProps({
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.q-card__section--vert {
+  padding: 0;
 }
 
 .generic-card__header {
