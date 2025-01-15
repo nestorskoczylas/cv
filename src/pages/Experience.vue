@@ -41,6 +41,39 @@
               />
             </div>
           </div>
+
+          <div class="experience__achievements">
+            <div class="experience__achievement">
+              <strong>Réalisations générales :</strong>
+              <ul>
+                <li v-for="(achievement, index) in experience.achievements.general" :key="index">
+                  <span>{{ achievement }}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="experience__achievement">
+              <strong>Réalisations méthodologiques :</strong>
+              <ul>
+                <li
+                  v-for="(methodology, index) in experience.achievements.methodology"
+                  :key="index"
+                >
+                  <span>{{ methodology }}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="experience__achievement">
+              <strong>Interventions :</strong>
+              <ul>
+                <li
+                  v-for="(intervention, index) in experience.achievements.interventions"
+                  :key="index"
+                >
+                  <span>{{ intervention }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </q-card-section>
       </q-card>
     </q-page>
@@ -286,5 +319,23 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
+}
+
+.experience__achievement {
+  margin-top: 20px;
+}
+
+.experience__achievement li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.experience__achievements {
+  display: flex;
+  margin-top: 5vh;
+}
+
+.experience__achievements .experience__achievement {
+  margin-right: 20px;
 }
 </style>
