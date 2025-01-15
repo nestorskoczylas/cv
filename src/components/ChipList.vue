@@ -1,8 +1,8 @@
 <template>
-  <div class="resume__skills">
-    <strong>{{ label }} :</strong>
-    <div class="resume__skills-list">
-      <q-chip v-for="(item, index) in items" :key="index" class="q-mr-sm">
+  <div class="chip">
+    <strong v-if="label">{{ label }} :</strong>
+    <div class="chip-list">
+      <q-chip v-for="(item, index) in items" :key="index" class="q-mr-sm" :class="{ outlined }">
         {{ item }}
       </q-chip>
     </div>
@@ -13,21 +13,26 @@
 defineProps({
   label: {
     type: String,
-    required: true,
+    required: false,
   },
   items: {
     type: Array,
     required: true,
   },
+  outlined: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 })
 </script>
 
 <style lang="scss" scoped>
-.resume__skills {
+.chip {
   font-size: 14px;
 }
 
-.resume__skills-list {
+.chip-list {
   margin-top: 10px;
 }
 
@@ -35,5 +40,10 @@ defineProps({
   margin: 5px;
   background-color: transparent;
   border: 1px solid $primary;
+}
+
+.q-chip.outlined {
+  background-color: $primary;
+  color: $white;
 }
 </style>

@@ -17,10 +17,10 @@
 
       <!-- Content -->
       <div v-if="skills && skills.length > 0 && !skillTitle">
-        <ResumeChipList label="Compétences" :items="skills" />
+        <ChipList label="Compétences" :items="skills" />
       </div>
       <div v-if="skills && skillTitle">
-        <ResumeChipList :label="skillTitle" :items="skills" />
+        <ChipList :label="skillTitle" :items="skills" />
       </div>
       <div v-if="achievements && achievements.length > 0">
         <div class="generic-card__achievements">
@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts" setup>
-import ResumeChipList from 'src/components/ResumeChipList.vue'
+import ChipList from 'src/components/ChipList.vue'
 
 defineProps({
   id: { type: String, required: false },
