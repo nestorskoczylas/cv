@@ -1,6 +1,6 @@
 {
   "name": "cv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CV",
   "productName": "Nestor Skoczylas",
   "author": "nestorskoczylas <nestor.skoczylas23@gmail.com>",
@@ -12,8 +12,7 @@
     "test": "echo \"No test specified\" && exit 0",
     "local": "pnpm quasar dev",
     "build": "pnpm quasar build",
-    "postinstall": "quasar prepare",
-    "deploy": "push-dir --dir=dist/spa --remote=gh-page --branch=main"
+    "postinstall": "quasar prepare"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
@@ -33,7 +32,6 @@
     "eslint-plugin-vue": "^9.30.0",
     "globals": "^15.12.0",
     "prettier": "^3.3.3",
-    "push-dir": "^0.4.1",
     "typescript": "~5.5.3",
     "vite-plugin-checker": "^0.8.0",
     "vue-tsc": "^2.0.29"
