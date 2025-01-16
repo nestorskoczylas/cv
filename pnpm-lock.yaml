@@ -18,7 +18,7 @@ importers:
         specifier: ^2.16.0
         version: 2.17.6
       vue:
-        specifier: ^3.5.13
+        specifier: ^3.4.18
         version: 3.5.13(typescript@5.5.4)
       vue-router:
         specifier: ^4.0.12
@@ -57,9 +57,6 @@ importers:
       typescript:
         specifier: ~5.5.3
         version: 5.5.4
-      vite:
-        specifier: ^5.1.8
-        version: 5.4.11(@types/node@20.17.12)(sass-embedded@1.83.1)(sass@1.83.1)(terser@5.37.0)
       vite-plugin-checker:
         specifier: ^0.8.0
         version: 0.8.0(eslint@9.18.0)(optionator@0.9.4)(typescript@5.5.4)(vite@6.0.7(@types/node@20.17.12)(sass-embedded@1.83.4)(terser@5.37.0))(vue-tsc@2.2.0(typescript@5.5.4))
@@ -905,9 +902,6 @@ packages:
   compression@1.7.5:
     resolution: {integrity: sha512-bQJ0YRck5ak3LgtnpKkiabX5pNF7tMUh1BSy2ZBOTh0Dim0BUu6aPPwByIns6/A5Prh8PufSPerMDUklpzes2Q==}
     engines: {node: '>= 0.8.0'}
-
-  computeds@0.0.1:
-    resolution: {integrity: sha512-7CEBgcMjVmitjYo5q8JTJVra6X5mQ20uTThdK+0kR7UEaDrAWEQcRiBtWJzga4eRpP6afNwwLsX2SET2JhVB1Q==}
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -3264,8 +3258,6 @@ snapshots:
       vary: 1.1.2
     transitivePeerDependencies:
       - supports-color
-
-  computeds@0.0.1: {}
 
   concat-map@0.0.1: {}
 

@@ -32,9 +32,10 @@ defineProps({
   },
 })
 
+const document_URL = `${process.env.BASE_URL}documents/resume.pdf`
 const download = () => {
   const link = document.createElement('a')
-  link.href = '/documents/resume.pdf'
+  link.href = document_URL
   link.target = '_blank'
   link.click()
 }

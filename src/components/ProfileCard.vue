@@ -2,24 +2,13 @@
   <q-card style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)">
     <q-card-section class="q-pa-lg profil-card__background-section text-center">
       <div class="profil-card__image-container">
-        <img
-          src="/icons/favicon-425x425.png"
-          alt="me"
-          :width="200"
-          :height="200"
-          class="profil-card__image"
-        />
+        <img :src="image_URL" alt="me" :width="200" :height="200" class="profil-card__image" />
       </div>
       <div class="profil-card__name">
         <p class="text-bold">Nestor</p>
         <p class="text-bold">Skoczylas</p>
       </div>
-      <q-separator
-        horizontal
-        color="primary"
-        size="0.2rem"
-        class="profil-card__separator"
-      />
+      <q-separator horizontal color="primary" size="0.2rem" class="profil-card__separator" />
       <span class="profil-card__profession">Développeur C# .NET VueJS</span>
     </q-card-section>
 
@@ -30,7 +19,9 @@
 </template>
 
 <script lang="ts" setup>
-import SocialLinks from './SocialLinks.vue';
+import SocialLinks from './SocialLinks.vue'
+
+const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
 </script>
 
 <style lang="scss" scoped>
