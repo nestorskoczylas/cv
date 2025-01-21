@@ -1,15 +1,16 @@
 <template>
   <q-header class="bg-white q-pa-md">
     <q-toolbar class="q-pa-md">
-      <div class="row items-center">
-        <div class="square-indicator"></div>
-        <div class="header__name-title">
+      <div class="header-left">
+        <div class="header__square-name">
+          <div class="square-indicator"></div>
           <span class="header__name">Nestor Skoczylas</span>
-          <span class="header__profession">/ DÉVELOPPEUR C# .NET VUEJS</span>
         </div>
+        <span class="header__profession">DÉVELOPPEUR C# .NET VUEJS</span>
       </div>
 
       <q-space />
+
       <div class="header-right row items-center">
         <q-btn
           v-for="item in menuItems"
@@ -49,15 +50,21 @@ const isActivePage = computed(() => (page: string) => {
 
 <style lang="scss" scoped>
 .square-indicator {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   background-color: $primary;
-  margin-right: 16px;
+  margin-right: 1rem;
 }
 
-.header__name-title {
+.header-left {
   display: flex;
   align-items: baseline;
+  gap: 1rem;
+}
+
+.header__square-name {
+  display: flex;
+  align-items: center;
 }
 
 .header__name {
@@ -67,11 +74,38 @@ const isActivePage = computed(() => (page: string) => {
 }
 
 .header__profession {
-  margin-left: 8px;
   font-size: 1.15rem;
-  font-style: normal;
   font-weight: 300;
   color: $dark;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .header__name {
+    font-size: 1.4rem;
+  }
+
+  .header__profession {
+    font-size: 1rem;
+  }
+
+  .header-right {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
 }
 
 .header-right .q-btn {
