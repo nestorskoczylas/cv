@@ -50,16 +50,22 @@ const isActivePage = computed(() => (page: string) => {
 
 <style lang="scss" scoped>
 .square-indicator {
-  width: 1rem;
-  height: 1rem;
+  width: $square-size;
+  height: $square-size;
   background-color: $primary;
-  margin-right: 1rem;
+  margin-right: $square-size;
 }
 
 .header-left {
   display: flex;
   align-items: baseline;
   gap: 1rem;
+}
+
+@mixin header-mobile {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
 }
 
 .header__square-name {
@@ -69,43 +75,15 @@ const isActivePage = computed(() => (page: string) => {
 
 .header__name {
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: $font-size-name;
   color: $dark;
 }
 
 .header__profession {
-  font-size: 1.15rem;
+  font-size: $font-size-profession;
   font-weight: 300;
   color: $dark;
   text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-  .header-left {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-
-  .header__name {
-    font-size: 1.4rem;
-  }
-
-  .header__profession {
-    font-size: 1rem;
-  }
-
-  .header-right {
-    display: none;
-  }
-}
-
-@media (max-width: 1024px) {
-  .header-left {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
 }
 
 .header-right .q-btn {
@@ -126,5 +104,30 @@ const isActivePage = computed(() => (page: string) => {
 
 .header__active-page {
   color: $primary !important;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .header-left {
+    @include header-mobile;
+  }
+
+  .header__name {
+    font-size: $font-size-name-mobile;
+  }
+
+  .header__profession {
+    font-size: $font-size-profession-mobile;
+  }
+
+  .header-right {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-left {
+    @include header-mobile;
+  }
 }
 </style>
