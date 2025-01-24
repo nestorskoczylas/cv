@@ -1,10 +1,8 @@
 <template>
   <div>
     <div class="flex justify-between items-center">
-      <div class="flex items-center">
-        <div class="resume__indicator"></div>
-        <h2 class="resume__title">{{ title }}</h2>
-      </div>
+      <SquareTitle class="q-pa-md" :title="title" textColor="#2c3e50" :textSize="textSize" />
+
       <q-btn
         v-if="downloadResume"
         icon="mdi-download"
@@ -21,7 +19,10 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
+import { onMounted, ref } from 'vue'
+import SquareTitle from './SquareTitle.vue'
+
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -30,6 +31,14 @@ defineProps({
     type: Boolean,
     default: false,
   },
+})
+
+const textSize = window.innerWidth < 768 ? '1.4rem' : '2rem'
+
+const downloadResume = ref(props.downloadResume)
+
+onMounted(() => {
+  downloadResume.value = window.innerWidth >= 768 && props.downloadResume
 })
 
 const document_URL = `${process.env.BASE_URL}documents/resume.pdf`
