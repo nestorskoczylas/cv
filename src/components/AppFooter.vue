@@ -1,5 +1,5 @@
 <template>
-  <q-footer class="bg-white q-pa-none">
+  <q-footer class="bg-white q-pa-none footer">
     <q-toolbar class="q-pa-md footer__toolbar">
       <div class="footer__left-section">
         <span class="footer__text">© 2025 - Nestor SKOCZYLAS</span>
@@ -31,6 +31,15 @@ import { openExternalLink } from 'src/utils/navigation'
 </script>
 
 <style lang="scss" scoped>
+.footer {
+  /* La position fixe par défaut */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
 .footer__toolbar {
   flex-wrap: wrap;
 }
@@ -89,6 +98,12 @@ import { openExternalLink } from 'src/utils/navigation'
 
   .footer__text {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 764px) {
+  .footer {
+    position: relative;
   }
 }
 </style>
