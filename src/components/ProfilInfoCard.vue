@@ -1,16 +1,23 @@
 <template>
-  <q-card flat class="profil-info-card__card">
-    <q-card-section class="profil-info-card__background-section">
+  <ProfilBaseCard
+    cardClass="profil-info-card__card"
+    :isFlat="true"
+    sectionClass="profil-info-card__background-section"
+  >
+    <template #header>
       <div class="profil-info-card__section-title">
         <h2 class="text-bold profil-info-card__title q-pb-lg">Hello</h2>
         <h4 class="q-mt-none q-mb-none q-pb-lg">Qui suis-je ? Que fais-je ?</h4>
       </div>
+    </template>
+
+    <template #body>
       <div class="profil-info-card__description">
         <p>{{ description }}</p>
       </div>
-    </q-card-section>
+    </template>
 
-    <q-card-actions class="flex justify-evenly">
+    <template #actions>
       <q-btn
         label="CV"
         color="primary"
@@ -24,11 +31,12 @@
         class="profil-info-card__button"
         @click="navigateTo(router, 'projects')"
       />
-    </q-card-actions>
-  </q-card>
+    </template>
+  </ProfilBaseCard>
 </template>
 
 <script lang="ts" setup>
+import ProfilBaseCard from './ProfilBaseCard.vue'
 import { navigateTo } from 'src/utils/navigation'
 import { useRouter } from 'vue-router'
 
@@ -39,25 +47,12 @@ const description =
 </script>
 
 <style lang="scss" scoped>
-.profil-info-card__card {
-  width: 20rem;
-  height: 35rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background: transparent;
-}
-
 .profil-info-card__section-title {
   text-align: start;
 }
 
 .profil-info-card__title {
   margin: 0;
-}
-
-.profil-info-card__separator {
-  margin-bottom: 2rem;
 }
 
 .profil-info-card__description {

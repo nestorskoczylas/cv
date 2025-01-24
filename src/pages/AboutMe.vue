@@ -2,7 +2,6 @@
   <div class="background__linear-gradient">
     <q-page class="q-pa-md flex flex-center scroll-content borders">
       <ProfileCard />
-
       <ProfilInfoCard />
     </q-page>
   </div>

@@ -1,6 +1,9 @@
 <template>
-  <q-card class="profil-card__card">
-    <q-card-section class="q-pa-lg profil-card__background-section text-center">
+  <ProfilBaseCard
+    cardClass="profil-card__card"
+    sectionClass="q-pa-lg profil-card__background-section text-center"
+  >
+    <template #header>
       <div class="profil-card__image-container">
         <img :src="image_URL" alt="me" width="200vw" height="200vw" class="profil-card__image" />
       </div>
@@ -10,31 +13,22 @@
       </div>
       <q-separator horizontal color="primary" size="0.2rem" class="profil-card__separator" />
       <span class="profil-card__profession">Développeur C# .NET VueJS</span>
-    </q-card-section>
+    </template>
 
-    <q-card-actions class="flex justify-evenly">
+    <template #actions>
       <SocialLinks />
-    </q-card-actions>
-  </q-card>
+    </template>
+  </ProfilBaseCard>
 </template>
 
 <script lang="ts" setup>
+import ProfilBaseCard from './ProfilBaseCard.vue'
 import SocialLinks from './SocialLinks.vue'
 
 const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
 </script>
 
 <style lang="scss" scoped>
-.profil-card__card {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 20rem;
-  height: 35rem;
-}
-
-.profil-card__background-section {
-  background: $secondary;
-}
-
 .profil-card__image-container {
   padding: 1.5rem 0;
 }
