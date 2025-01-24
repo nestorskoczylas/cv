@@ -2,10 +2,7 @@
   <q-header class="bg-white q-pa-md">
     <q-toolbar class="q-pa-md">
       <div class="header__left">
-        <div class="header__square-name">
-          <div class="square-indicator"></div>
-          <span class="header__name">Nestor Skoczylas</span>
-        </div>
+        <SquareTitle title="Nestor Skoczylas" />
         <span class="header__profession">DÉVELOPPEUR C# .NET VUEJS</span>
       </div>
 
@@ -56,6 +53,7 @@
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { navigateTo } from 'src/utils/navigation'
+import SquareTitle from './SquareTitle.vue'
 
 const menuItems = ref([
   { label: 'À PROPOS DE MOI', route: 'aboutMe' },
@@ -82,28 +80,10 @@ const handleMenuItemClick = (route: string) => {
 </script>
 
 <style lang="scss" scoped>
-.square-indicator {
-  width: $square-size;
-  height: $square-size;
-  background-color: $primary;
-  margin-right: $square-size;
-}
-
 .header__left {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-}
-
-.header__square-name {
-  display: flex;
-  align-items: center;
-}
-
-.header__name {
-  font-weight: 700;
-  font-size: $font-size-name;
-  color: $dark;
 }
 
 .header__profession {
