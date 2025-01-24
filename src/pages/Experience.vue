@@ -5,20 +5,14 @@
         <q-btn icon="arrow_back" label="Retour" color="primary" to="/resume" flat outline />
       </q-toolbar>
 
-      <q-card
-        v-if="experience"
-        class="experience__card q-mb-md"
-        bordered
-        shadow="2"
-        style="width: 100%"
-      >
+      <q-card v-if="experience" class="q-pa-md" bordered shadow="2">
         <q-card-section>
           <div class="experience__grid">
             <div class="experience__left-column">
               <div class="experience__header">
                 <strong>{{ experience.title }} — {{ experience.company }}</strong>
               </div>
-              <div class="experience__period-location">
+              <div class="experience__period-location q-pb-md q-pt-sm">
                 <em>{{ experience.period }} — {{ experience.location }}</em>
               </div>
             </div>
@@ -40,22 +34,13 @@
             </div>
           </div>
 
-          <div class="experience__content">
-            <div class="experience__context">
-              <em>{{ experience.context }}</em>
-            </div>
-            <div class="experience__envrionment-methodology">
-              <ChipList
-                label="Environnements"
-                :items="experience.environments"
-                class="experience__chip-list"
-              />
-              <ChipList
-                label="Méthodologies"
-                :items="experience.methodologies"
-                class="experience__chip-list"
-              />
-            </div>
+          <div class="experience__context">
+            <strong>Contexte : </strong>
+            <em>{{ experience.context }}</em>
+          </div>
+          <div class="experience__environment-methodology">
+            <ChipList label="Environnements" :items="experience.environments" />
+            <ChipList label="Méthodologies" :items="experience.methodologies" />
           </div>
 
           <div class="experience__achievements">
@@ -284,109 +269,87 @@ onMounted(() => {
 .q-toolbar .q-btn {
   background-color: $white;
 }
-
-.experience__card {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.experience__grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 20px;
-}
-
-.experience__left-column {
-  display: flex;
-  flex-direction: column;
-}
-
 .experience__header {
-  font-size: 20px;
+  font-size: 1.6rem;
   font-weight: bold;
   color: $primary;
 }
 
 .experience__period-location {
-  font-size: 14px;
+  font-size: 0.9rem;
   color: $gray;
-  margin-top: 5px;
-  margin-bottom: 20px;
+}
+
+.experience__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 .experience__right-column {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: start;
-  gap: 6vw;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 }
 
 .experience__reference {
-  font-size: 14px;
   color: $gray;
-  text-align: end;
-}
 
-.experience__reference-linkedin {
-  display: inline-block;
-  justify-content: center;
-  text-decoration: none;
-  color: $primary;
-}
-
-.experience__reference-linkedin q-btn {
-  margin-top: 10px;
-  font-size: 14px;
+  @media (max-width: 768px) {
+    padding-bottom: 1rem;
+  }
 }
 
 .experience__content {
   display: flex;
-  justify-content: space-between;
-  margin: 3vh 0;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
-.experience__context {
-  font-size: 14px;
+.experience__context strong {
+  font-size: 1rem;
+  color: $gray-blue;
+}
+
+.experience__context em {
   color: $gray;
-  margin-right: 5vw;
-  flex: 2;
-  min-width: 25%;
 }
 
-.experience__envrionment-methodology {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 5vw;
-  flex: 1;
-  min-width: 50%;
-  justify-content: flex-end;
-}
-
-.experience__envrionment-methodology .experience__chip-list {
+.experience__environment-methodology {
   display: flex;
   flex-wrap: wrap;
-  max-width: 100%;
-}
+  gap: 2rem;
+  padding: 2.5rem 0;
 
-.experience__achievement {
-  margin-top: 20px;
-}
-
-.experience__achievement li {
-  font-size: 14px;
-  margin-bottom: 8px;
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+    gap: 1rem;
+  }
 }
 
 .experience__achievements {
   display: flex;
-  margin-top: 5vh;
-}
+  flex-direction: column;
+  gap: 20px;
 
-.experience__achievements .experience__achievement {
-  margin-right: 20px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 </style>
