@@ -1,8 +1,8 @@
 <template>
-  <q-card style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1)">
+  <q-card class="profil-card__card">
     <q-card-section class="q-pa-lg profil-card__background-section text-center">
       <div class="profil-card__image-container">
-        <img :src="image_URL" alt="me" :width="200" :height="200" class="profil-card__image" />
+        <img :src="image_URL" alt="me" width="200vw" height="200vw" class="profil-card__image" />
       </div>
       <div class="profil-card__name">
         <p class="text-bold">Nestor</p>
@@ -25,8 +25,18 @@ const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
 </script>
 
 <style lang="scss" scoped>
+.profil-card__card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 20rem;
+  height: 35rem;
+}
+
 .profil-card__background-section {
   background: $secondary;
+}
+
+.profil-card__image-container {
+  padding: 1.5rem 0;
 }
 
 .profil-card__image {
