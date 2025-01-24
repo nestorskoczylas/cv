@@ -33,7 +33,7 @@
     </q-card-section>
     <template v-if="links || id">
       <q-card-actions>
-        <div v-for="(link, index) in links" :key="index" class="q-ml-md">
+        <div v-for="(link, index) in links" :key="index" class="q-ma-sm">
           <a :href="link.url" target="_blank" rel="noopener noreferrer">
             <q-btn :label="link.label" color="primary" outlined />
           </a>
