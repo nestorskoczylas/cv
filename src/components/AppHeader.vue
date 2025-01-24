@@ -1,7 +1,8 @@
 <template>
   <q-header class="bg-white q-pa-md">
     <q-toolbar class="q-pa-md">
-      <div class="header-left">
+      <!-- Partie gauche : Nom et profession -->
+      <div class="header__left">
         <div class="header__square-name">
           <div class="square-indicator"></div>
           <span class="header__name">Nestor Skoczylas</span>
@@ -9,9 +10,11 @@
         <span class="header__profession">DÉVELOPPEUR C# .NET VUEJS</span>
       </div>
 
+      <!-- Espacement entre les deux sections -->
       <q-space />
 
-      <div class="header-right row items-center">
+      <!-- Partie droite : Navigation pour grand écran -->
+      <div class="header__right row items-center header__hidden-xs">
         <q-btn
           v-for="item in menuItems"
           :key="item.label"
@@ -22,6 +25,25 @@
           class="q-mx-sm header__navigation"
         />
       </div>
+
+      <!-- Menu burger pour mobile -->
+      <q-btn flat round dense icon="menu" color="primary" class="header__visible-xs">
+        <q-menu anchor="bottom right" self="top right" menu-anchor="body">
+          <q-list>
+            <q-item
+              v-for="item in menuItems"
+              :key="item.label"
+              clickable
+              v-ripple
+              @click="navigateTo(router, item.route)"
+            >
+              <q-item-section :class="{ 'header__active-page': isActivePage(item.route) }">{{
+                item.label
+              }}</q-item-section>
+            </q-item>
+          </q-list>
+        </q-menu>
+      </q-btn>
     </q-toolbar>
   </q-header>
 </template>
@@ -56,16 +78,10 @@ const isActivePage = computed(() => (page: string) => {
   margin-right: $square-size;
 }
 
-.header-left {
+.header__left {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-}
-
-@mixin header-mobile {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
 }
 
 .header__square-name {
@@ -86,7 +102,7 @@ const isActivePage = computed(() => (page: string) => {
   text-transform: uppercase;
 }
 
-.header-right .q-btn {
+.header__right .q-btn {
   color: $gray;
   font-size: 0.9rem;
   font-style: normal;
@@ -106,28 +122,28 @@ const isActivePage = computed(() => (page: string) => {
   color: $primary !important;
 }
 
-/* Media queries */
-@media (max-width: 768px) {
-  .header-left {
-    @include header-mobile;
-  }
-
-  .header__name {
-    font-size: $font-size-name-mobile;
-  }
-
-  .header__profession {
-    font-size: $font-size-profession-mobile;
-  }
-
-  .header-right {
-    display: none;
-  }
+.header__visible-xs {
+  display: none;
 }
 
-@media (max-width: 1024px) {
-  .header-left {
-    @include header-mobile;
+.header__hidden-xs {
+  display: flex;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .header__left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .header__right {
+    display: none;
+  }
+
+  .header__visible-xs {
+    display: flex;
   }
 }
 </style>
