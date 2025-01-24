@@ -19,9 +19,10 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted, ref } from 'vue'
 import SquareTitle from './SquareTitle.vue'
 
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -33,6 +34,12 @@ defineProps({
 })
 
 const textSize = window.innerWidth < 768 ? '1.4rem' : '2rem'
+
+const downloadResume = ref(props.downloadResume)
+
+onMounted(() => {
+  downloadResume.value = window.innerWidth >= 768 && props.downloadResume
+})
 
 const document_URL = `${process.env.BASE_URL}documents/resume.pdf`
 const download = () => {
