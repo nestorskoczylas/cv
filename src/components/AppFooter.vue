@@ -1,6 +1,6 @@
 <template>
-  <q-footer class="bg-white q-pa-none">
-    <q-toolbar class="q-pa-md">
+  <q-footer class="bg-white q-pa-none footer">
+    <q-toolbar class="q-pa-md footer__toolbar">
       <div class="footer__left-section">
         <span class="footer__text">© 2025 - Nestor SKOCZYLAS</span>
       </div>
@@ -26,11 +26,24 @@
 </template>
 
 <script lang="ts" setup>
-import SocialLinks from 'src/components/SocialLinks.vue';
-import { openExternalLink } from 'src/utils/navigation';
+import SocialLinks from 'src/components/SocialLinks.vue'
+import { openExternalLink } from 'src/utils/navigation'
 </script>
 
 <style lang="scss" scoped>
+.footer {
+  /* La position fixe par défaut */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.footer__toolbar {
+  flex-wrap: wrap;
+}
+
 .footer__left-section {
   font-size: 0.9rem;
   font-weight: 300;
@@ -41,6 +54,8 @@ import { openExternalLink } from 'src/utils/navigation';
   display: flex;
   align-items: center;
   font-size: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .footer__info-item {
@@ -50,12 +65,45 @@ import { openExternalLink } from 'src/utils/navigation';
 
 .footer__separator {
   margin: 0 8px;
-  height: 16px;
+  height: 1rem;
   background-color: $white;
+
+  @media (max-width: 764px) {
+    display: none;
+  }
 }
 
 .footer__text {
   font-size: 0.9rem;
   color: $dark;
+}
+
+@media (max-width: 1024px) {
+  .footer__toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__left-section {
+    order: 2;
+  }
+
+  .footer__right-section {
+    gap: 0.7rem;
+  }
+
+  .footer__info-item {
+    font-size: 0.8rem;
+  }
+
+  .footer__text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 764px) {
+  .footer {
+    position: relative;
+  }
 }
 </style>
