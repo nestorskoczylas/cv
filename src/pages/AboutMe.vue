@@ -18,5 +18,11 @@ import ProfilInfoCard from 'src/components/ProfilInfoCard.vue'
   background:
     linear-gradient(to right, $background 40%, $white 40%) no-repeat,
     $white;
+
+  @media (max-width: 673px) {
+    background:
+      linear-gradient(to bottom, $white 30%, $background 30%) no-repeat,
+      $background;
+  }
 }
 </style>

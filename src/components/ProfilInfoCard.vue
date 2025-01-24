@@ -45,10 +45,7 @@ const description =
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-}
-
-.profil-info-card__background-section {
-  background: $white;
+  background: transparent;
 }
 
 .profil-info-card__section-title {
