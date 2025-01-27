@@ -1,5 +1,5 @@
 <template>
-  <ProfilBaseCard
+  <OverviewCard
     cardClass="profil-card__card"
     sectionClass="q-pa-lg profil-card__background-section text-center"
   >
@@ -8,22 +8,22 @@
         <img :src="image_URL" alt="me" width="200vw" height="200vw" class="profil-card__image" />
       </div>
       <div class="profil-card__name">
-        <p class="text-bold">Nestor</p>
-        <p class="text-bold">Skoczylas</p>
+        <p class="text-bold">{{ $t('untranslatable.firstName') }}</p>
+        <p class="text-bold">{{ $t('untranslatable.lastName') }}</p>
       </div>
       <q-separator horizontal color="primary" size="0.2rem" class="profil-card__separator" />
-      <span class="profil-card__profession">Développeur C# .NET VueJS</span>
+      <span class="profil-card__profession">{{ $t('constants.profession') }}</span>
     </template>
 
     <template #actions>
       <SocialLinks />
     </template>
-  </ProfilBaseCard>
+  </OverviewCard>
 </template>
 
 <script lang="ts" setup>
-import ProfilBaseCard from './ProfilBaseCard.vue'
-import SocialLinks from './SocialLinks.vue'
+import OverviewCard from './OverviewCard.vue'
+import SocialLinks from '@/components/common/SocialLinks.vue'
 
 const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
 </script>

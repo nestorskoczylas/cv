@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts" setup>
-import ChipList from 'src/components/ChipList.vue'
+import ChipList from './ChipList.vue'
 
 defineProps({
   id: { type: String, required: false },

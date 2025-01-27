@@ -2,21 +2,21 @@
   <q-footer class="bg-white q-pa-none footer">
     <q-toolbar class="q-pa-md footer__toolbar">
       <div class="footer__left-section">
-        <span class="footer__text">© 2025 - Nestor SKOCZYLAS</span>
+        <span class="footer__text">{{ copyright }}</span>
       </div>
 
       <q-space />
 
       <div class="footer__right-section row items-center">
-        <span class="footer__info-item">Permis B</span>
+        <span class="footer__info-item">{{ $t('untranslatable.driverLicense') }}</span>
         <q-separator vertical spaced class="footer__separator" />
-        <span class="footer__info-item">(+33) 7 83 59 04 23</span>
+        <span class="footer__info-item">{{ $t('untranslatable.phoneNumber') }}</span>
         <q-separator vertical spaced class="footer__separator" />
         <span
           class="footer__info-item cursor-pointer"
           @click="openExternalLink('mailto:nestor.skoczylas23@gmail.com')"
         >
-          nestor.skoczylas23@gmail.com
+          {{ $t('untranslatable.email') }}
         </span>
         <q-separator vertical spaced class="footer__separator" />
         <SocialLinks />
@@ -26,8 +26,14 @@
 </template>
 
 <script lang="ts" setup>
-import SocialLinks from 'src/components/SocialLinks.vue'
-import { openExternalLink } from 'src/utils/navigation'
+import SocialLinks from '@/components/common/SocialLinks.vue'
+import { openExternalLink } from '@/utils/navigation'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const currentYear = new Date().getFullYear()
+const copyright = `© ${currentYear} - ${t('untranslatable.firstName')} ${t('untranslatable.lastName')}`
 </script>
 
 <style lang="scss" scoped>

@@ -2,7 +2,7 @@
 
 ## Description
 
-Ce projet est un CV (Curriculum Vitae) en ligne construit avec des technologies web. Il permet de mettre en avant des informations personnelles et professionnelles, notamment l’expérience, les compétences, les projets et bien plus, le tout dans un format interactif et esthétique. L’application est développée avec Quasar Framework, un framework UI basé sur Vue.js 3, et utilise des fonctionnalités comme la composition d’API et TypeScript
+Ce projet est un CV (Curriculum Vitae) en ligne construit avec des technologies web. Il permet de mettre en avant des informations personnelles et professionnelles, notamment l’expérience, les compétences, les projets et bien plus, le tout dans un format interactif et esthétique. L’application est développée avec Quasar Framework, un framework UI basé sur Vue.js 3, et utilise des fonctionnalités comme la composition d’API et TypeScript.
 
 ## Fonctionnalités
 
@@ -11,6 +11,8 @@ Ce projet est un CV (Curriculum Vitae) en ligne construit avec des technologies 
 - **Projets** : Mise en avant des projets notables avec descriptions, technologies utilisées et liens (si disponibles).
 - **Téléchargement du CV** : Fonctionnalité d’intégration pour télécharger le CV au format PDF.
 - **Composants personnalisables** : Composants Vue.js modulaires et réutilisables pour des mises à jour faciles.
+- **Responsive Design** : Adaptation de l’interface pour une expérience utilisateur optimale sur tous les appareils.
+- **Internationalisation** : Prise en charge de plusieurs langues pour une accessibilité accrue (français et anglais).
 
 ## Technologies utilisées
 
@@ -19,6 +21,7 @@ Ce projet est un CV (Curriculum Vitae) en ligne construit avec des technologies 
 - **TypeScript** : Pour un développement avec typage statique.
 - **SCSS** : Gestion des styles et des thèmes personnalisés.
 - **ESLint & Prettier** : Pour garantir la qualité et la cohérence du code.
+- **GitHub Pages** : Plateforme de déploiement pour l’hébergement du site web.
 
 ## Installation
 
@@ -94,6 +97,8 @@ CV/
 ├── src/
 │   ├── assets/           # Images, logos, etc.
 │   ├── components/       # Composants Vue réutilisables
+|   |   ├── common/       # Composants communs (ChipList, SocialLinks, etc.)
+|   |   ├── aboutMe/      # Composants de la page About Me
 │   ├── layouts/          # Layout de l’application
 │   ├── pages/            # Composants de pages (About Me, Projects, etc.)
 │   ├── router/           # Routes de l’application

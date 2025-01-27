@@ -2,6 +2,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
 import { defineConfig } from '#q-app/wrappers'
+import path from 'path'
 
 export default defineConfig((/* ctx */) => {
   return {
@@ -11,7 +12,7 @@ export default defineConfig((/* ctx */) => {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: [],
+    boot: ['i18n'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
     css: ['app.scss'],
@@ -61,7 +62,11 @@ export default defineConfig((/* ctx */) => {
       // polyfillModulePreload: true,
       distDir: 'dist',
 
-      // extendViteConf (viteConf) {},
+      extendViteConf(viteConf) {
+        Object.assign(viteConf.resolve.alias, {
+          '@': path.join(__dirname, './src'),
+        })
+      },
       // viteVuePluginOptions: {},
 
       vitePlugins: [

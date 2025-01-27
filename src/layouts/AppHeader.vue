@@ -2,8 +2,8 @@
   <q-header class="bg-white q-pa-md">
     <q-toolbar class="q-pa-md">
       <div class="header__left">
-        <SquareTitle title="Nestor Skoczylas" />
-        <span class="header__profession">DÉVELOPPEUR C# .NET VUEJS</span>
+        <SquareTitle :title="title" />
+        <span class="header__profession">{{ $t('constants.profession') }}</span>
       </div>
 
       <q-space />
@@ -18,6 +18,23 @@
           @click="navigateTo(router, item.route)"
           class="q-mx-sm header__navigation"
         />
+
+        <q-select
+          v-model="currentLanguage"
+          :options="availableLanguages"
+          option-label="label"
+          option-value="value"
+          @update:model-value="switchLanguage"
+          dense
+          hide-dropdown-icon
+          outlined
+        >
+          <template v-slot:prepend>
+            <q-avatar>
+              <img :src="currentLanguage!.icon" alt="Language flag" />
+            </q-avatar>
+          </template>
+        </q-select>
       </div>
 
       <q-btn flat round dense icon="menu" color="primary" class="header__visible-xs">
@@ -52,19 +69,40 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { navigateTo } from 'src/utils/navigation'
-import SquareTitle from './SquareTitle.vue'
-
-const menuItems = ref([
-  { label: 'À PROPOS DE MOI', route: 'aboutMe' },
-  { label: 'CV', route: 'resume' },
-  { label: 'PROJETS', route: 'projects' },
-])
+import { navigateTo } from '@/utils/navigation'
+import SquareTitle from '@/components/common/SquareTitle.vue'
+import { useI18n } from 'vue-i18n'
 
 const menuOpen = ref(false)
 
 const route = useRoute()
 const router = useRouter()
+const { t, locale } = useI18n()
+
+const availableLanguages = [
+  { label: 'English', value: 'en', icon: 'https://flagcdn.com/w320/gb.png' },
+  { label: 'Français', value: 'fr', icon: 'https://flagcdn.com/w320/fr.png' },
+]
+
+const currentLanguage = computed({
+  get: () => availableLanguages.find((lang) => lang.value === locale.value),
+  set: () => switchLanguage,
+})
+
+const switchLanguage = (lang: { label: string; value: string }) => {
+  locale.value = lang.value
+
+  const newPath = `/${lang.value}${route.fullPath.replace(/^\/[a-z]{2}/, '')}`
+  router.push(newPath)
+}
+
+const menuItems = computed(() => [
+  { label: t('constants.aboutMe'), route: 'aboutMe' },
+  { label: t('constants.resume'), route: 'resume' },
+  { label: t('constants.projects'), route: 'projects' },
+])
+
+const title = `${t('untranslatable.firstName')} ${t('untranslatable.lastName')}`
 
 const currentPage = computed(() => route.name)
 
