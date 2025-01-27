@@ -59,18 +59,6 @@
                 {{ item.label }}
               </q-item-section>
             </q-item>
-
-            <q-item>
-              <q-item-section>
-                <q-select
-                  v-model="currentLanguage"
-                  :options="availableLanguages"
-                  emit-value
-                  map-options
-                  @update:model-value="switchLanguage"
-                />
-              </q-item-section>
-            </q-item>
           </q-list>
         </q-menu>
       </q-btn>
