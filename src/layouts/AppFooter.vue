@@ -26,8 +26,8 @@
 </template>
 
 <script lang="ts" setup>
-import SocialLinks from 'src/components/common/SocialLinks.vue'
-import { openExternalLink } from 'src/utils/navigation'
+import SocialLinks from '@/components/common/SocialLinks.vue'
+import { openExternalLink } from '@/utils/navigation'
 </script>
 
 <style lang="scss" scoped>

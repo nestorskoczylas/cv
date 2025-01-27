@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import OverviewCard from './OverviewCard.vue'
-import SocialLinks from '../common/SocialLinks.vue'
+import SocialLinks from '@/components/common/SocialLinks.vue'
 
 const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
 </script>

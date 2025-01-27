@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import AboutMeCard from 'src/components/aboutMe/AboutMeCard.vue'
-import BioCard from 'src/components/aboutMe/BioCard.vue'
+import AboutMeCard from '@/components/aboutMe/AboutMeCard.vue'
+import BioCard from '@/components/aboutMe/BioCard.vue'
 </script>
 
 <style lang="scss" scoped>

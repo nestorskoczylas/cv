@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { openExternalLink } from 'src/utils/navigation'
+import { openExternalLink } from '@/utils/navigation'
 
 const socialLinksList = ref([
   { icon: 'mdi-linkedin', url: 'https://www.linkedin.com/in/nestorskoczylas' },

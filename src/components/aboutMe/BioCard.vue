@@ -37,7 +37,7 @@
 
 <script lang="ts" setup>
 import OverviewCard from './OverviewCard.vue'
-import { navigateTo } from 'src/utils/navigation'
+import { navigateTo } from '@/utils/navigation'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()

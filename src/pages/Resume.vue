@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts" setup>
-import TitledContent from 'src/components/common/TitledContent.vue'
-import ContentCard from 'src/components/common/ContentCard.vue'
+import TitledContent from '@/components/common/TitledContent.vue'
+import ContentCard from '@/components/common/ContentCard.vue'
 
 type ResumeItems = {
   id?: string
