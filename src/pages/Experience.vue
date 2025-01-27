@@ -84,7 +84,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import ChipList from 'src/components/ChipList.vue'
+import ChipList from 'src/components/common/ChipList.vue'
 
 const route = useRoute()
 

@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import ProfilBaseCard from './ProfilBaseCard.vue'
-import SocialLinks from './SocialLinks.vue'
+import SocialLinks from '../common/SocialLinks.vue'
 
 const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
 </script>

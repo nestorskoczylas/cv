@@ -53,7 +53,7 @@
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { navigateTo } from 'src/utils/navigation'
-import SquareTitle from './SquareTitle.vue'
+import SquareTitle from 'src/components/common/SquareTitle.vue'
 
 const menuItems = ref([
   { label: 'À PROPOS DE MOI', route: 'aboutMe' },

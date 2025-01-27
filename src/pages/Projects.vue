@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import TitledContent from 'src/components/TitledContent.vue'
-import ContentCard from 'src/components/ContentCard.vue'
+import TitledContent from 'src/components/common/TitledContent.vue'
+import ContentCard from 'src/components/common/ContentCard.vue'
 import { ref } from 'vue'
 
 const projects = ref([

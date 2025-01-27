@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import ProfileCard from 'src/components/ProfileCard.vue'
-import ProfilInfoCard from 'src/components/ProfilInfoCard.vue'
+import ProfileCard from 'src/components/profile/ProfileCard.vue'
+import ProfilInfoCard from 'src/components/profile/ProfilInfoCard.vue'
 </script>
 
 <style lang="scss" scoped>
