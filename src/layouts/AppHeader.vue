@@ -18,6 +18,23 @@
           @click="navigateTo(router, item.route)"
           class="q-mx-sm header__navigation"
         />
+
+        <q-select
+          v-model="currentLanguage"
+          :options="availableLanguages"
+          option-label="label"
+          option-value="value"
+          @update:model-value="switchLanguage"
+          dense
+          hide-dropdown-icon
+          outlined
+        >
+          <template v-slot:prepend>
+            <q-avatar>
+              <img :src="currentLanguage!.icon" alt="Language flag" />
+            </q-avatar>
+          </template>
+        </q-select>
       </div>
 
       <q-btn flat round dense icon="menu" color="primary" class="header__visible-xs">
@@ -42,6 +59,18 @@
                 {{ item.label }}
               </q-item-section>
             </q-item>
+
+            <q-item>
+              <q-item-section>
+                <q-select
+                  v-model="currentLanguage"
+                  :options="availableLanguages"
+                  emit-value
+                  map-options
+                  @update:model-value="switchLanguage"
+                />
+              </q-item-section>
+            </q-item>
           </q-list>
         </q-menu>
       </q-btn>
@@ -60,9 +89,26 @@ const menuOpen = ref(false)
 
 const route = useRoute()
 const router = useRouter()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-const menuItems = ref([
+const availableLanguages = [
+  { label: 'English', value: 'en', icon: 'https://flagcdn.com/w320/gb.png' },
+  { label: 'Français', value: 'fr', icon: 'https://flagcdn.com/w320/fr.png' },
+]
+
+const currentLanguage = computed({
+  get: () => availableLanguages.find((lang) => lang.value === locale.value),
+  set: () => switchLanguage,
+})
+
+const switchLanguage = (lang: { label: string; value: string }) => {
+  locale.value = lang.value
+
+  const newPath = `/${lang.value}${route.fullPath.replace(/^\/[a-z]{2}/, '')}`
+  router.push(newPath)
+}
+
+const menuItems = computed(() => [
   { label: t('constants.aboutMe'), route: 'aboutMe' },
   { label: t('constants.resume'), route: 'resume' },
   { label: t('constants.projects'), route: 'projects' },

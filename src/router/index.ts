@@ -32,7 +32,7 @@ export default route(function () {
 
     if (!lang || !availableLanguages.includes(lang)) {
       const fallbackLang = getBrowserLanguage()
-      return next(`/${fallbackLang}${to.fullPath}`)
+      return next(`/${fallbackLang}${to.fullPath.replace(/^\/[a-z]{2}/, '')}`)
     }
 
     if (lang !== i18n.global.locale) {
