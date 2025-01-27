@@ -19,7 +19,7 @@
 
     <template #actions>
       <q-btn
-        :label="$t('constants.cv')"
+        :label="$t('constants.resume')"
         color="primary"
         outline
         class="profil-info-card__button"

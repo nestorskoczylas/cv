@@ -2,8 +2,8 @@
   <q-header class="bg-white q-pa-md">
     <q-toolbar class="q-pa-md">
       <div class="header__left">
-        <SquareTitle title="Nestor Skoczylas" />
-        <span class="header__profession">DÉVELOPPEUR C# .NET VUEJS</span>
+        <SquareTitle :title="title" />
+        <span class="header__profession">{{ $t('constants.profession') }}</span>
       </div>
 
       <q-space />
@@ -54,17 +54,21 @@ import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { navigateTo } from '@/utils/navigation'
 import SquareTitle from '@/components/common/SquareTitle.vue'
-
-const menuItems = ref([
-  { label: 'À PROPOS DE MOI', route: 'aboutMe' },
-  { label: 'CV', route: 'resume' },
-  { label: 'PROJETS', route: 'projects' },
-])
+import { useI18n } from 'vue-i18n'
 
 const menuOpen = ref(false)
 
 const route = useRoute()
 const router = useRouter()
+const { t } = useI18n()
+
+const menuItems = ref([
+  { label: t('constants.aboutMe'), route: 'aboutMe' },
+  { label: t('constants.resume'), route: 'resume' },
+  { label: t('constants.projects'), route: 'projects' },
+])
+
+const title = `${t('untranslatable.firstName')} ${t('untranslatable.lastName')}`
 
 const currentPage = computed(() => route.name)
 
