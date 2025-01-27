@@ -1,15 +1,15 @@
 <template>
   <div class="background__linear-gradient">
     <q-page class="q-pa-md flex flex-center scroll-content borders">
-      <ProfileCard />
-      <ProfilInfoCard />
+      <AboutMeCard />
+      <BioCard />
     </q-page>
   </div>
 </template>
 
 <script lang="ts" setup>
-import ProfileCard from 'src/components/profile/ProfileCard.vue'
-import ProfilInfoCard from 'src/components/profile/ProfilInfoCard.vue'
+import AboutMeCard from 'src/components/aboutMe/AboutMeCard.vue'
+import BioCard from 'src/components/aboutMe/BioCard.vue'
 </script>
 
 <style lang="scss" scoped>

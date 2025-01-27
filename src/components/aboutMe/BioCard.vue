@@ -1,5 +1,5 @@
 <template>
-  <ProfilBaseCard
+  <OverviewCard
     cardClass="profil-info-card__card"
     :isFlat="true"
     sectionClass="profil-info-card__background-section"
@@ -32,11 +32,11 @@
         @click="navigateTo(router, 'projects')"
       />
     </template>
-  </ProfilBaseCard>
+  </OverviewCard>
 </template>
 
 <script lang="ts" setup>
-import ProfilBaseCard from './ProfilBaseCard.vue'
+import OverviewCard from './OverviewCard.vue'
 import { navigateTo } from 'src/utils/navigation'
 import { useRouter } from 'vue-router'
 

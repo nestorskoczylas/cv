@@ -1,5 +1,5 @@
 <template>
-  <ProfilBaseCard
+  <OverviewCard
     cardClass="profil-card__card"
     sectionClass="q-pa-lg profil-card__background-section text-center"
   >
@@ -18,11 +18,11 @@
     <template #actions>
       <SocialLinks />
     </template>
-  </ProfilBaseCard>
+  </OverviewCard>
 </template>
 
 <script lang="ts" setup>
-import ProfilBaseCard from './ProfilBaseCard.vue'
+import OverviewCard from './OverviewCard.vue'
 import SocialLinks from '../common/SocialLinks.vue'
 
 const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
