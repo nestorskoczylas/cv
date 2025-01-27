@@ -1,5 +1,6 @@
 import { createI18n } from 'vue-i18n'
 
+import fr_Constants from './fr/constants'
 import fr_AboutMeCard from './fr/components/aboutMe/AboutMeCard'
 import fr_BioCard from './fr/components/aboutMe/BioCard'
 import fr_TitledContent from './fr/components/common/TitledContent'
@@ -11,25 +12,26 @@ import fr_Resume from './fr/pages/Resume'
 
 const messages = {
   fr: {
+    constants: fr_Constants,
     aboutMe: fr_AboutMeCard,
     bioCard: fr_BioCard,
     titledContent: fr_TitledContent,
     layouts: {
       appFooter: fr_AppFooter,
-      appHeader: fr_AppHeader
+      appHeader: fr_AppHeader,
     },
-    pages:  {
+    pages: {
       experience: fr_Experience,
       projects: fr_Projects,
-      resume: fr_Resume
-    }
-  }
+      resume: fr_Resume,
+    },
+  },
 }
 
 const i18n = createI18n({
   locale: 'fr',
   fallbackLocale: 'fr',
-  messages
-});
+  messages,
+})
 
-export default i18n;
+export default i18n
