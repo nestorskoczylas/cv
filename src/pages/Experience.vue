@@ -35,17 +35,23 @@
           </div>
 
           <div class="experience__context">
-            <strong>Contexte : </strong>
+            <strong>{{ $t('pages.experience.contextTitle') }}</strong>
             <em>{{ experience.context }}</em>
           </div>
           <div class="experience__environment-methodology">
-            <ChipList label="Environnements" :items="experience.environments" />
-            <ChipList label="Méthodologies" :items="experience.methodologies" />
+            <ChipList
+              :label="$t('pages.experience.environments')"
+              :items="experience.environments"
+            />
+            <ChipList
+              :label="$t('pages.experience.methodologies')"
+              :items="experience.methodologies"
+            />
           </div>
 
           <div class="experience__achievements">
             <div class="experience__achievement">
-              <strong>Réalisations générales :</strong>
+              <strong>{{ $t('pages.experience.generalAchievements') }}</strong>
               <ul>
                 <li v-for="(achievement, index) in experience.achievements.general" :key="index">
                   <span>{{ achievement }}</span>
@@ -53,7 +59,7 @@
               </ul>
             </div>
             <div class="experience__achievement">
-              <strong>Réalisations méthodologiques :</strong>
+              <strong>{{ $t('pages.experience.methodologyAchievements') }}</strong>
               <ul>
                 <li
                   v-for="(methodology, index) in experience.achievements.methodology"
@@ -64,7 +70,7 @@
               </ul>
             </div>
             <div class="experience__achievement">
-              <strong>Interventions :</strong>
+              <strong>{{ $t('pages.experience.interventions') }}</strong>
               <ul>
                 <li
                   v-for="(intervention, index) in experience.achievements.interventions"
