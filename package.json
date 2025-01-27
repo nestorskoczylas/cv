@@ -1,6 +1,6 @@
 {
   "name": "cv",
-  "version": "1.7.1",
+  "version": "1.9.1",
   "description": "CV",
   "productName": "Nestor Skoczylas",
   "author": "nestorskoczylas <nestor.skoczylas23@gmail.com>",
@@ -20,6 +20,7 @@
     "quasar": "^2.17.7",
     "vite": "^6.0.11",
     "vue": "^3.5.13",
+    "vue-i18n": "^11.0.1",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {

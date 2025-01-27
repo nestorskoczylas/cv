@@ -5,33 +5,41 @@ import {
   createWebHashHistory,
   createWebHistory,
 } from 'vue-router'
-
+import i18n from '@/i18n'
 import routes from './routes'
+import type { AvailableLanguage } from '@/utils/i18n'
+import { availableLanguages, getBrowserLanguage } from '@/utils/i18n'
 
-/*
- * If not building with SSR mode, you can
- * directly export the Router instantiation;
- *
- * The function below can be async too; either use
- * async/await or return a Promise which resolves
- * with the Router instance.
- */
+export default route(function () {
+  let createHistory
 
-export default route(function (/* { store, ssrContext } */) {
-  const createHistory = process.env.SERVER
-    ? createMemoryHistory
-    : process.env.VUE_ROUTER_MODE === 'history'
-      ? createWebHistory
-      : createWebHashHistory
+  if (process.env.SERVER) {
+    createHistory = createMemoryHistory
+  } else if (process.env.VUE_ROUTER_MODE === 'history') {
+    createHistory = createWebHistory
+  } else {
+    createHistory = createWebHashHistory
+  }
 
   const Router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
     routes,
-
-    // Leave this as is and make changes in quasar.conf.js instead!
-    // quasar.conf.js -> build -> vueRouterMode
-    // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE),
+  })
+
+  Router.beforeEach((to, from, next) => {
+    const lang = to.params.lang as AvailableLanguage
+
+    if (!lang || !availableLanguages.includes(lang)) {
+      const fallbackLang = getBrowserLanguage()
+      return next(`/${fallbackLang}${to.fullPath.replace(/^\/[a-z]{2}/, '')}`)
+    }
+
+    if (lang !== i18n.global.locale) {
+      i18n.global.locale = lang
+    }
+
+    next()
   })
 
   return Router

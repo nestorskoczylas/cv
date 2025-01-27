@@ -6,7 +6,7 @@
       <q-btn
         v-if="downloadResume"
         icon="mdi-download"
-        label="Télécharger le CV"
+        :label="$t('titledContent.downloadButtonLabel')"
         @click="download"
         outlined
         color="primary"

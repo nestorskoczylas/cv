@@ -8,11 +8,11 @@
         <img :src="image_URL" alt="me" width="200vw" height="200vw" class="profil-card__image" />
       </div>
       <div class="profil-card__name">
-        <p class="text-bold">Nestor</p>
-        <p class="text-bold">Skoczylas</p>
+        <p class="text-bold">{{ $t('untranslatable.firstName') }}</p>
+        <p class="text-bold">{{ $t('untranslatable.lastName') }}</p>
       </div>
       <q-separator horizontal color="primary" size="0.2rem" class="profil-card__separator" />
-      <span class="profil-card__profession">Développeur C# .NET VueJS</span>
+      <span class="profil-card__profession">{{ $t('constants.profession') }}</span>
     </template>
 
     <template #actions>
