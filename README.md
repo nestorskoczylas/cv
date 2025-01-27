@@ -12,6 +12,7 @@ Ce projet est un CV (Curriculum Vitae) en ligne construit avec des technologies 
 - **Téléchargement du CV** : Fonctionnalité d’intégration pour télécharger le CV au format PDF.
 - **Composants personnalisables** : Composants Vue.js modulaires et réutilisables pour des mises à jour faciles.
 - **Responsive Design** : Adaptation de l’interface pour une expérience utilisateur optimale sur tous les appareils.
+- **Internationalisation** : Prise en charge de plusieurs langues pour une accessibilité accrue (français et anglais).
 
 ## Technologies utilisées
 
@@ -20,6 +21,7 @@ Ce projet est un CV (Curriculum Vitae) en ligne construit avec des technologies 
 - **TypeScript** : Pour un développement avec typage statique.
 - **SCSS** : Gestion des styles et des thèmes personnalisés.
 - **ESLint & Prettier** : Pour garantir la qualité et la cohérence du code.
+- **GitHub Pages** : Plateforme de déploiement pour l’hébergement du site web.
 
 ## Installation
 
