@@ -2,9 +2,9 @@
   <div class="background">
     <q-page class="q-pa-md flex flex-center borders">
       <div class="resume__section">
-        <template v-for="(section, index) in resumeSections" :key="index">
-          <ResumeSection :title="section.title" :downloadResume="index === 0">
-            <CardItem
+        <template v-for="(section, index) in TitledContents" :key="index">
+          <TitledContent :title="section.title" :downloadResume="index === 0">
+            <ContentCard
               v-for="(item, index) in section.items"
               :key="index"
               :id="item.id || ''"
@@ -17,7 +17,7 @@
               :achievements="item.achievements || []"
               :links="item.links || []"
             />
-          </ResumeSection>
+          </TitledContent>
         </template>
       </div>
     </q-page>
@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts" setup>
-import ResumeSection from 'src/components/ResumeSection.vue'
-import CardItem from 'src/components/CardItem.vue'
+import TitledContent from 'src/components/TitledContent.vue'
+import ContentCard from 'src/components/ContentCard.vue'
 
 type ResumeItems = {
   id?: string
@@ -40,12 +40,12 @@ type ResumeItems = {
   links?: { url: string; label: string }[]
 }
 
-type ResumeSection = {
+type TitledContent = {
   title: string
   items: ResumeItems[]
 }
 
-const resumeSections: ResumeSection[] = [
+const TitledContents: TitledContent[] = [
   {
     title: 'Expériences professionnelles',
     items: [

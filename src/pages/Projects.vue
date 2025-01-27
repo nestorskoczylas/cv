@@ -2,8 +2,8 @@
   <div class="background">
     <q-page class="q-pa-md flex flex-center borders">
       <div class="project__section">
-        <ResumeSection title="Projets personnels">
-          <CardItem
+        <TitledContent title="Projets personnels">
+          <ContentCard
             v-for="(item, index) in projects"
             :key="index"
             :title="item.title"
@@ -13,15 +13,15 @@
             :skillTitle="item.skillTitle"
             :links="item.links"
           />
-        </ResumeSection>
+        </TitledContent>
       </div>
     </q-page>
   </div>
 </template>
 
 <script lang="ts" setup>
-import ResumeSection from 'src/components/ResumeSection.vue'
-import CardItem from 'src/components/CardItem.vue'
+import TitledContent from 'src/components/TitledContent.vue'
+import ContentCard from 'src/components/ContentCard.vue'
 import { ref } from 'vue'
 
 const projects = ref([
