@@ -1,4 +1,5 @@
 export default {
+  back: 'Back',
   contextTitle: 'Context: ',
   generalAchievements: 'General Achievements:',
   methodologyAchievements: 'Methodological Achievements:',

@@ -2,7 +2,14 @@
   <div class="background">
     <q-page class="q-pa-md borders">
       <q-toolbar class="q-mb-md">
-        <q-btn icon="arrow_back" label="Retour" color="primary" to="/resume" flat outline />
+        <q-btn
+          icon="arrow_back"
+          :label="$t('pages.experience.back')"
+          color="primary"
+          :to="to"
+          flat
+          outline
+        />
       </q-toolbar>
 
       <q-card v-if="experience" class="q-pa-md" bordered shadow="2">
@@ -95,7 +102,9 @@ import type { Experience } from '@/types/experience'
 import { useI18n } from 'vue-i18n'
 
 const route = useRoute()
-const { tm } = useI18n()
+const { tm, locale } = useI18n()
+
+const to = computed(() => `/${locale.value}/resume`)
 
 const experiences = computed(() => tm('pages.experience.experiences') as Experience[])
 

@@ -35,8 +35,8 @@ export default route(function () {
       return next(`/${fallbackLang}${to.fullPath.replace(/^\/[a-z]{2}/, '')}`)
     }
 
-    if (lang !== i18n.global.locale) {
-      i18n.global.locale = lang
+    if (lang !== i18n.global.locale.value) {
+      i18n.global.locale.value = lang
     }
 
     next()

@@ -3,6 +3,7 @@ import messages from './messages'
 import { getBrowserLanguage } from '@/utils/i18n'
 
 const i18n = createI18n({
+  legacy: false,
   locale: getBrowserLanguage(),
   fallbackLocale: 'en',
   messages,
