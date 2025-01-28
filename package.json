@@ -1,6 +1,6 @@
 {
   "name": "cv",
-  "version": "1.9.1",
+  "version": "2.0.0",
   "description": "CV",
   "productName": "Nestor Skoczylas",
   "author": "nestorskoczylas <nestor.skoczylas23@gmail.com>",
@@ -24,19 +24,19 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
+    "@eslint/js": "^9.19.0",
     "@quasar/app-vite": "^2.0.8",
     "@types/node": "^20.17.16",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.3.0",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.18.0",
+    "eslint": "^9.19.0",
     "eslint-plugin-vue": "^9.32.0",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
     "typescript": "~5.5.4",
     "vite-plugin-checker": "^0.8.0",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^2.1.6"
   },
   "engines": {
     "node": "^28 || ^26 || ^24 || ^22 || ^20 || ^18",
