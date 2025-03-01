@@ -15,14 +15,14 @@
       </div>
 
       <div v-if="skills && skills.length > 0 && !skillTitle">
-        <ChipList label="Compétences" :items="skills" />
+        <ChipList :label="$t('contentCard.skills')" :items="skills" />
       </div>
       <div v-if="skills && skillTitle">
         <ChipList :label="skillTitle" :items="skills" />
       </div>
       <div v-if="achievements && achievements.length > 0">
         <div class="generic-card__achievements">
-          <strong>Réalisations :</strong>
+          <strong>{{ $t('contentCard.achievements') }}</strong>
           <ul>
             <li v-for="(achievement, index) in achievements" :key="index">
               <span class="indent">{{ achievement }}</span>
@@ -40,7 +40,7 @@
         </div>
         <div v-if="id" class="q-ml-md">
           <router-link :to="{ name: 'experience', params: { id: id } }">
-            <q-btn label="En savoir plus" color="primary" />
+            <q-btn :label="$t('contentCard.readMore')" color="primary" />
           </router-link>
         </div>
       </q-card-actions>
