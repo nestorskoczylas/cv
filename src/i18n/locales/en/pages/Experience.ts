@@ -4,8 +4,8 @@ export default {
   generalAchievements: 'General Achievements:',
   methodologyAchievements: 'Methodological Achievements:',
   interventions: 'Interventions:',
-  environments: 'Environments',
-  methodologies: 'Methodologies',
+  environments: 'Environments:',
+  methodologies: 'Methodologies:',
   experiences: [
     {
       id: '3',
