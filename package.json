@@ -1,6 +1,6 @@
 {
   "name": "cv",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "CV",
   "productName": "Nestor Skoczylas",
   "author": "nestorskoczylas <nestor.skoczylas23@gmail.com>",
@@ -16,27 +16,27 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "@quasar/extras": "^1.16.16",
+    "@quasar/extras": "^1.16.17",
     "quasar": "^2.17.7",
-    "vite": "^6.0.11",
+    "vite": "^6.2.0",
     "vue": "^3.5.13",
-    "vue-i18n": "^11.0.1",
+    "vue-i18n": "^11.1.1",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
-    "@quasar/app-vite": "^2.0.8",
-    "@types/node": "^20.17.16",
+    "@eslint/js": "^9.21.0",
+    "@quasar/app-vite": "^2.1.1",
+    "@types/node": "^22.13.8",
     "@vue/eslint-config-prettier": "^10.2.0",
-    "@vue/eslint-config-typescript": "^14.3.0",
+    "@vue/eslint-config-typescript": "^14.4.0",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.19.0",
+    "eslint": "^9.21.0",
     "eslint-plugin-vue": "^9.32.0",
-    "globals": "^15.14.0",
-    "prettier": "^3.4.2",
-    "typescript": "~5.5.4",
-    "vite-plugin-checker": "^0.8.0",
-    "vue-tsc": "^2.1.6"
+    "globals": "^16.0.0",
+    "prettier": "^3.5.2",
+    "typescript": "~5.7.3",
+    "vite-plugin-checker": "^0.9.0",
+    "vue-tsc": "^2.2.6"
   },
   "engines": {
     "node": "^28 || ^26 || ^24 || ^22 || ^20 || ^18",
