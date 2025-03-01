@@ -12,11 +12,8 @@
         <q-separator vertical spaced class="footer__separator" />
         <span class="footer__info-item">{{ $t('untranslatable.phoneNumber') }}</span>
         <q-separator vertical spaced class="footer__separator" />
-        <span
-          class="footer__info-item cursor-pointer"
-          @click="openExternalLink('mailto:nestor.skoczylas23@gmail.com')"
-        >
-          {{ $t('untranslatable.email') }}
+        <span class="footer__info-item cursor-pointer" @click="openExternalLink(`mailto:${email}`)">
+          {{ email }}
         </span>
         <q-separator vertical spaced class="footer__separator" />
         <SocialLinks />
@@ -31,6 +28,7 @@ import { openExternalLink } from '@/utils/navigation'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const email = 'nestor.skoczylas23@gmail.com'
 
 const currentYear = new Date().getFullYear()
 const copyright = `© ${currentYear} - ${t('untranslatable.firstName')} ${t('untranslatable.lastName')}`

@@ -128,11 +128,11 @@ export default {
       title: 'Compétences',
       items: [
         {
-          skillTitle: 'Langages de programmation',
+          skillTitle: 'Langages de programmation :',
           skills: ['C#', '.Net', 'Javascript', 'Typescript', 'Java', 'Python'],
         },
         {
-          skillTitle: 'Compétences en développement web',
+          skillTitle: 'Compétences en développement web :',
           skills: [
             'Vue.js',
             'ReactJS',
@@ -146,11 +146,11 @@ export default {
           ],
         },
         {
-          skillTitle: 'Gestion de version',
+          skillTitle: 'Gestion de version :',
           skills: ['GitHub', 'GitLab', 'Azure DevOps', 'Trello', 'Jira'],
         },
         {
-          skillTitle: 'Outils de développement',
+          skillTitle: 'Outils de développement :',
           skills: [
             'Visual Studio',
             'Visual Studio Code',
@@ -165,7 +165,7 @@ export default {
       title: 'Qualités',
       items: [
         {
-          skillTitle: 'Qualités professionnelles',
+          skillTitle: 'Qualités professionnelles :',
           skills: [
             'Rigueur',
             'Motivation',
@@ -175,7 +175,7 @@ export default {
           ],
         },
         {
-          skillTitle: 'Qualités humaines',
+          skillTitle: 'Qualités humaines :',
           skills: ['Capacité d’écoute', 'Volontaire', 'Conciliant', 'Esprit d’équipe', 'Empathie'],
         },
       ],

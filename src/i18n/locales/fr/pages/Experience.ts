@@ -1,10 +1,11 @@
 export default {
+  back: 'Retour',
   contextTitle: 'Contexte : ',
   generalAchievements: 'Réalisations générales :',
   methodologyAchievements: 'Réalisations méthodologiques :',
   interventions: 'Interventions :',
-  environments: 'Environnements',
-  methodologies: 'Méthodologies',
+  environments: 'Environnements :',
+  methodologies: 'Méthodologies :',
   experiences: [
     {
       id: '3',
@@ -127,7 +128,13 @@ export default {
         'Git',
         'GitLab',
       ],
-      methodologies: ['Agile', 'Scrum', 'Sprints', 'User Stories', 'Tests fonctionnels et unitaires'],
+      methodologies: [
+        'Agile',
+        'Scrum',
+        'Sprints',
+        'User Stories',
+        'Tests fonctionnels et unitaires',
+      ],
       achievements: {
         general: [
           'Développement d’interfaces utilisateur',
@@ -149,5 +156,5 @@ export default {
         ],
       },
     },
-  ]
+  ],
 }

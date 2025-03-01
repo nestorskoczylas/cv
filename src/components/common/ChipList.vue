@@ -1,6 +1,6 @@
 <template>
   <div class="chip">
-    <strong v-if="label">{{ label }} :</strong>
+    <strong v-if="label">{{ label }}</strong>
     <div>
       <q-chip v-for="(item, index) in items" :key="index" class="q-mr-sm" :class="{ outlined }">
         {{ item }}

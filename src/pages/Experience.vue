@@ -2,7 +2,14 @@
   <div class="background">
     <q-page class="q-pa-md borders">
       <q-toolbar class="q-mb-md">
-        <q-btn icon="arrow_back" label="Retour" color="primary" to="/resume" flat outline />
+        <q-btn
+          icon="arrow_back"
+          :label="$t('pages.experience.back')"
+          color="primary"
+          :to="to"
+          flat
+          outline
+        />
       </q-toolbar>
 
       <q-card v-if="experience" class="q-pa-md" bordered shadow="2">
@@ -88,22 +95,23 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import ChipList from '@/components/common/ChipList.vue'
 import type { Experience } from '@/types/experience'
 import { useI18n } from 'vue-i18n'
 
 const route = useRoute()
-const { tm } = useI18n()
+const { tm, locale } = useI18n()
+
+const to = computed(() => `/${locale.value}/resume`)
 
 const experiences = computed(() => tm('pages.experience.experiences') as Experience[])
 
-const experience = ref<Experience>()
+const experienceId = computed(() => route.params.id)
 
-onMounted(() => {
-  const experienceId = route.params.id
-  experience.value = experiences.value.find((exp) => exp.id === experienceId)
+const experience = computed(() => {
+  return experiences.value.find((exp) => exp.id === experienceId.value)
 })
 </script>
 
