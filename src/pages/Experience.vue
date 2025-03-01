@@ -95,7 +95,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import ChipList from '@/components/common/ChipList.vue'
 import type { Experience } from '@/types/experience'
@@ -108,11 +108,10 @@ const to = computed(() => `/${locale.value}/resume`)
 
 const experiences = computed(() => tm('pages.experience.experiences') as Experience[])
 
-const experience = ref<Experience>()
+const experienceId = computed(() => route.params.id)
 
-onMounted(() => {
-  const experienceId = route.params.id
-  experience.value = experiences.value.find((exp) => exp.id === experienceId)
+const experience = computed(() => {
+  return experiences.value.find((exp) => exp.id === experienceId.value)
 })
 </script>
 
