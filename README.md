@@ -2,7 +2,7 @@
 
 ## Description
 
-Ce projet est un CV (Curriculum Vitae) en ligne construit avec des technologies web. Il permet de mettre en avant des informations personnelles et professionnelles, notamment l’expérience, les compétences, les projets et bien plus, le tout dans un format interactif et esthétique. L’application est développée avec Quasar Framework, un framework UI basé sur Vue.js 3, et utilise des fonctionnalités comme la composition d’API et TypeScript.
+Ce projet est un CV (Curriculum Vitae) en ligne construit avec des technologies web. Il permet de mettre en avant des informations personnelles et professionnelles, notamment l’expérience, les compétences, les projets et bien plus, le tout dans un format interactif et esthétique. L’application est développée avec Quasar Framework, un framework UI basé sur Vue.js 3, et utilise des fonctionnalités comme la composition d’API et TypeScript. Vous pouvez consulter le CV en ligne [ici](https://nestorskoczylas.github.io/cv/#/)
 
 ## Fonctionnalités
 
