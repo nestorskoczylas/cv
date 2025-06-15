@@ -1,5 +1,5 @@
 export default {
-  profession: 'C# .NET Vue.js Developer',
+  profession: 'Software development engineer',
   aboutMe: 'About Me',
   resume: 'Resume',
   projects: 'Projects',
