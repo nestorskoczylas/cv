@@ -2,5 +2,5 @@ export default {
   title: 'Hello',
   subtitle: 'Who am I? What do I do?',
   description:
-    "Full Stack Developer specializing in C# and Vue.js, holding a Master's degree in E-Services from the University of Lille. I combine expertise in Opalean and Access-it, and I have contributed to the development of various solutions: CRM applications, APIs, video software, for both internal and external projects.",
+    'Software development engineer specialized in C# and related technologies, with a Master’s degree in E-Services from the University of Lille. I’ve developed a variety of applications, from CRM to advanced user interfaces, with a focus on user experience and software optimization.',
 }

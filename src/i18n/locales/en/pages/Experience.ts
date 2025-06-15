@@ -8,6 +8,57 @@ export default {
   methodologies: 'Methodologies:',
   experiences: [
     {
+      id: '4',
+      company: 'Effect Software',
+      title: 'Software Development Engineer',
+      period: 'February 2025 to Present',
+      location: 'Lille, France',
+      keywords: [
+        'C#',
+        'WPF',
+        'DevExpress',
+        'Azure DevOps',
+        'Software Development',
+        '.Net Framework',
+        'JavaScript',
+      ],
+      reference: {
+        name: 'Christophe Ingelaere',
+        role: 'CEO',
+        linkedin: 'https://www.linkedin.com/in/christophe-ingelaere-nextcity/',
+      },
+      context:
+        'Effect Software is a company specializing in the development of innovative software solutions. As a Software Development Engineer, I contribute to various projects using modern technologies such as WPF, DevExpress, and C# to enhance the functionality and user experience of software applications.',
+      environments: ['C#', 'WPF', '.Net Framework', 'SQL Server', 'JavaScript'],
+      methodologies: [
+        'Software Development',
+        'Object-Oriented Programming (OOP)',
+        'Design Patterns',
+        'Software Maintenance',
+      ],
+      achievements: {
+        general: [
+          'Improvement of application performance and user experience',
+          'Development and integration of new software features',
+          'Optimization and maintenance of existing applications',
+          'Building scalable and high-performance software solutions',
+        ],
+        methodology: [
+          'Design and implementation of software solutions tailored to business needs',
+          'Establishment of a rigorous and results-oriented organization',
+          'Clear documentation of changes for future maintenance',
+          'Rapid adaptability to an ever-evolving technical environment',
+          'Responsiveness to user issues and requests',
+        ],
+        interventions: [
+          'Migration to asynchronous image management and improvement of user experience (WPF & C#)',
+          'Development of features for intersection management in the GMAO/SMART interface (WPF & C#)',
+          'Implementation of GPS tracking and display via GPX file generation (C#, JavaScript)',
+          'Implementation of password hashing and user password change process (C#, WPF, JavaScript, SQL)',
+        ],
+      },
+    },
+    {
       id: '3',
       company: 'Access It',
       title: 'Full Stack Developer C# VueJs',

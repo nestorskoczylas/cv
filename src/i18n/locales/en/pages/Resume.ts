@@ -4,6 +4,21 @@ export default {
       title: 'Professional Experience',
       items: [
         {
+          id: '4',
+          title: 'Software Development Engineer',
+          organization: 'Effect Software',
+          period: 'February 2025 - Present',
+          location: 'Lille, France',
+          skills: ['WPF', 'DevExpress', 'C#', '.Net Framework'],
+          achievements: [
+            'Migration to asynchronous image management and improvement of user experience (WPF & C#)',
+            'Development of features for intersection management in the GMAO/SMART interface (WPF & C#)',
+            'Implementation of GPS tracking and display via GPX file generation (C#, JavaScript)',
+            'Implementation of password hashing and user password change process (C#, WPF, JavaScript, SQL)',
+            'Asynchronous downloading of georeferencing files (C#)',
+          ],
+        },
+        {
           id: '3',
           title: 'Full Stack Developer C# VueJs',
           organization: 'Access It',
