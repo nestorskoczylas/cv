@@ -36,7 +36,7 @@
                   <q-btn icon="mdi-linkedin" color="primary" flat />
                 </a>
                 <strong>{{ experience.reference.name }}</strong>
-                <div>{{ experience.reference.role }}</div>
+                <div style="text-align: center">{{ experience.reference.role }}</div>
               </div>
             </div>
           </div>

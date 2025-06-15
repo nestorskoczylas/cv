@@ -4,11 +4,26 @@ export default {
       title: 'Expériences professionnelles',
       items: [
         {
+          id: '4',
+          title: 'Ingénieur Développement Logiciel',
+          organization: 'Effect Software',
+          period: 'Février 2025 - Aujourd’hui',
+          location: 'Lille, France',
+          skills: ['WPF', 'DevExpress', 'C#', '.Net Framework'],
+          achievements: [
+            'Migration vers une gestion asynchrone des images et amélioration de l’expérience utilisateur (WPF & C#)',
+            'Développement de fonctionnalités pour la gestion des carrefours dans l’interface GMAO/SMART (WPF & C#)',
+            'Implémentation de tracés GPS et affichage via la génération de fichiers GPX (C#, Javascript)',
+            'Mise en place du hachage de mot de passe et du processus de changement de mot de passe utilisateur (C#, WPF, Javascript, SQL)',
+            'Téléchargement asynchrone de fichiers de Géoréférencements (C#)',
+          ],
+        },
+        {
           id: '3',
           title: 'Développeur Full Stack C# VueJs',
           organization: 'Access It',
           period: 'Octobre 2024 - Novembre 2024',
-          location: 'Lille, France',
+          location: 'Villeneuve d’Ascq, France',
           skills: ['C#', 'VueJs', 'Postgresql', 'Azure DevOps'],
           achievements: [
             'Maintenance et ajout de fonctionnalités sur une application de gestion des seuils des AO (C#, VueJS)',
