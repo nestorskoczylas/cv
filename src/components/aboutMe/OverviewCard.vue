@@ -32,7 +32,7 @@ defineProps({
 .profil-card__card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 20rem;
-  height: 35rem;
+  height: 37rem;
 }
 
 .profil-info-card__card {
