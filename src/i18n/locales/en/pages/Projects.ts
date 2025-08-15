@@ -2,6 +2,27 @@ export default {
   title: 'Personal Projects',
   projects: [
     {
+      title: 'Pyrotechnic Firing Sheet Management Mobile App',
+      period: '2025',
+      description:
+        'PyroAssistant is a React Native mobile application designed to simplify the creation, editing, and execution of pyrotechnic firing sheets. It allows users to define custom firing sequences, save them locally, and execute them with synchronized haptic feedback for an immersive and safe experience.',
+      skillTitle: 'Technologies Used:',
+      skills: [
+        'React Native (CLI)',
+        'TypeScript',
+        'React Navigation',
+        'AsyncStorage (MMKV)',
+        'Vibration API',
+        'Modern React Hooks',
+      ],
+      links: [
+        {
+          label: 'GitHub: PyroAssistant',
+          url: 'https://github.com/nestorskoczylas/PyroAssistant',
+        },
+      ],
+    },
+    {
       title: 'CV Application in VueJS',
       period: '2024',
       description:
