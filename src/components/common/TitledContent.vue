@@ -4,48 +4,46 @@
       <SquareTitle class="q-pa-md" :title="title" textColor="#2c3e50" :textSize="textSize" />
 
       <q-btn
-        v-if="downloadResume"
+        v-if="showDownloadButton"
         icon="mdi-download"
         :label="$t('titledContent.downloadButtonLabel')"
-        @click="download"
-        outlined
         color="primary"
+        outline
+        @click="download"
       />
     </div>
+
     <div class="resume__cards">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { computed } from 'vue'
 import SquareTitle from './SquareTitle.vue'
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  downloadResume: {
-    type: Boolean,
-    default: false,
-  },
+interface Props {
+  title: string
+  downloadResume?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  downloadResume: false,
 })
 
-const textSize = window.innerWidth < 768 ? '1.4rem' : '2rem'
+const textSize = computed(() => (window.innerWidth < 768 ? '1.4rem' : '2rem'))
 
-const downloadResume = ref(props.downloadResume)
+const showDownloadButton = computed(() => window.innerWidth >= 768 && props.downloadResume)
 
-onMounted(() => {
-  downloadResume.value = window.innerWidth >= 768 && props.downloadResume
-})
+const documentUrl = `${import.meta.env.BASE_URL}documents/resume.pdf`
 
-const document_URL = `${process.env.BASE_URL}documents/resume.pdf`
 const download = () => {
   const link = document.createElement('a')
-  link.href = document_URL
+
+  link.href = documentUrl
   link.target = '_blank'
+  link.rel = 'noopener noreferrer'
   link.click()
 }
 </script>

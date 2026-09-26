@@ -31,6 +31,7 @@
                 <a
                   :href="experience.reference.linkedin"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="experience__reference-linkedin"
                 >
                   <q-btn icon="mdi-linkedin" color="primary" flat />
@@ -107,9 +108,10 @@ const { tm, locale } = useI18n()
 const to = computed(() => `/${locale.value}/resume`)
 
 const experiences = computed(() => tm('pages.experience.experiences') as Experience[])
-
-const experienceId = computed(() => route.params.id)
-
+const experienceId = computed(() => {
+  const id = route.params.id
+  return Array.isArray(id) ? id[0] : id
+})
 const experience = computed(() => {
   return experiences.value.find((exp) => exp.id === experienceId.value)
 })

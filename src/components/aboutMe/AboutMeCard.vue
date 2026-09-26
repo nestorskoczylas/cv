@@ -5,19 +5,22 @@
   >
     <template #header>
       <div class="profil-card__image-container">
-        <img :src="image_URL" alt="me" width="200vw" height="200vw" class="profil-card__image" />
+        <img
+          :src="imageUrl"
+          alt="Nestor Skoczylas"
+          width="200"
+          height="200"
+          class="profil-card__image"
+        />
       </div>
       <div class="profil-card__name">
         <p class="text-bold">{{ $t('untranslatable.firstName') }}</p>
         <p class="text-bold">{{ $t('untranslatable.lastName') }}</p>
       </div>
       <q-separator horizontal color="primary" size="0.2rem" class="profil-card__separator" />
-      <span class="profil-card__profession">{{ $t('constants.profession') }}</span>
+      <span class="profil-card__profession"> {{ $t('constants.profession') }} </span>
     </template>
-
-    <template #actions>
-      <SocialLinks />
-    </template>
+    <template #actions> <SocialLinks /> </template>
   </OverviewCard>
 </template>
 
@@ -25,7 +28,7 @@
 import OverviewCard from './OverviewCard.vue'
 import SocialLinks from '@/components/common/SocialLinks.vue'
 
-const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
+const imageUrl = `${import.meta.env.BASE_URL}icons/favicon-425x425.png`
 </script>
 
 <style lang="scss" scoped>
@@ -34,6 +37,8 @@ const image_URL = `${process.env.BASE_URL}icons/favicon-425x425.png`
 }
 
 .profil-card__image {
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   background-color: $white;

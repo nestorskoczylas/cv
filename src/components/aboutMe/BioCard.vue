@@ -55,7 +55,7 @@ const router = useRouter()
 .profil-info-card__description {
   font-size: 1rem;
   font-weight: 300;
-  letter-spacing: 1.5;
+  letter-spacing: 1.5px;
   text-align: start;
 }
 

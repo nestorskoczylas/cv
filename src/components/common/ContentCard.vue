@@ -1,28 +1,34 @@
 <template>
-  <q-card class="generic-card q-mb-md" bordered shadow="2">
+  <q-card class="generic-card q-mb-md" bordered>
     <q-card-section>
       <div v-if="title && organization" class="generic-card__header">
         <strong>{{ title }} — {{ organization }}</strong>
       </div>
-      <div v-if="title && !organization" class="generic-card__header">
+
+      <div v-else-if="title" class="generic-card__header">
         <strong>{{ title }} — {{ period }}</strong>
       </div>
+
       <div v-if="period && location" class="generic-card__period">
         <em>{{ period }} — {{ location }}</em>
       </div>
+
       <div v-if="description" class="generic-card__period">
         <em>{{ description }}</em>
       </div>
 
-      <div v-if="skills && skills.length > 0 && !skillTitle">
+      <div v-if="skills?.length && !skillTitle">
         <ChipList :label="$t('contentCard.skills')" :items="skills" />
       </div>
-      <div v-if="skills && skillTitle">
+
+      <div v-if="skills?.length && skillTitle">
         <ChipList :label="skillTitle" :items="skills" />
       </div>
-      <div v-if="achievements && achievements.length > 0">
+
+      <div v-if="achievements?.length">
         <div class="generic-card__achievements">
           <strong>{{ $t('contentCard.achievements') }}</strong>
+
           <ul>
             <li v-for="(achievement, index) in achievements" :key="index">
               <span class="indent">{{ achievement }}</span>
@@ -31,38 +37,50 @@
         </div>
       </div>
     </q-card-section>
-    <template v-if="links || id">
-      <q-card-actions>
-        <div v-for="(link, index) in links" :key="index" class="q-ma-sm">
-          <a :href="link.url" target="_blank" rel="noopener noreferrer">
-            <q-btn :label="link.label" color="primary" outlined />
-          </a>
-        </div>
-        <div v-if="id" class="q-ml-md">
-          <router-link :to="{ name: 'experience', params: { id: id } }">
-            <q-btn :label="$t('contentCard.readMore')" color="primary" />
-          </router-link>
-        </div>
-      </q-card-actions>
-    </template>
+
+    <q-card-actions v-if="links?.length || id">
+      <div v-for="(link, index) in links" :key="index" class="q-ma-sm">
+        <a :href="link.url" target="_blank" rel="noopener noreferrer">
+          <q-btn :label="link.label" color="primary" outline />
+        </a>
+      </div>
+
+      <div v-if="id" class="q-ml-md">
+        <router-link
+          :to="{
+            name: 'experience',
+            params: { id },
+          }"
+        >
+          <q-btn :label="$t('contentCard.readMore')" color="primary" />
+        </router-link>
+      </div>
+    </q-card-actions>
   </q-card>
 </template>
 
 <script lang="ts" setup>
 import ChipList from './ChipList.vue'
 
-defineProps({
-  id: { type: String, required: false },
-  title: { type: String, required: false },
-  organization: { type: String, required: false },
-  period: { type: String, required: false },
-  description: { type: String, required: false },
-  location: { type: String, required: false },
-  skillTitle: { type: String, required: false },
-  skills: { type: Array, required: false },
-  achievements: { type: Array, required: false },
-  links: { type: Array as () => { url: string; label: string }[], required: false },
-})
+interface Link {
+  url: string
+  label: string
+}
+
+interface Props {
+  id?: string
+  title?: string
+  organization?: string
+  period?: string
+  description?: string
+  location?: string
+  skillTitle?: string
+  skills?: string[]
+  achievements?: string[]
+  links?: Link[]
+}
+
+defineProps<Props>()
 </script>
 
 <style lang="scss" scoped>
