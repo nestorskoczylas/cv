@@ -8,14 +8,31 @@
       <q-space />
 
       <div class="footer__right-section row items-center">
-        <span class="footer__info-item">{{ $t('untranslatable.driverLicense') }}</span>
-        <q-separator vertical spaced class="footer__separator" />
-        <span class="footer__info-item">{{ $t('untranslatable.phoneNumber') }}</span>
-        <q-separator vertical spaced class="footer__separator" />
-        <span class="footer__info-item cursor-pointer" @click="openExternalLink(`mailto:${email}`)">
-          {{ email }}
+        <span class="footer__info-item">
+          {{ $t('untranslatable.driverLicense') }}
         </span>
+
         <q-separator vertical spaced class="footer__separator" />
+
+        <span class="footer__info-item">
+          {{ $t('untranslatable.phoneNumber') }}
+        </span>
+
+        <q-separator vertical spaced class="footer__separator" />
+
+        <a
+          class="footer__info-item cursor-pointer"
+          role="link"
+          tabindex="0"
+          @click="openExternalLink(`mailto:${email}`)"
+          @keydown.enter="openExternalLink(`mailto:${email}`)"
+          @keydown.space.prevent="openExternalLink(`mailto:${email}`)"
+        >
+          {{ email }}
+        </a>
+
+        <q-separator vertical spaced class="footer__separator" />
+
         <SocialLinks />
       </div>
     </q-toolbar>
@@ -23,20 +40,24 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import SocialLinks from '@/components/common/SocialLinks.vue'
 import { openExternalLink } from '@/utils/navigation'
-import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+
 const email = 'nestor.skoczylas23@gmail.com'
 
-const currentYear = new Date().getFullYear()
-const copyright = `© ${currentYear} - ${t('untranslatable.firstName')} ${t('untranslatable.lastName')}`
+const copyright = computed(() => {
+  const currentYear = new Date().getFullYear()
+
+  return `© ${currentYear} - ${t('untranslatable.firstName')} ${t('untranslatable.lastName')}`
+})
 </script>
 
 <style lang="scss" scoped>
 .footer {
-  /* La position fixe par défaut */
   position: fixed;
   left: 0;
   bottom: 0;

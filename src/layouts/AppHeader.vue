@@ -3,7 +3,10 @@
     <q-toolbar class="q-pa-md">
       <div class="header__left">
         <SquareTitle :title="title" />
-        <span class="header__profession">{{ $t('constants.profession') }}</span>
+
+        <span class="header__profession">
+          {{ $t('constants.profession') }}
+        </span>
       </div>
 
       <q-space />
@@ -11,12 +14,12 @@
       <div class="header__right row items-center header__hidden-xs">
         <q-btn
           v-for="item in menuItems"
-          :key="item.label"
+          :key="item.route"
           flat
           :label="item.label"
           :class="{ 'header__active-page': isActivePage(item.route) }"
-          @click="navigateTo(router, item.route)"
           class="q-mx-sm header__navigation"
+          @click="navigateTo(router, item.route)"
         />
 
         <q-select
@@ -24,33 +27,38 @@
           :options="availableLanguages"
           option-label="label"
           option-value="value"
-          @update:model-value="switchLanguage"
           dense
           hide-dropdown-icon
           outlined
         >
-          <template v-slot:prepend>
+          <template #prepend>
             <q-avatar>
-              <img :src="currentLanguage!.icon" alt="Language flag" />
+              <img
+                v-if="currentLanguage"
+                :src="currentLanguage.icon"
+                :alt="currentLanguage.label"
+              />
             </q-avatar>
           </template>
         </q-select>
       </div>
 
       <q-btn flat round dense icon="menu" color="primary" class="header__visible-xs">
-        <q-menu :offset="[0, 0]" menu-anchor="body" class="header__menu" v-model="menuOpen">
+        <q-menu v-model="menuOpen" :offset="[0, 0]" menu-anchor="body" class="header__menu">
           <q-item class="header__menu-close" clickable v-ripple @click="menuOpen = false">
-            <q-item-section><q-icon name="close" size="2rem" /></q-item-section>
+            <q-item-section>
+              <q-icon name="close" size="2rem" />
+            </q-item-section>
           </q-item>
 
           <q-list class="header__menu-list">
             <q-item
               v-for="item in menuItems"
-              :key="item.label"
+              :key="item.route"
               clickable
               v-ripple
-              @click="handleMenuItemClick(item.route)"
               class="header__menu-item"
+              @click="handleMenuItemClick(item.route)"
             >
               <q-item-section
                 class="header__menu-item-section"
@@ -69,9 +77,20 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { navigateTo } from '@/utils/navigation'
 import SquareTitle from '@/components/common/SquareTitle.vue'
-import { useI18n } from 'vue-i18n'
+
+interface LanguageOption {
+  label: string
+  value: string
+  icon: string
+}
+
+interface MenuItem {
+  label: string
+  route: string
+}
 
 const menuOpen = ref(false)
 
@@ -79,40 +98,69 @@ const route = useRoute()
 const router = useRouter()
 const { t, locale } = useI18n()
 
-const availableLanguages = [
-  { label: 'English', value: 'en', icon: 'https://flagcdn.com/w320/gb.png' },
-  { label: 'Français', value: 'fr', icon: 'https://flagcdn.com/w320/fr.png' },
+const availableLanguages: LanguageOption[] = [
+  {
+    label: 'English',
+    value: 'en',
+    icon: 'https://flagcdn.com/w320/gb.png',
+  },
+  {
+    label: 'Français',
+    value: 'fr',
+    icon: 'https://flagcdn.com/w320/fr.png',
+  },
 ]
 
-const currentLanguage = computed({
-  get: () => availableLanguages.find((lang) => lang.value === locale.value),
-  set: () => switchLanguage,
-})
+const switchLanguage = (lang: LanguageOption) => {
+  if (lang.value === locale.value) {
+    return
+  }
 
-const switchLanguage = (lang: { label: string; value: string }) => {
   locale.value = lang.value
 
   const newPath = `/${lang.value}${route.fullPath.replace(/^\/[a-z]{2}/, '')}`
+
   router.push(newPath)
 }
 
-const menuItems = computed(() => [
-  { label: t('constants.aboutMe'), route: 'aboutMe' },
-  { label: t('constants.resume'), route: 'resume' },
-  { label: t('constants.projects'), route: 'projects' },
+const currentLanguage = computed<LanguageOption | undefined>({
+  get: () => availableLanguages.find((lang) => lang.value === locale.value),
+  set: (lang) => {
+    if (lang) {
+      switchLanguage(lang)
+    }
+  },
+})
+
+const menuItems = computed<MenuItem[]>(() => [
+  {
+    label: t('constants.aboutMe'),
+    route: 'aboutMe',
+  },
+  {
+    label: t('constants.resume'),
+    route: 'resume',
+  },
+  {
+    label: t('constants.projects'),
+    route: 'projects',
+  },
 ])
 
-const title = `${t('untranslatable.firstName')} ${t('untranslatable.lastName')}`
+const title = computed(() => `${t('untranslatable.firstName')} ${t('untranslatable.lastName')}`)
 
 const currentPage = computed(() => route.name)
 
-const isActivePage = computed(() => (page: string) => {
-  if (typeof currentPage.value === 'string') return currentPage.value.includes(page)
-  return false
-})
+const isActivePage = (page: string) => {
+  if (typeof currentPage.value !== 'string') {
+    return false
+  }
 
-const handleMenuItemClick = (route: string) => {
-  navigateTo(router, route)
+  return currentPage.value.includes(page)
+}
+
+const handleMenuItemClick = (routeName: string) => {
+  navigateTo(router, routeName)
   menuOpen.value = false
 }
 </script>

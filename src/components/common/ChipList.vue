@@ -1,6 +1,7 @@
 <template>
   <div class="chip">
     <strong v-if="label">{{ label }}</strong>
+
     <div>
       <q-chip v-for="(item, index) in items" :key="index" class="q-mr-sm" :class="{ outlined }">
         {{ item }}
@@ -10,20 +11,15 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  label: {
-    type: String,
-    required: false,
-  },
-  items: {
-    type: Array,
-    required: true,
-  },
-  outlined: {
-    type: Boolean,
-    required: false,
-    default: false,
-  },
+interface Props {
+  label?: string
+  items: string[]
+  outlined?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  label: '',
+  outlined: false,
 })
 </script>
 

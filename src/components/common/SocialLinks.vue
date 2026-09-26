@@ -6,20 +6,34 @@
       flat
       square
       :icon="link.icon"
-      @click="openExternalLink(link.url)"
       class="social-links__icon"
+      :aria-label="link.label"
+      @click="openExternalLink(link.url)"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
 import { openExternalLink } from '@/utils/navigation'
 
-const socialLinksList = ref([
-  { icon: 'mdi-linkedin', url: 'https://www.linkedin.com/in/nestorskoczylas' },
-  { icon: 'mdi-github', url: 'https://github.com/nestorskoczylas' },
-])
+interface SocialLink {
+  icon: string
+  label: string
+  url: string
+}
+
+const socialLinksList: SocialLink[] = [
+  {
+    icon: 'mdi-linkedin',
+    label: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/nestorskoczylas',
+  },
+  {
+    icon: 'mdi-github',
+    label: 'GitHub',
+    url: 'https://github.com/nestorskoczylas',
+  },
+]
 </script>
 
 <style lang="scss" scoped>
